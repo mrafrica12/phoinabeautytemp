@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM & Clients — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    body { font-family:'Inter',sans-serif; }
+    .sidebar-link { display:flex; align-items:center; gap:10px; padding:10px 16px; border-radius:6px; font-size:13px; color:rgba(255,255,255,0.5); transition:all 0.2s; cursor:pointer; }
+    .sidebar-link:hover { background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.85); }
+    .sidebar-link.active { background:rgba(201,169,110,0.12); color:#C9A96E; }
+    .admin-table th { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#888; padding:10px 16px; text-align:left; border-bottom:1px solid #f0ebe5; background:#faf9f8; }
+    .admin-table td { padding:14px 16px; border-bottom:1px solid #f5f0eb; font-size:13px; vertical-align:middle; }
+    .admin-table tr:last-child td { border-bottom:none; }
+    .admin-table tr:hover td { background:#fdfcfb; }
+    .tier-badge { font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+    .tier-bronze { background:#fef3c7; color:#92400e; }
+    .tier-silver { background:#f1f5f9; color:#475569; }
+    .tier-gold   { background:#fefce8; color:#a16207; }
+    .tier-platinum { background:#ede9fe; color:#6d28d9; }
+    .tier-royal { background:#0A0A0A; color:#C9A96E; }
+    .filter-chip { padding:5px 14px; border-radius:20px; font-size:12px; font-weight:500; border:1px solid #E8DDD5; color:#888; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
+    .filter-chip.active { background:#0A0A0A; color:white; border-color:#0A0A0A; }
+    .search-input { border:1px solid #E8DDD5; padding:8px 14px 8px 36px; font-size:13px; outline:none; transition:border-color 0.2s; }
+    .search-input:focus { border-color:#C9A96E; }
+    .avatar { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; }
+  </style>
+</head>
+<body class="bg-pb-cream" style="min-height:100vh;">
+<div class="flex min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside class="w-60 flex-shrink-0 bg-pb-black flex flex-col" style="min-height:100vh; position:sticky; top:0; height:100vh; overflow-y:auto;">
+    <div class="p-5 border-b border-white/10">
+      <a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty" style="height:32px;width:auto;filter:brightness(0) invert(1);display:block;" loading="eager"></a>
+      <p class="text-xs text-white/30 mt-0.5">Management Portal</p>
+    </div>
+    <nav class="flex-1 p-3 space-y-0.5">
+      <a href="index.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <a href="bookings.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Bookings<span class="ml-auto bg-pb-gold text-pb-black text-xs font-bold px-1.5 py-0.5 rounded">12</span></a>
+      <a href="customers.html" class="sidebar-link active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>CRM & Clients</a>
+      <a href="products.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="events.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="staff.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Staff</a>
+      <a href="schedule.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule</a>
+      <a href="products.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="services.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Services</a>
+      <a href="events.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="gallery.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Gallery</a>
+      <a href="academy.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Academy</a>
+      <a href="content.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>CMS / Content</a>
+      <a href="settings.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+      <div class="my-2 border-t border-white/10"></div>
+      <a href="../index.html" target="_blank" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Live Site</a>
+    </nav>
+    <div class="p-4 border-t border-white/10">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-pb-gold rounded-full flex items-center justify-center text-pb-black font-bold text-sm">P</div>
+        <div><p class="text-white text-xs font-medium">Phoina Admin</p><p class="text-white/30 text-xs">Studio Manager</p></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 overflow-x-hidden">
+    <div class="bg-white border-b border-pb-beige px-6 py-4 flex items-center justify-between sticky top-0 z-30">
+      <div>
+        <h1 class="text-base font-semibold text-pb-black">CRM & Clients</h1>
+        <p class="text-xs text-pb-muted">5,238 total clients · Royal Circle loyalty members</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="exportCSV()" class="border border-pb-beige text-pb-muted text-xs font-medium px-3 py-1.5 hover:border-pb-charcoal hover:text-pb-charcoal transition-colors">↓ Export CSV</button>
+        <button onclick="openAddClientModal()" class="bg-pb-black text-white text-xs font-medium px-4 py-1.5 hover:bg-pb-gold hover:text-pb-black transition-colors">+ Add Client</button>
+      </div>
+    </div>
+
+    <div class="p-6">
+      <!-- KPIs -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Total Clients</p>
+          <p class="font-display text-2xl text-pb-black">5,238</p>
+          <p class="text-xs text-green-600 mt-0.5">↑ 48 this month</p>
+        </div>
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Royal Circle</p>
+          <p class="font-display text-2xl text-pb-gold">1,042</p>
+          <p class="text-xs text-pb-muted mt-0.5">Active members</p>
+        </div>
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Avg Visits</p>
+          <p class="font-display text-2xl text-pb-black">4.2</p>
+          <p class="text-xs text-pb-muted mt-0.5">per client / year</p>
+        </div>
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Returning Rate</p>
+          <p class="font-display text-2xl text-pb-black">68%</p>
+          <p class="text-xs text-green-600 mt-0.5">↑ 5% vs last quarter</p>
+        </div>
+      </div>
+
+      <!-- FILTERS + SEARCH -->
+      <div class="bg-white border border-pb-beige p-4 mb-4">
+        <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-chip active" onclick="filterClients('all', this)">All Clients</button>
+            <button class="filter-chip" onclick="filterClients('royal', this)">Royal (Platinum+)</button>
+            <button class="filter-chip" onclick="filterClients('gold', this)">Gold Tier</button>
+            <button class="filter-chip" onclick="filterClients('silver', this)">Silver Tier</button>
+            <button class="filter-chip" onclick="filterClients('new', this)">New (0–1 visits)</button>
+          </div>
+          <div class="relative">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Search clients…" class="search-input" oninput="searchClients(this.value)" style="width:200px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="bg-white border border-pb-beige overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="admin-table w-full">
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Phone</th>
+                <th>Tier</th>
+                <th>Points</th>
+                <th>Visits</th>
+                <th>Last Visit</th>
+                <th>Total Spend</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="clientsTbody"></tbody>
+          </table>
+        </div>
+        <div class="px-4 py-3 border-t border-pb-beige flex items-center justify-between">
+          <p class="text-xs text-pb-muted" id="clientCount">Showing 10 clients</p>
+          <div class="flex gap-1">
+            <button class="px-3 py-1 text-xs border border-pb-beige hover:border-pb-gold text-pb-muted hover:text-pb-gold transition-colors">← Prev</button>
+            <button class="px-3 py-1 text-xs bg-pb-black text-white">1</button>
+            <button class="px-3 py-1 text-xs border border-pb-beige hover:border-pb-gold text-pb-muted hover:text-pb-gold transition-colors">2</button>
+            <button class="px-3 py-1 text-xs border border-pb-beige hover:border-pb-gold text-pb-muted hover:text-pb-gold transition-colors">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ADD CLIENT MODAL -->
+<div id="addClientModal" style="display:none;" class="fixed inset-0 z-50 items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/60" onclick="closeAddClientModal()"></div>
+  <div class="relative bg-white w-full max-w-md p-8">
+    <button onclick="closeAddClientModal()" class="absolute top-4 right-4 text-pb-muted hover:text-pb-black"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <h3 class="font-display text-2xl mb-5 text-pb-black">Add New Client</h3>
+    <form onsubmit="saveClient(event)" class="space-y-4">
+      <div>
+        <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Full Name *</label>
+        <input type="text" required placeholder="Client name" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+      </div>
+      <div>
+        <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">WhatsApp *</label>
+        <input type="tel" required placeholder="+254 7XX XXX XXX" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+      </div>
+      <div>
+        <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Email</label>
+        <input type="email" placeholder="email@example.com" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+      </div>
+      <div>
+        <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Referral Source</label>
+        <select class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors bg-white">
+          <option>Instagram</option><option>WhatsApp Referral</option><option>Walk-in</option>
+          <option>Google Search</option><option>TikTok</option><option>Word of Mouth</option>
+        </select>
+      </div>
+      <div class="flex gap-3 pt-2">
+        <button type="submit" class="flex-1 bg-pb-black text-white py-2.5 text-sm font-medium hover:bg-pb-gold hover:text-pb-black transition-colors">Save Client</button>
+        <button type="button" onclick="closeAddClientModal()" class="flex-1 border border-pb-beige text-pb-muted py-2.5 text-sm hover:border-pb-charcoal hover:text-pb-charcoal transition-colors">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+const TIER_CLASS = { Bronze:'tier-bronze', Silver:'tier-silver', Gold:'tier-gold', Platinum:'tier-platinum', Royal:'tier-royal' };
+const CLIENTS = [
+  { name:'Grace Wanjiku',    phone:'+254 712 345 678', tier:'Royal',    points:8420, visits:24, lastVisit:'2026-05-26', spend:156000 },
+  { name:'Aisha Mwangi',     phone:'+254 722 456 789', tier:'Platinum', points:4250, visits:12, lastVisit:'2026-05-20', spend:68000  },
+  { name:'Njoki Kamau',      phone:'+254 733 567 890', tier:'Gold',     points:2100, visits:8,  lastVisit:'2026-05-15', spend:32000  },
+  { name:'Fatuma Hassan',    phone:'+254 744 678 901', tier:'Gold',     points:1850, visits:7,  lastVisit:'2026-05-10', spend:28500  },
+  { name:'Mary Atieno',      phone:'+254 755 789 012', tier:'Silver',   points:950,  visits:4,  lastVisit:'2026-04-28', spend:14200  },
+  { name:'Janet Ochieng',    phone:'+254 766 890 123', tier:'Silver',   points:720,  visits:3,  lastVisit:'2026-04-20', spend:11000  },
+  { name:'Purity Ndungu',    phone:'+254 777 901 234', tier:'Bronze',   points:380,  visits:2,  lastVisit:'2026-04-10', spend:5800   },
+  { name:'Agnes Muthoni',    phone:'+254 788 012 345', tier:'Royal',    points:9100, visits:28, lastVisit:'2026-05-22', spend:178000 },
+  { name:'Bernadette Rop',   phone:'+254 799 123 456', tier:'Silver',   points:680,  visits:3,  lastVisit:'2026-05-05', spend:10200  },
+  { name:'Serah Chepkemoi',  phone:'+254 700 234 567', tier:'Bronze',   points:120,  visits:1,  lastVisit:'2026-05-26', spend:1500   },
+];
+
+let clientFilter = 'all';
+let clientSearch = '';
+
+function getTierFilter(tier) {
+  if (clientFilter === 'all') return true;
+  if (clientFilter === 'royal') return ['Royal','Platinum'].includes(tier);
+  if (clientFilter === 'gold') return tier === 'Gold';
+  if (clientFilter === 'silver') return tier === 'Silver';
+  if (clientFilter === 'new') return ['Bronze'].includes(tier);
+  return true;
+}
+
+function renderClients() {
+  const filtered = CLIENTS.filter(c => {
+    const matchFilter = getTierFilter(c.tier);
+    const matchSearch = !clientSearch || c.name.toLowerCase().includes(clientSearch) || c.phone.includes(clientSearch);
+    return matchFilter && matchSearch;
+  });
+  document.getElementById('clientCount').textContent = `Showing ${filtered.length} clients`;
+  const colors = ['#C9A96E','#5C3D2E','#D4A97A','#1A1A1A','#888888','#C9A96E','#5C3D2E','#D4A97A','#1A1A1A','#888888'];
+  document.getElementById('clientsTbody').innerHTML = filtered.map((c,i) => `
+    <tr>
+      <td>
+        <div class="flex items-center gap-3">
+          <div class="avatar" style="background:${colors[i%colors.length]}; color:white;">${c.name.charAt(0)}</div>
+          <div>
+            <div class="font-medium text-pb-black text-sm">${c.name}</div>
+          </div>
+        </div>
+      </td>
+      <td class="text-sm text-pb-muted">${c.phone}</td>
+      <td><span class="tier-badge ${TIER_CLASS[c.tier]}">${c.tier}</span></td>
+      <td class="text-sm font-medium text-pb-gold">${c.points.toLocaleString()} pts</td>
+      <td class="text-sm">${c.visits}</td>
+      <td class="text-sm text-pb-muted">${c.lastVisit}</td>
+      <td class="text-sm font-medium">KES ${c.spend.toLocaleString()}</td>
+      <td>
+        <div class="flex items-center gap-2">
+          <a href="https://wa.me/${c.phone.replace(/\s|\+/g,'')}" target="_blank" title="WhatsApp" class="text-green-500 hover:text-green-700 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <button onclick="addPoints('${c.name}')" title="Add points" class="text-pb-gold hover:text-pb-gold-dark transition-colors text-xs font-medium">+pts</button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function filterClients(f, btn) {
+  clientFilter = f;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderClients();
+}
+
+function searchClients(val) { clientSearch = val.toLowerCase(); renderClients(); }
+
+function addPoints(name) {
+  const pts = prompt(`Add loyalty points for ${name}:`, '100');
+  if (pts && !isNaN(pts)) {
+    const c = CLIENTS.find(x => x.name === name);
+    if (c) { c.points += parseInt(pts); renderClients(); showToast(`${pts} points added for ${name}`); }
+  }
+}
+
+function openAddClientModal() { document.getElementById('addClientModal').style.display = 'flex'; }
+function closeAddClientModal() { document.getElementById('addClientModal').style.display = 'none'; }
+
+function saveClient(e) {
+  e.preventDefault();
+  const inputs = e.target.querySelectorAll('input,select');
+  const name = inputs[0].value;
+  const phone = inputs[1].value;
+  CLIENTS.unshift({ name, phone, tier:'Bronze', points:0, visits:0, lastVisit:new Date().toISOString().slice(0,10), spend:0 });
+  renderClients();
+  closeAddClientModal();
+  e.target.reset();
+  showToast(`${name} added to CRM`);
+}
+
+function exportCSV() {
+  const rows = [['Name','Phone','Tier','Points','Visits','Last Visit','Total Spend'],...CLIENTS.map(c=>[c.name,c.phone,c.tier,c.points,c.visits,c.lastVisit,c.spend])];
+  const csv = rows.map(r=>r.join(',')).join('\n');
+  const a = document.createElement('a'); a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv); a.download='phoina-clients.csv'; a.click();
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:#0A0A0A;color:#F5F0EB;padding:10px 20px;font-size:12px;font-family:Inter,sans-serif;border-left:3px solid #C9A96E;opacity:0;transition:all 0.3s ease;z-index:9999;white-space:nowrap;';
+  t.textContent=msg; document.body.appendChild(t);
+  requestAnimationFrame(()=>{ t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)'; });
+  setTimeout(()=>{ t.style.opacity='0'; setTimeout(()=>t.remove(),300); },3000);
+}
+
+renderClients();
+</script>
+</body>
+</html>

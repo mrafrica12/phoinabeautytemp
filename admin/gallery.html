@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Manager — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty"></a>
+      <p>Admin Portal</p>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <span class="admin-nav-section">Studio</span>
+      <a href="bookings.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Bookings
+      </a>
+      <a href="customers.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        CRM & Clients
+      </a>
+      <a href="staff.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Staff
+      </a>
+      <a href="schedule.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/></svg>
+        Schedule
+      </a>
+      <span class="admin-nav-section">Content</span>
+      <a href="products.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Products
+      </a>
+      <a href="services.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Services
+      </a>
+      <a href="events.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Events
+      </a>
+      <a href="gallery.html" class="admin-nav-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Gallery
+      </a>
+      <a href="academy.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Academy
+      </a>
+      <a href="content.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        CMS / Content
+      </a>
+      <div class="admin-nav-divider"></div>
+      <a href="settings.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </a>
+      <a href="../index.html" target="_blank" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Live Site
+      </a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="admin-sidebar-user">
+        <div class="admin-sidebar-avatar">P</div>
+        <div>
+          <p class="admin-sidebar-user-name">Phoina Admin</p>
+          <p class="admin-sidebar-user-role">Studio Manager</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="admin-overlay" id="adminOverlay"></div>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+
+    <!-- Top Bar -->
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <button class="admin-menu-toggle" id="adminMenuToggle" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="admin-topbar-title">
+          <h1>Gallery Manager</h1>
+          <p>Manage images across all gallery categories</p>
+        </div>
+      </div>
+      <div class="admin-topbar-actions">
+        <button class="btn-admin-gold" onclick="openModal('addImageModal')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Image
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- Filters -->
+      <div class="admin-card" style="margin-bottom:1rem;">
+        <div class="admin-card-body" style="padding:.875rem 1.25rem;">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
+            <div class="filter-chips" id="categoryFilters">
+              <button class="filter-chip active" data-filter="all">All</button>
+              <button class="filter-chip" data-filter="Bridal">Bridal</button>
+              <button class="filter-chip" data-filter="Makeup">Makeup</button>
+              <button class="filter-chip" data-filter="Hair">Hair</button>
+              <button class="filter-chip" data-filter="Nails">Nails</button>
+              <button class="filter-chip" data-filter="Academy">Academy</button>
+              <button class="filter-chip" data-filter="Events">Events</button>
+              <button class="filter-chip" data-filter="Before/After">Before/After</button>
+            </div>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;color:#555;margin-left:auto;">
+              <input type="checkbox" class="admin-checkbox" id="featuredOnly"> Featured only
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;">
+        <!-- JS rendered -->
+        <div class="empty-state" style="grid-column:1/-1;">
+          <p>Loading gallery...</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ADD / EDIT IMAGE MODAL -->
+<div class="admin-modal-backdrop" id="addImageModal">
+  <div class="admin-modal">
+    <div class="admin-modal-header">
+      <h2 class="admin-modal-title" id="imageModalTitle">Add Gallery Image</h2>
+      <button class="admin-modal-close" onclick="closeModal('addImageModal')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="admin-modal-body">
+      <input type="hidden" id="imageId">
+      <div style="display:grid;gap:1rem;">
+        <div>
+          <label class="admin-label">Title</label>
+          <input class="admin-input" id="imageTitle" placeholder="e.g. Bridal Glow">
+        </div>
+        <div>
+          <label class="admin-label">Category</label>
+          <select class="admin-select" id="imageCategory">
+            <option value="Bridal">Bridal</option>
+            <option value="Makeup">Makeup</option>
+            <option value="Hair">Hair</option>
+            <option value="Nails">Nails</option>
+            <option value="Academy">Academy</option>
+            <option value="Events">Events</option>
+            <option value="Before/After">Before/After</option>
+          </select>
+        </div>
+        <div>
+          <label class="admin-label">Image Path</label>
+          <input class="admin-input" id="imageFile" placeholder="assets/images/lifestyle/gallery-01.webp">
+          <p style="font-size:.75rem;color:#888;margin-top:.25rem;">Relative path from site root. Use existing image folders.</p>
+        </div>
+        <div>
+          <label class="admin-label">Caption</label>
+          <input class="admin-input" id="imageCaption" placeholder="Short caption for this image">
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.875rem;cursor:pointer;">
+            <input type="checkbox" class="admin-checkbox" id="imageFeatured"> Feature on homepage
+          </label>
+        </div>
+        <div>
+          <label class="admin-label">Status</label>
+          <select class="admin-select" id="imageStatus">
+            <option value="active">Active (visible)</option>
+            <option value="inactive">Inactive (hidden)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-admin-outline" onclick="closeModal('addImageModal')">Cancel</button>
+      <button class="btn-admin-gold" onclick="saveImage()">Save Image</button>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/admin.js"></script>
+<script>
+  let currentFilter = 'all';
+  let showFeaturedOnly = false;
+  let galleryItems = [];
+
+  async function loadGallery() {
+    galleryItems = await PB_ADMIN.getAll('gallery');
+    renderGallery();
+  }
+
+  function renderGallery() {
+    const grid = document.getElementById('galleryGrid');
+    let items = galleryItems;
+
+    if (currentFilter !== 'all') {
+      items = items.filter(i => i.category === currentFilter);
+    }
+    if (showFeaturedOnly) {
+      items = items.filter(i => i.featured);
+    }
+
+    if (!items.length) {
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <h3>No images found</h3><p>Add some images or change the filter.</p>
+      </div>`;
+      return;
+    }
+
+    grid.innerHTML = items.map(item => `
+      <div class="admin-card" style="overflow:hidden;">
+        <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#F5F0EB;">
+          <img src="../${item.image}" alt="${item.title}" loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.style.display='none'">
+          ${item.featured ? `<span style="position:absolute;top:8px;left:8px;background:#C9A96E;color:#0A0A0A;font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.05em;">FEATURED</span>` : ''}
+          <span class="status-badge ${item.status === 'active' ? 'status-active' : 'status-inactive'}"
+                style="position:absolute;top:8px;right:8px;">${item.status}</span>
+        </div>
+        <div style="padding:.75rem;">
+          <p style="font-size:.6875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#C9A96E;margin-bottom:.2rem;">${item.category}</p>
+          <p style="font-size:.875rem;font-weight:600;color:#0A0A0A;margin-bottom:.2rem;">${item.title}</p>
+          <p style="font-size:.75rem;color:#888;margin-bottom:.75rem;">${item.caption || '—'}</p>
+          <div style="display:flex;gap:.5rem;">
+            <button class="btn-icon" onclick="editImage('${item.id}')" title="Edit">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </button>
+            <button class="btn-icon" onclick="toggleFeatured('${item.id}')" title="Toggle featured" style="${item.featured ? 'border-color:#C9A96E;color:#C9A96E;' : ''}">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="${item.featured ? '#C9A96E' : 'none'}" stroke="#C9A96E" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+            <button class="btn-icon" onclick="deleteImage('${item.id}')" title="Delete" style="color:#DC2626;border-color:#FECACA;margin-left:auto;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  async function editImage(id) {
+    const item = galleryItems.find(i => i.id === id);
+    if (!item) return;
+    document.getElementById('imageModalTitle').textContent = 'Edit Image';
+    document.getElementById('imageId').value = item.id;
+    document.getElementById('imageTitle').value = item.title;
+    document.getElementById('imageCategory').value = item.category;
+    document.getElementById('imageFile').value = item.image;
+    document.getElementById('imageCaption').value = item.caption || '';
+    document.getElementById('imageFeatured').checked = item.featured;
+    document.getElementById('imageStatus').value = item.status;
+    openModal('addImageModal');
+  }
+
+  async function saveImage() {
+    const id = document.getElementById('imageId').value;
+    const item = {
+      id: id || undefined,
+      title: document.getElementById('imageTitle').value.trim(),
+      category: document.getElementById('imageCategory').value,
+      image: document.getElementById('imageFile').value.trim(),
+      caption: document.getElementById('imageCaption').value.trim(),
+      featured: document.getElementById('imageFeatured').checked,
+      status: document.getElementById('imageStatus').value
+    };
+
+    if (!item.title || !item.image) {
+      adminToast('Please fill in title and image path.', 'error'); return;
+    }
+
+    await PB_ADMIN.save('gallery', item);
+    galleryItems = await PB_ADMIN.getAll('gallery');
+    renderGallery();
+    closeModal('addImageModal');
+    document.getElementById('imageId').value = '';
+    document.getElementById('imageTitle').value = '';
+    document.getElementById('imageFile').value = '';
+    document.getElementById('imageCaption').value = '';
+    document.getElementById('imageFeatured').checked = false;
+    document.getElementById('imageModalTitle').textContent = 'Add Gallery Image';
+    adminToast('Image saved successfully.', 'success');
+  }
+
+  async function deleteImage(id) {
+    confirmDelete('Delete this gallery image?', async () => {
+      galleryItems = await PB_ADMIN.remove('gallery', id);
+      renderGallery();
+      adminToast('Image deleted.', 'success');
+    });
+  }
+
+  async function toggleFeatured(id) {
+    const item = galleryItems.find(i => i.id === id);
+    if (!item) return;
+    item.featured = !item.featured;
+    await PB_ADMIN.save('gallery', item);
+    galleryItems = await PB_ADMIN.getAll('gallery');
+    renderGallery();
+  }
+
+  // Filter chips
+  document.querySelectorAll('#categoryFilters .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#categoryFilters .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentFilter = chip.dataset.filter;
+      renderGallery();
+    });
+  });
+
+  document.getElementById('featuredOnly').addEventListener('change', e => {
+    showFeaturedOnly = e.target.checked;
+    renderGallery();
+  });
+
+  loadGallery();
+</script>
+</body>
+</html>

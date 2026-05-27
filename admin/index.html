@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoina Beauty — Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    .admin-nav-link { display:flex;align-items:center;gap:.75rem;padding:.75rem 1.25rem;color:rgba(250,250,250,.55);font-size:.8125rem;font-weight:500;letter-spacing:.04em;border-radius:4px;transition:all .2s;text-decoration:none; }
+    .admin-nav-link:hover,.admin-nav-link.active { background:rgba(201,169,110,.1);color:var(--pb-gold); }
+    .admin-nav-link svg { width:16px;height:16px;flex-shrink:0; }
+    .kpi-card { background:#fff;border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 4px rgba(0,0,0,.04); }
+    .kpi-value { font-family:var(--font-display);font-size:2.25rem;font-weight:400;color:#1A1A1A;line-height:1; }
+    .kpi-label { font-size:.6875rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-top:.375rem; }
+    .kpi-change { font-size:.75rem;font-weight:500;margin-top:.5rem; }
+    .kpi-up { color:#16a34a; } .kpi-down { color:#dc2626; }
+    .mini-bar { display:flex;gap:2px;align-items:flex-end;height:32px;margin-top:.75rem; }
+    .mini-bar span { flex:1;background:rgba(201,169,110,.3);border-radius:2px 2px 0 0;transition:background .2s; }
+    .mini-bar span:last-child { background:var(--pb-gold); }
+    .tbl { width:100%;border-collapse:collapse; }
+    .tbl th { font-size:.625rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pb-muted);padding:.625rem 1rem;text-align:left;border-bottom:1px solid rgba(0,0,0,.08); }
+    .tbl td { padding:.875rem 1rem;font-size:.875rem;border-bottom:1px solid rgba(0,0,0,.04);color:#1A1A1A; }
+    .tbl tr:last-child td { border-bottom:none; }
+    .tbl tr:hover td { background:rgba(201,169,110,.03); }
+    .avatar { width:32px;height:32px;border-radius:50%;object-fit:cover;background:#E8DDD5; }
+    .chart-bar { display:flex;align-items:flex-end;gap:6px;height:120px; }
+    .chart-bar .bar { flex:1;border-radius:3px 3px 0 0;background:linear-gradient(to top,var(--pb-gold) 0%,var(--pb-gold-light) 100%);position:relative;min-height:4px; }
+    .chart-bar .bar .lbl { position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:.55rem;color:#888;white-space:nowrap;letter-spacing:.06em; }
+    .notification-dot { width:8px;height:8px;background:#C9A96E;border-radius:50%;flex-shrink:0; }
+  </style>
+</head>
+<body style="background:#F4F5F7;font-family:Inter,system-ui,sans-serif;">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div style="padding:1.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.07);">
+      <img src="../assets/images/brand/logo.png" alt="Phoina Beauty" style="height:34px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:.35rem;" loading="eager">
+      <p style="font-size:.625rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,250,.35);margin-top:.25rem;">Admin Portal</p>
+    </div>
+    <nav style="padding:1rem .75rem;display:flex;flex-direction:column;gap:.25rem;">
+      <a href="index.html" class="admin-nav-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="bookings.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Bookings
+        <span style="margin-left:auto;background:#C9A96E;color:#0A0A0A;font-size:.6rem;font-weight:700;padding:1px 6px;border-radius:10px;">12</span>
+      </a>
+      <a href="customers.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        CRM & Clients
+      </a>
+      <a href="products.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Products
+      </a>
+      <a href="events.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Events
+      </a>
+      <a href="content.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        CMS / Content
+      </a>
+      <a href="services.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Services
+      </a>
+      <a href="gallery.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+        Gallery
+      </a>
+      <a href="academy.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Academy
+      </a>
+      <a href="staff.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Staff
+      </a>
+      <a href="schedule.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Schedule
+      </a>
+      <a href="settings.html" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </a>
+
+      <div style="height:1px;background:rgba(255,255,255,.07);margin:.5rem 0;"></div>
+
+      <a href="../index.html" target="_blank" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Site
+      </a>
+
+      <div style="height:1px;background:rgba(255,255,255,.07);margin:.5rem 0;"></div>
+      <p style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,250,250,.2);padding:.5rem 1.25rem;">Analytics</p>
+      <a href="#" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Sales Report
+      </a>
+      <a href="#" class="admin-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Insights
+      </a>
+    </nav>
+
+    <!-- User profile -->
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:.75rem;">
+      <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#C9A96E,#A07840);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span style="font-size:.625rem;font-weight:700;color:#0A0A0A;">PB</span>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <p style="font-size:.8125rem;color:rgba(250,250,250,.8);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Admin User</p>
+        <p style="font-size:.625rem;color:rgba(250,250,250,.3);">Super Admin</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+
+    <!-- Top bar -->
+    <div style="background:#fff;border-bottom:1px solid rgba(0,0,0,.06);padding:.875rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;">
+      <div class="flex items-center gap-3">
+        <button id="sidebarToggle" class="md:hidden" style="padding:.25rem;" onclick="document.getElementById('adminSidebar').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1A1A1A" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div>
+          <h1 style="font-size:1rem;font-weight:600;color:#1A1A1A;">Dashboard</h1>
+          <p style="font-size:.75rem;color:#888;">Monday, 26 May 2026</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <!-- WhatsApp quick action -->
+        <a href="https://wa.me/16784380539" target="_blank"
+           style="display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#25D366;color:#fff;border-radius:4px;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+          WhatsApp
+        </a>
+        <!-- Notifications -->
+        <button style="position:relative;padding:.375rem;" onclick="showNotifications()">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1A1A1A" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span style="position:absolute;top:2px;right:2px;width:8px;height:8px;background:#C9A96E;border-radius:50%;border:1.5px solid #fff;"></span>
+        </button>
+      </div>
+    </div>
+
+    <div style="padding:1.5rem;">
+
+      <!-- KPI Cards -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem;" class="lg:grid-cols-4">
+
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpiRevenue">KES 0</div>
+          <div class="kpi-label">Monthly Revenue</div>
+          <div class="kpi-change kpi-up">↑ 18% vs last month</div>
+          <div class="mini-bar">
+            <span style="height:40%"></span><span style="height:55%"></span><span style="height:45%"></span>
+            <span style="height:70%"></span><span style="height:60%"></span><span style="height:85%"></span><span style="height:100%"></span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpiBookings">0</div>
+          <div class="kpi-label">Bookings This Month</div>
+          <div class="kpi-change kpi-up">↑ 12 new today</div>
+          <div class="mini-bar">
+            <span style="height:50%"></span><span style="height:65%"></span><span style="height:55%"></span>
+            <span style="height:80%"></span><span style="height:70%"></span><span style="height:90%"></span><span style="height:100%"></span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpiClients">0</div>
+          <div class="kpi-label">Total Clients</div>
+          <div class="kpi-change kpi-up">↑ 48 new this month</div>
+          <div class="mini-bar">
+            <span style="height:60%"></span><span style="height:65%"></span><span style="height:70%"></span>
+            <span style="height:72%"></span><span style="height:80%"></span><span style="height:88%"></span><span style="height:100%"></span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpiProducts">0</div>
+          <div class="kpi-label">Products Sold</div>
+          <div class="kpi-change kpi-down">↓ 3% vs last month</div>
+          <div class="mini-bar">
+            <span style="height:70%"></span><span style="height:65%"></span><span style="height:80%"></span>
+            <span style="height:60%"></span><span style="height:75%"></span><span style="height:65%"></span><span style="height:62%"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main grid -->
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;" class="lg:grid-cols-3">
+
+        <!-- Revenue Chart (spans 2 cols on lg) -->
+        <div style="background:#fff;border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 4px rgba(0,0,0,.04);" class="lg:col-span-2">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+            <div>
+              <h3 style="font-weight:600;color:#1A1A1A;font-size:.9375rem;">Revenue Overview</h3>
+              <p style="font-size:.75rem;color:#888;margin-top:.125rem;">May 2026</p>
+            </div>
+            <div style="display:flex;gap:.5rem;">
+              <button style="padding:.375rem .75rem;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(0,0,0,.1);border-radius:3px;color:#888;" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.style.background='');this.style.background='#0A0A0A';this.style.color='#C9A96E';">Week</button>
+              <button style="padding:.375rem .75rem;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(0,0,0,.1);border-radius:3px;background:#0A0A0A;color:#C9A96E;" onclick="this.parentElement.querySelectorAll('button').forEach(b=>{b.style.background='';b.style.color='#888';});this.style.background='#0A0A0A';this.style.color='#C9A96E';">Month</button>
+            </div>
+          </div>
+          <!-- Bar chart -->
+          <div style="display:flex;align-items:flex-end;gap:8px;height:140px;padding-bottom:24px;position:relative;">
+            <div style="position:absolute;left:0;right:0;top:0;bottom:24px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;">
+              <div style="border-top:1px dashed rgba(0,0,0,.06);padding-top:2px;font-size:.55rem;color:#ccc;">280K</div>
+              <div style="border-top:1px dashed rgba(0,0,0,.06);padding-top:2px;font-size:.55rem;color:#ccc;">210K</div>
+              <div style="border-top:1px dashed rgba(0,0,0,.06);padding-top:2px;font-size:.55rem;color:#ccc;">140K</div>
+              <div style="border-top:1px dashed rgba(0,0,0,.06);padding-top:2px;font-size:.55rem;color:#ccc;">70K</div>
+              <div style="border-top:1px dashed rgba(0,0,0,.06);"></div>
+            </div>
+            <div class="chart-bar" style="flex:1;position:relative;z-index:1;">
+              <div class="bar" style="height:52%;opacity:.5;"><span class="lbl">W1</span></div>
+              <div class="bar" style="height:68%;opacity:.6;"><span class="lbl">W2</span></div>
+              <div class="bar" style="height:75%;opacity:.7;"><span class="lbl">W3</span></div>
+              <div class="bar" style="height:100%;"><span class="lbl">W4</span></div>
+            </div>
+          </div>
+          <!-- Breakdown -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding-top:1rem;border-top:1px solid rgba(0,0,0,.06);">
+            <div>
+              <p style="font-size:.6875rem;color:#888;text-transform:uppercase;letter-spacing:.1em;">Services</p>
+              <p style="font-weight:600;color:#1A1A1A;margin-top:.25rem;">KES 142,500</p>
+              <p style="font-size:.75rem;color:#16a34a;">↑ 22%</p>
+            </div>
+            <div>
+              <p style="font-size:.6875rem;color:#888;text-transform:uppercase;letter-spacing:.1em;">Products</p>
+              <p style="font-weight:600;color:#1A1A1A;margin-top:.25rem;">KES 68,200</p>
+              <p style="font-size:.75rem;color:#dc2626;">↓ 5%</p>
+            </div>
+            <div>
+              <p style="font-size:.6875rem;color:#888;text-transform:uppercase;letter-spacing:.1em;">Academy</p>
+              <p style="font-weight:600;color:#1A1A1A;margin-top:.25rem;">KES 75,000</p>
+              <p style="font-size:.75rem;color:#16a34a;">↑ 31%</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div style="background:#0A0A0A;border-radius:8px;padding:1.5rem;border:1px solid rgba(201,169,110,.1);">
+          <h3 style="font-weight:600;color:#FAFAFA;font-size:.9375rem;margin-bottom:1rem;">Quick Actions</h3>
+          <div style="display:flex;flex-direction:column;gap:.5rem;">
+            <a href="bookings.html" style="display:flex;align-items:center;gap:.75rem;padding:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+              <div style="width:36px;height:36px;border-radius:6px;background:rgba(201,169,110,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#FAFAFA;">New Booking</p>
+                <p style="font-size:.6875rem;color:rgba(250,250,250,.4);">Add appointment</p>
+              </div>
+            </a>
+            <a href="products.html" style="display:flex;align-items:center;gap:.75rem;padding:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+              <div style="width:36px;height:36px;border-radius:6px;background:rgba(201,169,110,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#FAFAFA;">Add Product</p>
+                <p style="font-size:.6875rem;color:rgba(250,250,250,.4);">New product listing</p>
+              </div>
+            </a>
+            <a href="events.html" style="display:flex;align-items:center;gap:.75rem;padding:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+              <div style="width:36px;height:36px;border-radius:6px;background:rgba(201,169,110,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#FAFAFA;">Publish Event</p>
+                <p style="font-size:.6875rem;color:rgba(250,250,250,.4);">New event or class</p>
+              </div>
+            </a>
+            <a href="content.html" style="display:flex;align-items:center;gap:.75rem;padding:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+              <div style="width:36px;height:36px;border-radius:6px;background:rgba(201,169,110,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#FAFAFA;">Edit Homepage</p>
+                <p style="font-size:.6875rem;color:rgba(250,250,250,.4);">Update CMS content</p>
+              </div>
+            </a>
+            <a href="https://wa.me/16784380539" target="_blank" style="display:flex;align-items:center;gap:.75rem;padding:1rem;background:#25D366;border-radius:6px;text-decoration:none;">
+              <div style="width:36px;height:36px;border-radius:6px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              </div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:700;color:#fff;">Open WhatsApp</p>
+                <p style="font-size:.6875rem;color:rgba(255,255,255,.7);">Chat with clients</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Recent Bookings Table -->
+      <div style="background:#fff;border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 4px rgba(0,0,0,.04);margin-top:1.5rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+          <div>
+            <h3 style="font-weight:600;color:#1A1A1A;font-size:.9375rem;">Recent Bookings</h3>
+            <p style="font-size:.75rem;color:#888;margin-top:.125rem;">Today's appointments</p>
+          </div>
+          <a href="bookings.html" style="font-size:.75rem;font-weight:600;color:#C9A96E;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;">View All →</a>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Service</th>
+                <th>Date & Time</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsTableBody">
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:.625rem;">
+                    <img src="../assets/images/media/testimonials-01.webp" class="avatar" alt="Grace">
+                    <div>
+                      <p style="font-weight:500;font-size:.875rem;">Grace Wanjiku</p>
+                      <p style="font-size:.75rem;color:#888;">+254 712 345 678</p>
+                    </div>
+                  </div>
+                </td>
+                <td>Bridal Styling Package</td>
+                <td>Today, 10:00 AM</td>
+                <td style="font-weight:600;color:#1A1A1A;">KES 12,000</td>
+                <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                <td>
+                  <div style="display:flex;gap:.375rem;">
+                    <a href="https://wa.me/254712345678" target="_blank" style="padding:.3rem .5rem;background:#25D366;color:#fff;border-radius:3px;font-size:.625rem;font-weight:700;text-decoration:none;">WA</a>
+                    <button onclick="updateStatus(this,'completed')" style="padding:.3rem .5rem;background:#0A0A0A;color:#C9A96E;border-radius:3px;font-size:.625rem;font-weight:700;">Done</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:.625rem;">
+                    <div class="avatar" style="background:#E8DDD5;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#5C3D2E;">AM</div>
+                    <div>
+                      <p style="font-weight:500;font-size:.875rem;">Aisha Mwangi</p>
+                      <p style="font-size:.75rem;color:#888;">+254 700 111 222</p>
+                    </div>
+                  </div>
+                </td>
+                <td>Makeup Studio — Glam</td>
+                <td>Today, 12:30 PM</td>
+                <td style="font-weight:600;color:#1A1A1A;">KES 3,500</td>
+                <td><span class="status-badge status-new">New</span></td>
+                <td>
+                  <div style="display:flex;gap:.375rem;">
+                    <a href="https://wa.me/254700111222" target="_blank" style="padding:.3rem .5rem;background:#25D366;color:#fff;border-radius:3px;font-size:.625rem;font-weight:700;text-decoration:none;">WA</a>
+                    <button onclick="updateStatus(this,'confirmed')" style="padding:.3rem .5rem;background:#0A0A0A;color:#C9A96E;border-radius:3px;font-size:.625rem;font-weight:700;">Confirm</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:.625rem;">
+                    <div class="avatar" style="background:#E8DDD5;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#5C3D2E;">NK</div>
+                    <div>
+                      <p style="font-weight:500;font-size:.875rem;">Njoki Kamau</p>
+                      <p style="font-size:.75rem;color:#888;">+254 722 333 444</p>
+                    </div>
+                  </div>
+                </td>
+                <td>Nail Bar — Acrylic Set</td>
+                <td>Today, 2:00 PM</td>
+                <td style="font-weight:600;color:#1A1A1A;">KES 1,800</td>
+                <td><span class="status-badge status-paid">Deposit Paid</span></td>
+                <td>
+                  <div style="display:flex;gap:.375rem;">
+                    <a href="https://wa.me/254722333444" target="_blank" style="padding:.3rem .5rem;background:#25D366;color:#fff;border-radius:3px;font-size:.625rem;font-weight:700;text-decoration:none;">WA</a>
+                    <button onclick="updateStatus(this,'completed')" style="padding:.3rem .5rem;background:#0A0A0A;color:#C9A96E;border-radius:3px;font-size:.625rem;font-weight:700;">Done</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:.625rem;">
+                    <div class="avatar" style="background:#E8DDD5;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#5C3D2E;">FH</div>
+                    <div>
+                      <p style="font-weight:500;font-size:.875rem;">Fatuma Hassan</p>
+                      <p style="font-size:.75rem;color:#888;">+254 733 555 666</p>
+                    </div>
+                  </div>
+                </td>
+                <td>Hair Braiding — Box Braids</td>
+                <td>Today, 3:30 PM</td>
+                <td style="font-weight:600;color:#1A1A1A;">KES 2,500</td>
+                <td><span class="status-badge status-progress">In Progress</span></td>
+                <td>
+                  <div style="display:flex;gap:.375rem;">
+                    <a href="https://wa.me/254733555666" target="_blank" style="padding:.3rem .5rem;background:#25D366;color:#fff;border-radius:3px;font-size:.625rem;font-weight:700;text-decoration:none;">WA</a>
+                    <button onclick="updateStatus(this,'completed')" style="padding:.3rem .5rem;background:#0A0A0A;color:#C9A96E;border-radius:3px;font-size:.625rem;font-weight:700;">Done</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Bottom row: Academy enrollments + Notifications -->
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:1.5rem;" class="md:grid-cols-2">
+
+        <!-- Academy Enrollments -->
+        <div style="background:#fff;border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 4px rgba(0,0,0,.04);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+            <h3 style="font-weight:600;color:#1A1A1A;font-size:.9375rem;">Academy Applications</h3>
+            <span style="background:rgba(201,169,110,.15);color:#A07840;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;">July Intake</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.75rem;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem;background:#F4F5F7;border-radius:6px;">
+              <div>
+                <p style="font-weight:500;font-size:.875rem;color:#1A1A1A;">Professional Makeup</p>
+                <p style="font-size:.6875rem;color:#888;margin-top:.125rem;">8 of 12 spots filled</p>
+              </div>
+              <div style="text-align:right;">
+                <p style="font-weight:600;font-size:.9375rem;color:#C9A96E;">8/12</p>
+                <div style="width:80px;height:4px;background:#E8DDD5;border-radius:2px;margin-top:.375rem;overflow:hidden;">
+                  <div style="width:67%;height:100%;background:#C9A96E;border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem;background:#F4F5F7;border-radius:6px;">
+              <div>
+                <p style="font-weight:500;font-size:.875rem;color:#1A1A1A;">Hair Styling</p>
+                <p style="font-size:.6875rem;color:#888;margin-top:.125rem;">5 of 10 spots filled</p>
+              </div>
+              <div style="text-align:right;">
+                <p style="font-weight:600;font-size:.9375rem;color:#C9A96E;">5/10</p>
+                <div style="width:80px;height:4px;background:#E8DDD5;border-radius:2px;margin-top:.375rem;overflow:hidden;">
+                  <div style="width:50%;height:100%;background:#C9A96E;border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem;background:#F4F5F7;border-radius:6px;">
+              <div>
+                <p style="font-weight:500;font-size:.875rem;color:#1A1A1A;">Nail Technician</p>
+                <p style="font-size:.6875rem;color:#888;margin-top:.125rem;">3 of 8 spots filled</p>
+              </div>
+              <div style="text-align:right;">
+                <p style="font-weight:600;font-size:.9375rem;color:#C9A96E;">3/8</p>
+                <div style="width:80px;height:4px;background:#E8DDD5;border-radius:2px;margin-top:.375rem;overflow:hidden;">
+                  <div style="width:37%;height:100%;background:#C9A96E;border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications -->
+        <div style="background:#fff;border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 4px rgba(0,0,0,.04);">
+          <h3 style="font-weight:600;color:#1A1A1A;font-size:.9375rem;margin-bottom:1.25rem;">Notifications</h3>
+          <div style="display:flex;flex-direction:column;gap:.75rem;" id="notificationsPanel">
+            <div style="display:flex;gap:.75rem;padding:.75rem;border-radius:6px;background:rgba(201,169,110,.06);border-left:3px solid #C9A96E;">
+              <div class="notification-dot" style="margin-top:4px;flex-shrink:0;"></div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#1A1A1A;">New M-Pesa deposit received</p>
+                <p style="font-size:.6875rem;color:#888;margin-top:.125rem;">Grace Wanjiku · KES 6,000 · 2 min ago</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:.75rem;padding:.75rem;border-radius:6px;background:#F4F5F7;">
+              <div class="notification-dot" style="margin-top:4px;flex-shrink:0;background:#888;"></div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#1A1A1A;">New academy enrollment inquiry</p>
+                <p style="font-size:.6875rem;color:#888;margin-top:.125rem;">Professional Makeup · via WhatsApp · 15 min ago</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:.75rem;padding:.75rem;border-radius:6px;background:#F4F5F7;">
+              <div class="notification-dot" style="margin-top:4px;flex-shrink:0;background:#888;"></div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#1A1A1A;">Product order placed</p>
+                <p style="font-size:.6875rem;color:#888;margin-top:.125rem;">Mercy Otieno · 2× Lip Collection · 1 hr ago</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:.75rem;padding:.75rem;border-radius:6px;background:#F4F5F7;">
+              <div class="notification-dot" style="margin-top:4px;flex-shrink:0;background:#888;"></div>
+              <div>
+                <p style="font-size:.8125rem;font-weight:500;color:#1A1A1A;">New 5★ Google review</p>
+                <p style="font-size:.6875rem;color:#888;margin-top:.125rem;">Njoki Kamau · "Absolutely world class!" · 2 hrs ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /padding -->
+  </main>
+
+  <script>
+    // Animate KPI counters
+    function animateValue(id, end, prefix='', suffix='') {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const duration = 1500, start = performance.now();
+      (function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const val = Math.floor(ease * end);
+        el.textContent = prefix + val.toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      })(start);
+    }
+    window.addEventListener('load', () => {
+      animateValue('kpiRevenue', 285700, 'KES ');
+      animateValue('kpiBookings', 147);
+      animateValue('kpiClients', 5238);
+      animateValue('kpiProducts', 312);
+    });
+
+    function updateStatus(btn, status) {
+      const row = btn.closest('tr');
+      const badge = row.querySelector('.status-badge');
+      const map = {
+        confirmed: ['status-confirmed','Confirmed'],
+        completed: ['status-completed','Completed'],
+        cancelled: ['status-cancelled','Cancelled']
+      };
+      if (badge && map[status]) {
+        badge.className = 'status-badge ' + map[status][0];
+        badge.textContent = map[status][1];
+      }
+    }
+    function showNotifications() {
+      alert('Notification panel — connect to Google Sheets for live notifications.');
+    }
+  </script>
+</body>
+</html>

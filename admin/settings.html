@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+<div class="admin-shell">
+
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty"></a>
+      <p>Admin Portal</p>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <span class="admin-nav-section">Studio</span>
+      <a href="bookings.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Bookings</a>
+      <a href="customers.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>CRM & Clients</a>
+      <a href="staff.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Staff</a>
+      <a href="schedule.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule</a>
+      <span class="admin-nav-section">Content</span>
+      <a href="products.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="services.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Services</a>
+      <a href="events.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="gallery.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Gallery</a>
+      <a href="academy.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Academy</a>
+      <a href="content.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>CMS / Content</a>
+      <div class="admin-nav-divider"></div>
+      <a href="settings.html" class="admin-nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+      <a href="../index.html" target="_blank" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Live Site</a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="admin-sidebar-user">
+        <div class="admin-sidebar-avatar">P</div>
+        <div><p class="admin-sidebar-user-name">Phoina Admin</p><p class="admin-sidebar-user-role">Studio Manager</p></div>
+      </div>
+    </div>
+  </aside>
+  <div class="admin-overlay" id="adminOverlay"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <button class="admin-menu-toggle" id="adminMenuToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div class="admin-topbar-title"><h1>Settings</h1><p>Business info, contact details, and site configuration</p></div>
+      </div>
+      <div class="admin-topbar-actions">
+        <button class="btn-admin-gold" onclick="saveAllSettings()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save All Settings
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-content" style="max-width:860px;">
+
+      <!-- Business Info -->
+      <div class="admin-card" style="margin-bottom:1.25rem;">
+        <div class="admin-card-header"><span class="admin-card-title">Business Information</span></div>
+        <div class="admin-card-body">
+          <div style="display:grid;gap:1rem;">
+            <div class="form-grid-2">
+              <div><label class="admin-label">Business Name</label><input class="admin-input" id="setName" placeholder="Phoina Beauty"></div>
+              <div><label class="admin-label">Established Year</label><input class="admin-input" id="setEstablished" placeholder="2018"></div>
+            </div>
+            <div><label class="admin-label">Tagline</label><input class="admin-input" id="setTagline" placeholder="Where African Beauty Becomes Empire."></div>
+            <div><label class="admin-label">Tagline Sub-text</label><input class="admin-input" id="setTaglineSub" placeholder="Luxury studio · Academy · Premium products"></div>
+            <div class="form-grid-2">
+              <div><label class="admin-label">City</label><input class="admin-input" id="setCity" placeholder="Nairobi"></div>
+              <div><label class="admin-label">Country</label><input class="admin-input" id="setCountry" placeholder="Kenya"></div>
+            </div>
+            <div><label class="admin-label">Full Address</label><input class="admin-input" id="setAddress" placeholder="Westlands, Nairobi, Kenya"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="admin-card" style="margin-bottom:1.25rem;">
+        <div class="admin-card-header"><span class="admin-card-title">Contact Details</span></div>
+        <div class="admin-card-body">
+          <div style="display:grid;gap:1rem;">
+            <div class="form-grid-2">
+              <div><label class="admin-label">Phone Number</label><input class="admin-input" id="setPhone" placeholder="+254 700 000 000"></div>
+              <div><label class="admin-label">WhatsApp Number</label><input class="admin-input" id="setWhatsapp" placeholder="+16784380539" style="border-color:#25D366;"><small style="color:#16A34A;font-size:.75rem;">Include country code, no spaces. Used in all WhatsApp CTAs.</small></div>
+            </div>
+            <div class="form-grid-2">
+              <div><label class="admin-label">Email Address</label><input class="admin-input" id="setEmail" placeholder="hello@phoinabeauty.co.ke"></div>
+              <div><label class="admin-label">Website URL</label><input class="admin-input" id="setSiteUrl" placeholder="https://phoinabeauty.co.ke"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="admin-card" style="margin-bottom:1.25rem;">
+        <div class="admin-card-header"><span class="admin-card-title">Social Media Links</span></div>
+        <div class="admin-card-body">
+          <div style="display:grid;gap:1rem;">
+            <div class="form-grid-2">
+              <div><label class="admin-label">Instagram</label><input class="admin-input" id="setInstagram" placeholder="https://instagram.com/phoinabeauty"></div>
+              <div><label class="admin-label">TikTok</label><input class="admin-input" id="setTiktok" placeholder="https://tiktok.com/@phoinabeauty"></div>
+            </div>
+            <div class="form-grid-2">
+              <div><label class="admin-label">Facebook</label><input class="admin-input" id="setFacebook" placeholder="https://facebook.com/phoinabeauty"></div>
+              <div><label class="admin-label">YouTube</label><input class="admin-input" id="setYoutube" placeholder="https://youtube.com/@phoinabeauty"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M-Pesa -->
+      <div class="admin-card" style="margin-bottom:1.25rem;">
+        <div class="admin-card-header"><span class="admin-card-title">M-Pesa Payment Info</span></div>
+        <div class="admin-card-body">
+          <div style="display:grid;gap:1rem;">
+            <div class="form-grid-2">
+              <div><label class="admin-label">Paybill Number</label><input class="admin-input" id="setPaybill" placeholder="123456"></div>
+              <div><label class="admin-label">Account Name</label><input class="admin-input" id="setAccount" placeholder="PHOINA"></div>
+            </div>
+            <div><label class="admin-label">Till Number (if applicable)</label><input class="admin-input" id="setTill" placeholder="Leave blank if not using till"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO -->
+      <div class="admin-card" style="margin-bottom:1.25rem;">
+        <div class="admin-card-header"><span class="admin-card-title">SEO & Meta Settings</span></div>
+        <div class="admin-card-body">
+          <div style="display:grid;gap:1rem;">
+            <div><label class="admin-label">Meta Title</label><input class="admin-input" id="setSeoTitle" placeholder="Phoina Beauty — Premium African Beauty Studio & Academy | Nairobi, Kenya"></div>
+            <div><label class="admin-label">Meta Description</label><textarea class="admin-textarea" id="setSeoDesc" rows="2" placeholder="Premium luxury beauty studio, professional academy, and curated products in Nairobi, Kenya."></textarea></div>
+            <div><label class="admin-label">Meta Keywords</label><input class="admin-input" id="setSeoKeywords" placeholder="Nairobi beauty studio, luxury beauty Nairobi, makeup academy Kenya..."></div>
+            <div><label class="admin-label">OG / Share Image Path</label><input class="admin-input" id="setSeoImage" placeholder="assets/images/heroimages/phoine1.webp"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-card" style="margin-bottom:1.25rem;">
+        <div class="admin-card-header"><span class="admin-card-title">Homepage Stats (Hero Numbers)</span></div>
+        <div class="admin-card-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1rem;">
+            <div><label class="admin-label">Happy Clients</label><input class="admin-input" id="setStat1" placeholder="5,000+"></div>
+            <div><label class="admin-label">Years Experience</label><input class="admin-input" id="setStat2" placeholder="7+"></div>
+            <div><label class="admin-label">Graduates</label><input class="admin-input" id="setStat3" placeholder="500+"></div>
+            <div><label class="admin-label">Rating</label><input class="admin-input" id="setStat4" placeholder="4.9★"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Management -->
+      <div class="admin-card">
+        <div class="admin-card-header"><span class="admin-card-title">Data Management</span></div>
+        <div class="admin-card-body">
+          <p style="font-size:.875rem;color:#555;margin-bottom:1rem;">Reset a data store to reload from the original JSON file. Use this if you need to restore defaults.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+            <button class="btn-admin-outline" onclick="resetStore('products')">Reset Products</button>
+            <button class="btn-admin-outline" onclick="resetStore('services')">Reset Services</button>
+            <button class="btn-admin-outline" onclick="resetStore('events')">Reset Events</button>
+            <button class="btn-admin-outline" onclick="resetStore('gallery')">Reset Gallery</button>
+            <button class="btn-admin-outline" onclick="resetStore('staff')">Reset Staff</button>
+            <button class="btn-admin-outline" onclick="resetStore('academy')">Reset Academy</button>
+            <button class="btn-admin-outline" onclick="resetStore('settings')">Reset Settings</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../assets/js/admin.js"></script>
+<script>
+  async function loadSettings() {
+    const s = await PB_ADMIN.getAll('settings');
+    if (!s || !s.business) return;
+
+    const b = s.business || {};
+    document.getElementById('setName').value        = b.name || '';
+    document.getElementById('setEstablished').value = b.established || '';
+    document.getElementById('setTagline').value     = b.tagline || '';
+    document.getElementById('setTaglineSub').value  = b.taglineSub || '';
+    document.getElementById('setCity').value        = b.city || '';
+    document.getElementById('setCountry').value     = b.country || '';
+    document.getElementById('setAddress').value     = b.address || '';
+    document.getElementById('setPhone').value       = b.phone || '';
+    document.getElementById('setWhatsapp').value    = b.whatsapp || '';
+    document.getElementById('setEmail').value       = b.email || '';
+    document.getElementById('setSiteUrl').value     = (s.seo || {}).siteUrl || '';
+
+    const soc = s.social || {};
+    document.getElementById('setInstagram').value = soc.instagram || '';
+    document.getElementById('setTiktok').value    = soc.tiktok || '';
+    document.getElementById('setFacebook').value  = soc.facebook || '';
+    document.getElementById('setYoutube').value   = soc.youtube || '';
+
+    const mp = s.mpesa || {};
+    document.getElementById('setPaybill').value = mp.paybill || '';
+    document.getElementById('setAccount').value = mp.account || '';
+    document.getElementById('setTill').value    = mp.tillNumber || '';
+
+    const seo = s.seo || {};
+    document.getElementById('setSeoTitle').value    = seo.title || '';
+    document.getElementById('setSeoDesc').value     = seo.description || '';
+    document.getElementById('setSeoKeywords').value = seo.keywords || '';
+    document.getElementById('setSeoImage').value    = seo.ogImage || '';
+
+    const stats = s.stats || {};
+    document.getElementById('setStat1').value = stats.clients || '';
+    document.getElementById('setStat2').value = stats.yearsExperience || '';
+    document.getElementById('setStat3').value = stats.graduates || '';
+    document.getElementById('setStat4').value = stats.rating || '';
+  }
+
+  async function saveAllSettings() {
+    const current = await PB_ADMIN.getAll('settings') || {};
+    const updated = {
+      ...current,
+      business: {
+        ...(current.business || {}),
+        name:        document.getElementById('setName').value.trim(),
+        established: document.getElementById('setEstablished').value.trim(),
+        tagline:     document.getElementById('setTagline').value.trim(),
+        taglineSub:  document.getElementById('setTaglineSub').value.trim(),
+        city:        document.getElementById('setCity').value.trim(),
+        country:     document.getElementById('setCountry').value.trim(),
+        address:     document.getElementById('setAddress').value.trim(),
+        phone:       document.getElementById('setPhone').value.trim(),
+        whatsapp:    document.getElementById('setWhatsapp').value.trim(),
+        email:       document.getElementById('setEmail').value.trim()
+      },
+      social: {
+        instagram: document.getElementById('setInstagram').value.trim(),
+        tiktok:    document.getElementById('setTiktok').value.trim(),
+        facebook:  document.getElementById('setFacebook').value.trim(),
+        youtube:   document.getElementById('setYoutube').value.trim()
+      },
+      mpesa: {
+        paybill:    document.getElementById('setPaybill').value.trim(),
+        account:    document.getElementById('setAccount').value.trim(),
+        tillNumber: document.getElementById('setTill').value.trim()
+      },
+      seo: {
+        ...(current.seo || {}),
+        title:       document.getElementById('setSeoTitle').value.trim(),
+        description: document.getElementById('setSeoDesc').value.trim(),
+        keywords:    document.getElementById('setSeoKeywords').value.trim(),
+        ogImage:     document.getElementById('setSeoImage').value.trim(),
+        siteUrl:     document.getElementById('setSiteUrl').value.trim()
+      },
+      stats: {
+        clients:        document.getElementById('setStat1').value.trim(),
+        yearsExperience:document.getElementById('setStat2').value.trim(),
+        graduates:      document.getElementById('setStat3').value.trim(),
+        rating:         document.getElementById('setStat4').value.trim()
+      }
+    };
+
+    PB_ADMIN.saveStore('settings', updated);
+    adminToast('Settings saved successfully.', 'success');
+  }
+
+  function resetStore(name) {
+    if (confirm(`Reset ${name} to the original JSON data? Any unsaved changes will be lost.`)) {
+      PB_ADMIN.resetStore(name);
+      adminToast(`${name} data reset.`, 'success');
+    }
+  }
+
+  loadSettings();
+</script>
+</body>
+</html>

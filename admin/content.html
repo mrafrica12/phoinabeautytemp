@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS / Content — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    body{font-family:'Inter',sans-serif;}
+    .sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:6px;font-size:13px;color:rgba(255,255,255,0.5);transition:all 0.2s;}
+    .sidebar-link:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85);}
+    .sidebar-link.active{background:rgba(201,169,110,0.12);color:#C9A96E;}
+    .cms-card{background:white;border:1px solid #E8DDD5;padding:1.5rem;transition:border-color 0.2s;}
+    .cms-card:hover{border-color:#C9A96E;}
+    .cms-tab{padding:8px 20px;font-size:13px;font-weight:500;border-bottom:2px solid transparent;color:#888;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+    .cms-tab.active{color:#C9A96E;border-bottom-color:#C9A96E;}
+    .testimonial-card{background:#faf9f8;border:1px solid #E8DDD5;padding:1rem;position:relative;}
+    .pending-badge{font-size:10px;font-weight:600;background:#fefce8;color:#a16207;padding:2px 8px;border-radius:10px;}
+    .approved-badge{font-size:10px;font-weight:600;background:#f0fdf4;color:#15803d;padding:2px 8px;border-radius:10px;}
+  </style>
+</head>
+<body class="bg-pb-cream" style="min-height:100vh;">
+<div class="flex min-h-screen">
+  <aside class="w-60 flex-shrink-0 bg-pb-black flex flex-col" style="min-height:100vh;position:sticky;top:0;height:100vh;overflow-y:auto;">
+    <div class="p-5 border-b border-white/10"><a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty" style="height:32px;width:auto;filter:brightness(0) invert(1);display:block;" loading="eager"></a><p class="text-xs text-white/30 mt-1">Management Portal</p></div>
+    <nav class="flex-1 p-3 space-y-0.5">
+      <a href="index.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <a href="bookings.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Bookings<span class="ml-auto bg-pb-gold text-pb-black text-xs font-bold px-1.5 py-0.5 rounded">12</span></a>
+      <a href="customers.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>CRM & Clients</a>
+      <a href="products.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="events.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="services.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Services</a>
+      <a href="gallery.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Gallery</a>
+      <a href="academy.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Academy</a>
+      <a href="staff.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Staff</a>
+      <a href="schedule.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule</a>
+      <a href="content.html" class="sidebar-link active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>CMS / Content</a>
+      <a href="settings.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+      <div class="my-2 border-t border-white/10"></div>
+      <a href="../index.html" target="_blank" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Live Site</a>
+    </nav>
+    <div class="p-4 border-t border-white/10"><div class="flex items-center gap-3"><div class="w-8 h-8 bg-pb-gold rounded-full flex items-center justify-center text-pb-black font-bold text-sm">P</div><div><p class="text-white text-xs font-medium">Phoina Admin</p><p class="text-white/30 text-xs">Studio Manager</p></div></div></div>
+  </aside>
+
+  <main class="flex-1 overflow-x-hidden">
+    <div class="bg-white border-b border-pb-beige px-6 py-4 flex items-center justify-between sticky top-0 z-30">
+      <div><h1 class="text-base font-semibold text-pb-black">CMS / Content</h1><p class="text-xs text-pb-muted">Manage homepage, testimonials, banners, and gallery</p></div>
+      <button onclick="saveAllContent()" class="bg-pb-black text-white text-xs font-medium px-4 py-1.5 hover:bg-pb-gold hover:text-pb-black transition-colors">Save All Changes</button>
+    </div>
+
+    <!-- TABS -->
+    <div class="bg-white border-b border-pb-beige px-6 flex overflow-x-auto">
+      <button class="cms-tab active" onclick="showTab('hero', this)">Hero Banner</button>
+      <button class="cms-tab" onclick="showTab('testimonials', this)">Testimonials</button>
+      <button class="cms-tab" onclick="showTab('services', this)">Services</button>
+      <button class="cms-tab" onclick="showTab('gallery', this)">Gallery</button>
+      <button class="cms-tab" onclick="showTab('seo', this)">SEO & Meta</button>
+    </div>
+
+    <div class="p-6">
+
+      <!-- HERO TAB -->
+      <div id="tab-hero" class="tab-panel">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div>
+            <h2 class="text-sm font-semibold text-pb-black mb-4">Hero Slide 1 — Main Homepage</h2>
+            <div class="cms-card space-y-4">
+              <div>
+                <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Headline</label>
+                <input type="text" value="Where Beauty Meets Artistry" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors" id="heroHeadline">
+              </div>
+              <div>
+                <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Subheadline</label>
+                <textarea rows="2" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors resize-none" id="heroSubline">Kenya's Most Celebrated Afro-Luxury Beauty Studio. Transformations crafted with artistry, intentionality, and love.</textarea>
+              </div>
+              <div>
+                <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">CTA Button 1</label>
+                <div class="flex gap-2">
+                  <input type="text" value="Book Appointment" class="flex-1 px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+                  <input type="text" value="booking.html" class="w-28 px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+                </div>
+              </div>
+              <div>
+                <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Hero Background Image URL</label>
+                <input type="text" value="assets/images/hero-bg.jpg" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+              </div>
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="heroActive" checked class="w-4 h-4 accent-pb-gold">
+                <label for="heroActive" class="text-sm text-pb-charcoal">Banner Active</label>
+              </div>
+              <button onclick="showToast('Hero banner saved')" class="w-full bg-pb-black text-white py-2.5 text-sm font-medium hover:bg-pb-gold hover:text-pb-black transition-colors">Save Hero Content</button>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-sm font-semibold text-pb-black mb-4">Live Preview</h2>
+            <div class="bg-pb-black relative overflow-hidden" style="height:280px; border-radius:0;">
+              <img src="../assets/images/lifestyle/slide-01-4.webp" alt="Hero preview" class="w-full h-full object-cover opacity-40">
+              <div class="absolute inset-0 flex flex-col justify-end p-6" style="background: linear-gradient(to top, rgba(10,10,10,0.9) 40%, transparent);">
+                <p class="font-display text-white text-xl mb-1" id="heroPreviewHeadline">Where Beauty Meets Artistry</p>
+                <p class="text-white/60 text-xs mb-3" id="heroPreviewSub">Kenya's Most Celebrated Afro-Luxury Beauty Studio</p>
+                <div class="flex gap-2">
+                  <span class="bg-pb-gold text-pb-black text-xs px-4 py-1.5 font-medium">Book Appointment</span>
+                  <span class="border border-white/30 text-white text-xs px-4 py-1.5">Shop Now</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs text-pb-muted mt-2">Preview updates when you edit fields</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS TAB -->
+      <div id="tab-testimonials" class="tab-panel hidden">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-sm font-semibold text-pb-black">Testimonials</h2>
+            <p class="text-xs text-pb-muted">Approve, reject, or add client reviews</p>
+          </div>
+          <button onclick="openAddTestimonialModal()" class="bg-pb-black text-white text-xs font-medium px-4 py-1.5 hover:bg-pb-gold hover:text-pb-black transition-colors">+ Add Testimonial</button>
+        </div>
+        <div id="testimonialsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- SERVICES TAB -->
+      <div id="tab-services" class="tab-panel hidden">
+        <h2 class="text-sm font-semibold text-pb-black mb-4">Services Pricing</h2>
+        <div class="bg-white border border-pb-beige overflow-hidden">
+          <table class="w-full text-sm">
+            <thead><tr class="border-b border-pb-beige bg-pb-cream/50"><th class="text-left p-3 text-xs uppercase tracking-widest text-pb-muted font-semibold">Service</th><th class="text-left p-3 text-xs uppercase tracking-widest text-pb-muted font-semibold">Current Price</th><th class="text-left p-3 text-xs uppercase tracking-widest text-pb-muted font-semibold">Action</th></tr></thead>
+            <tbody id="servicesPriceTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- GALLERY TAB -->
+      <div id="tab-gallery" class="tab-panel hidden">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-semibold text-pb-black">Gallery Images</h2>
+          <button onclick="showToast('Gallery upload coming soon')" class="bg-pb-black text-white text-xs font-medium px-4 py-1.5 hover:bg-pb-gold hover:text-pb-black transition-colors">+ Upload Image</button>
+        </div>
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-3">
+          <div class="aspect-square relative group overflow-hidden bg-pb-beige">
+            <img src="../assets/images/lifestyle/gallery-01.webp" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+              <button onclick="showToast('Image removed')" class="text-white hover:text-red-400 transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,6 5,6 21,6"/><path d="M19,6l-1,14a2,2,0,0,1-2,2H8a2,2,0,0,1-2-2L5,6"/></svg></button>
+            </div>
+          </div>
+          <div class="aspect-square relative group overflow-hidden bg-pb-beige">
+            <img src="../assets/images/lifestyle/gallery-02.webp" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button onclick="showToast('Image removed')" class="text-white hover:text-red-400 transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,6 5,6 21,6"/><path d="M19,6l-1,14a2,2,0,0,1-2,2H8a2,2,0,0,1-2-2L5,6"/></svg></button></div>
+          </div>
+          <div class="aspect-square relative group overflow-hidden bg-pb-beige">
+            <img src="../assets/images/lifestyle/gallery-03.webp" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button onclick="showToast('Image removed')" class="text-white hover:text-red-400 transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,6 5,6 21,6"/><path d="M19,6l-1,14a2,2,0,0,1-2,2H8a2,2,0,0,1-2-2L5,6"/></svg></button></div>
+          </div>
+          <div class="aspect-square relative group overflow-hidden bg-pb-beige">
+            <img src="../assets/images/lifestyle/gallery-04.webp" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><button onclick="showToast('Image removed')" class="text-white hover:text-red-400 transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,6 5,6 21,6"/><path d="M19,6l-1,14a2,2,0,0,1-2,2H8a2,2,0,0,1-2-2L5,6"/></svg></button></div>
+          </div>
+          <div class="aspect-square bg-pb-beige border-2 border-dashed border-pb-beige flex items-center justify-center cursor-pointer hover:border-pb-gold transition-colors" onclick="showToast('Image upload coming soon')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO TAB -->
+      <div id="tab-seo" class="tab-panel hidden">
+        <h2 class="text-sm font-semibold text-pb-black mb-4">SEO & Meta Settings</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="cms-card space-y-4">
+            <h3 class="font-medium text-pb-black text-sm border-b border-pb-beige pb-2 mb-3">Homepage</h3>
+            <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Meta Title</label><input type="text" value="Phoina Beauty Kenya — Premium Beauty Studio, Academy & Shop" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+            <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Meta Description</label><textarea rows="3" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors resize-none">Kenya's premier Afro-luxury beauty studio offering professional makeup, hair, nails, bridal services, beauty training, and premium product delivery. M-Pesa payments. Nairobi.</textarea></div>
+            <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Keywords</label><input type="text" value="beauty salon nairobi, makeup artist kenya, beauty academy nairobi, bridal makeup kenya" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+            <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">OG Image URL</label><input type="text" value="https://phoinabeauty.co.ke/assets/images/og-image.jpg" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+            <button onclick="showToast('SEO settings saved')" class="w-full bg-pb-black text-white py-2.5 text-sm font-medium hover:bg-pb-gold hover:text-pb-black transition-colors">Save SEO Settings</button>
+          </div>
+          <div class="cms-card">
+            <h3 class="font-medium text-pb-black text-sm border-b border-pb-beige pb-2 mb-3">Google Analytics & Pixels</h3>
+            <div class="space-y-4">
+              <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Google Analytics ID</label><input type="text" placeholder="G-XXXXXXXXXX" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+              <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Facebook Pixel ID</label><input type="text" placeholder="123456789012345" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+              <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">WhatsApp Business Number</label><input type="text" value="+16784380539" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+              <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Google Apps Script URL</label><input type="text" placeholder="https://script.google.com/macros/s/..." class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors font-mono text-xs"></div>
+              <button onclick="showToast('Tracking settings saved')" class="w-full bg-pb-black text-white py-2.5 text-sm font-medium hover:bg-pb-gold hover:text-pb-black transition-colors">Save Tracking Settings</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ADD TESTIMONIAL MODAL -->
+<div id="addTestimonialModal" style="display:none;" class="fixed inset-0 z-50 items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/60" onclick="closeAddTestimonialModal()"></div>
+  <div class="relative bg-white w-full max-w-md p-8">
+    <button onclick="closeAddTestimonialModal()" class="absolute top-4 right-4 text-pb-muted hover:text-pb-black"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <h3 class="font-display text-2xl mb-5">Add Testimonial</h3>
+    <form onsubmit="saveTestimonial(event)" class="space-y-4">
+      <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Client Name *</label><input type="text" required placeholder="Full name" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+      <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Location / Role</label><input type="text" placeholder="e.g. Westlands · VIP Client" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+      <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Review *</label><textarea required rows="3" placeholder="Their review text…" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors resize-none"></textarea></div>
+      <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Rating</label><select class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm bg-white transition-colors"><option>5 stars</option><option>4 stars</option><option>3 stars</option></select></div>
+      <div class="flex gap-3 pt-2">
+        <button type="submit" class="flex-1 bg-pb-black text-white py-2.5 text-sm font-medium hover:bg-pb-gold hover:text-pb-black transition-colors">Add & Approve</button>
+        <button type="button" onclick="closeAddTestimonialModal()" class="flex-1 border border-pb-beige text-pb-muted py-2.5 text-sm hover:border-pb-charcoal transition-colors">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+const TESTIMONIALS = [
+  { id:1, name:'Grace Wanjiku',   loc:'Westlands · Bridal Client', text:'My wedding makeup was absolutely flawless. I cried happy tears when I saw myself in the mirror. Phoina is a true artist.', rating:5, status:'approved' },
+  { id:2, name:'Aisha Mwangi',    loc:'Kilimani · Regular Client', text:'I\'ve been coming to Phoina Beauty for 2 years and the quality is always exceptional. The team makes you feel like royalty.', rating:5, status:'approved' },
+  { id:3, name:'Njoki Kamau',     loc:'Nairobi CBD · Online Shopper', text:'The products are truly premium quality. My skin has never looked better. Fast delivery and great WhatsApp support.', rating:5, status:'pending' },
+  { id:4, name:'Fatuma Hassan',   loc:'Eastleigh · Academy Graduate', text:'The nail tech course changed my life. I now run my own nail studio and earn more than my previous job. Best investment ever!', rating:5, status:'pending' },
+];
+
+const SERVICES_DATA = [
+  { name:'Hair Studio', price:'KES 800' },
+  { name:'Makeup Artistry', price:'KES 1,500' },
+  { name:'Nail Bar', price:'KES 500' },
+  { name:'Bridal Makeup', price:'KES 8,000' },
+  { name:'Wig Installation', price:'KES 1,200' },
+  { name:'Braiding & Extensions', price:'KES 1,000' },
+  { name:'Hair Treatments', price:'KES 2,000' },
+];
+
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+  document.getElementById(`tab-${name}`).classList.remove('hidden');
+  document.querySelectorAll('.cms-tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  if (name === 'testimonials') renderTestimonials();
+  if (name === 'services') renderServices();
+}
+
+function renderTestimonials() {
+  document.getElementById('testimonialsList').innerHTML = TESTIMONIALS.map(t => `
+    <div class="testimonial-card">
+      <div class="flex items-start justify-between mb-2">
+        <div>
+          <p class="font-medium text-pb-black text-sm">${t.name}</p>
+          <p class="text-xs text-pb-muted">${t.loc}</p>
+        </div>
+        <span class="${t.status === 'approved' ? 'approved-badge' : 'pending-badge'}">${t.status === 'approved' ? 'Approved' : 'Pending'}</span>
+      </div>
+      <div class="text-pb-gold text-xs mb-2">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+      <p class="text-sm text-pb-muted italic mb-3">"${t.text}"</p>
+      <div class="flex gap-2">
+        ${t.status === 'pending' ? `<button onclick="approveTestimonial(${t.id})" class="text-xs bg-green-50 text-green-700 border border-green-200 px-3 py-1 hover:bg-green-100 transition-colors">Approve</button>` : ''}
+        <button onclick="deleteTestimonial(${t.id})" class="text-xs bg-red-50 text-red-700 border border-red-200 px-3 py-1 hover:bg-red-100 transition-colors">Remove</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderServices() {
+  document.getElementById('servicesPriceTable').innerHTML = SERVICES_DATA.map((s,i) => `
+    <tr class="border-b border-pb-beige last:border-0">
+      <td class="p-3 font-medium text-pb-black text-sm">${s.name}</td>
+      <td class="p-3"><input type="text" value="${s.price}" class="border border-pb-beige px-2 py-1.5 text-sm focus:border-pb-gold outline-none w-28 transition-colors" id="svc-${i}"></td>
+      <td class="p-3"><button onclick="showToast('${s.name} price updated')" class="text-xs text-pb-gold hover:text-pb-gold-dark transition-colors font-medium">Save</button></td>
+    </tr>
+  `).join('');
+}
+
+function approveTestimonial(id) {
+  const t = TESTIMONIALS.find(x => x.id === id);
+  if (t) { t.status = 'approved'; renderTestimonials(); showToast(`${t.name}'s review approved`); }
+}
+
+function deleteTestimonial(id) {
+  if (!confirm('Remove this testimonial?')) return;
+  const idx = TESTIMONIALS.findIndex(x => x.id === id);
+  if (idx > -1) { TESTIMONIALS.splice(idx, 1); renderTestimonials(); showToast('Testimonial removed', 'error'); }
+}
+
+function openAddTestimonialModal() { document.getElementById('addTestimonialModal').style.display = 'flex'; }
+function closeAddTestimonialModal() { document.getElementById('addTestimonialModal').style.display = 'none'; }
+
+function saveTestimonial(e) {
+  e.preventDefault();
+  const inputs = e.target.querySelectorAll('input,textarea,select');
+  TESTIMONIALS.unshift({ id: Date.now(), name:inputs[0].value, loc:inputs[1].value||'Nairobi', text:inputs[2].value, rating:parseInt(inputs[3].value)||5, status:'approved' });
+  renderTestimonials(); closeAddTestimonialModal(); e.target.reset(); showToast('Testimonial added');
+}
+
+function saveAllContent() { showToast('All content changes saved'); }
+
+/* Live preview update */
+document.getElementById('heroHeadline')?.addEventListener('input', function() { document.getElementById('heroPreviewHeadline').textContent = this.value; });
+document.getElementById('heroSubline')?.addEventListener('input', function() { document.getElementById('heroPreviewSub').textContent = this.value.slice(0,60); });
+
+function showToast(msg, type='success') {
+  const t = document.createElement('div'); t.style.cssText=`position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:${type==='error'?'#B91C1C':'#0A0A0A'};color:#F5F0EB;padding:10px 20px;font-size:12px;font-family:Inter,sans-serif;border-left:3px solid #C9A96E;opacity:0;transition:all 0.3s ease;z-index:9999;white-space:nowrap;`; t.textContent=msg; document.body.appendChild(t);
+  requestAnimationFrame(()=>{t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';}); setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300);},3000);
+}
+</script>
+</body>
+</html>

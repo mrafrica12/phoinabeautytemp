@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    body{font-family:'Inter',sans-serif;}
+    .sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:6px;font-size:13px;color:rgba(255,255,255,0.5);transition:all 0.2s;}
+    .sidebar-link:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85);}
+    .sidebar-link.active{background:rgba(201,169,110,0.12);color:#C9A96E;}
+    .admin-table th{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;padding:10px 16px;text-align:left;border-bottom:1px solid #f0ebe5;background:#faf9f8;}
+    .admin-table td{padding:12px 16px;border-bottom:1px solid #f5f0eb;font-size:13px;vertical-align:middle;}
+    .admin-table tr:last-child td{border-bottom:none;}
+    .admin-table tr:hover td{background:#fdfcfb;}
+    .ev-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+    .ev-live{background:#f0fdf4;color:#15803d;}
+    .ev-upcoming{background:#fefce8;color:#a16207;}
+    .ev-draft{background:#f1f5f9;color:#475569;}
+    .ev-past{background:#f3f4f6;color:#6b7280;}
+    .filter-chip{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #E8DDD5;color:#888;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+    .filter-chip.active{background:#0A0A0A;color:white;border-color:#0A0A0A;}
+  </style>
+</head>
+<body class="bg-pb-cream" style="min-height:100vh;">
+<div class="flex min-h-screen">
+  <aside class="w-60 flex-shrink-0 bg-pb-black flex flex-col" style="min-height:100vh;position:sticky;top:0;height:100vh;overflow-y:auto;">
+    <div class="p-5 border-b border-white/10"><a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty" style="height:32px;width:auto;filter:brightness(0) invert(1);display:block;" loading="eager"></a><p class="text-xs text-white/30 mt-1">Management Portal</p></div>
+    <nav class="flex-1 p-3 space-y-0.5">
+      <a href="index.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <a href="bookings.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Bookings<span class="ml-auto bg-pb-gold text-pb-black text-xs font-bold px-1.5 py-0.5 rounded">12</span></a>
+      <a href="customers.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>CRM & Clients</a>
+      <a href="products.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="events.html" class="sidebar-link active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="gallery.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Gallery</a>
+      <a href="services.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Services</a>
+      <a href="academy.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Academy</a>
+      <a href="staff.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Staff</a>
+      <a href="schedule.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule</a>
+      <a href="content.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>CMS / Content</a>
+      <a href="settings.html" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+      <div class="my-2 border-t border-white/10"></div>
+      <a href="../index.html" target="_blank" class="sidebar-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Live Site</a>
+    </nav>
+    <div class="p-4 border-t border-white/10"><div class="flex items-center gap-3"><div class="w-8 h-8 bg-pb-gold rounded-full flex items-center justify-center text-pb-black font-bold text-sm">P</div><div><p class="text-white text-xs font-medium">Phoina Admin</p><p class="text-white/30 text-xs">Studio Manager</p></div></div></div>
+  </aside>
+
+  <main class="flex-1 overflow-x-hidden">
+    <div class="bg-white border-b border-pb-beige px-6 py-4 flex items-center justify-between sticky top-0 z-30">
+      <div><h1 class="text-base font-semibold text-pb-black">Events</h1><p class="text-xs text-pb-muted">Publish and manage events</p></div>
+      <button onclick="openAddEventModal()" class="bg-pb-black text-white text-xs font-medium px-4 py-1.5 hover:bg-pb-gold hover:text-pb-black transition-colors">+ Publish Event</button>
+    </div>
+
+    <div class="p-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 border border-pb-beige"><p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Live Events</p><p class="font-display text-2xl text-pb-black">5</p><p class="text-xs text-green-600 mt-0.5">Booking open</p></div>
+        <div class="bg-white p-4 border border-pb-beige"><p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Total Bookings</p><p class="font-display text-2xl text-pb-black">142</p><p class="text-xs text-pb-muted mt-0.5">Across all events</p></div>
+        <div class="bg-white p-4 border border-pb-beige"><p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Events Revenue</p><p class="font-display text-2xl text-pb-black">KES 487K</p><p class="text-xs text-green-600 mt-0.5">↑ 32% YTD</p></div>
+        <div class="bg-white p-4 border border-pb-beige"><p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Avg Attendance</p><p class="font-display text-2xl text-pb-black">28</p><p class="text-xs text-pb-muted mt-0.5">per event</p></div>
+      </div>
+
+      <div class="bg-white border border-pb-beige p-4 mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button class="filter-chip active" onclick="filterEvts('all',this)">All</button>
+          <button class="filter-chip" onclick="filterEvts('live',this)">Live</button>
+          <button class="filter-chip" onclick="filterEvts('upcoming',this)">Upcoming</button>
+          <button class="filter-chip" onclick="filterEvts('draft',this)">Draft</button>
+          <button class="filter-chip" onclick="filterEvts('past',this)">Past</button>
+        </div>
+      </div>
+
+      <div class="bg-white border border-pb-beige overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="admin-table w-full">
+            <thead><tr><th>Event</th><th>Date</th><th>Type</th><th>Price</th><th>Seats</th><th>Registered</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="evtsTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ADD EVENT MODAL -->
+<div id="addEventModal" style="display:none;" class="fixed inset-0 z-50 items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/60" onclick="closeAddEventModal()"></div>
+  <div class="relative bg-white w-full max-w-lg p-8 max-h-[90vh] overflow-y-auto">
+    <button onclick="closeAddEventModal()" class="absolute top-4 right-4 text-pb-muted hover:text-pb-black"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <h3 class="font-display text-2xl mb-5 text-pb-black">Publish New Event</h3>
+    <form onsubmit="saveEvent(event)" class="space-y-4">
+      <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Event Title *</label><input type="text" required placeholder="e.g. Bridal Makeup Masterclass" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Type *</label><select required class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm bg-white transition-colors"><option value="">—</option><option>masterclass</option><option>workshop</option><option>expo</option><option>launch</option></select></div>
+        <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Date *</label><input type="date" required class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Price (KES)</label><input type="number" min="0" placeholder="0 = Free" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+        <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Seats *</label><input type="number" required min="1" placeholder="e.g. 20" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+      </div>
+      <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Venue</label><input type="text" placeholder="e.g. Phoina Studio, Westlands" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors"></div>
+      <div><label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Description</label><textarea rows="2" placeholder="Brief event description…" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors resize-none"></textarea></div>
+      <div class="flex gap-3 pt-2">
+        <button type="submit" class="flex-1 bg-pb-black text-white py-2.5 text-sm font-medium hover:bg-pb-gold hover:text-pb-black transition-colors">Publish Event</button>
+        <button type="button" onclick="closeAddEventModal()" class="flex-1 border border-pb-beige text-pb-muted py-2.5 text-sm hover:border-pb-charcoal transition-colors">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+let EVENTS = [
+  { id:'EVT-001', title:'Bridal Makeup Masterclass',    date:'2026-06-14', type:'masterclass', price:8500, seats:12, registered:8,  status:'live' },
+  { id:'EVT-002', title:'Natural Hair Care Workshop',   date:'2026-06-21', type:'workshop',    price:3500, seats:20, registered:14, status:'live' },
+  { id:'EVT-003', title:'Nairobi Bridal Beauty Expo',   date:'2026-07-05', type:'expo',        price:0,    seats:200,registered:87, status:'upcoming' },
+  { id:'EVT-004', title:'Skincare Science for Dark Skin',date:'2026-07-12', type:'masterclass', price:5500, seats:15, registered:6,  status:'upcoming' },
+  { id:'EVT-005', title:'New Collection Launch Night',  date:'2026-07-19', type:'launch',      price:0,    seats:50, registered:32, status:'live' },
+  { id:'EVT-006', title:'Nail Art Intensive Workshop',  date:'2026-07-26', type:'workshop',    price:6000, seats:10, registered:10, status:'live' },
+];
+
+const EV_CLS = { live:'ev-live', upcoming:'ev-upcoming', draft:'ev-draft', past:'ev-past' };
+const EV_LBL = { live:'Live', upcoming:'Upcoming', draft:'Draft', past:'Past' };
+let evtFilter = 'all';
+
+function renderEvts() {
+  const filtered = EVENTS.filter(e => evtFilter === 'all' || e.status === evtFilter);
+  document.getElementById('evtsTbody').innerHTML = filtered.map(e => `
+    <tr>
+      <td><div class="font-medium text-pb-black text-sm">${e.title}</div><div class="text-xs text-pb-muted">${e.id}</div></td>
+      <td class="text-sm">${e.date}</td>
+      <td class="text-sm capitalize">${e.type}</td>
+      <td class="text-sm font-medium">${e.price > 0 ? `KES ${e.price.toLocaleString()}` : 'Free'}</td>
+      <td class="text-sm">${e.seats}</td>
+      <td>
+        <div class="flex items-center gap-2">
+          <div class="flex-1 bg-gray-100 rounded-full h-1.5" style="width:60px;"><div class="bg-pb-gold h-1.5 rounded-full" style="width:${Math.round(e.registered/e.seats*100)}%"></div></div>
+          <span class="text-xs text-pb-muted">${e.registered}/${e.seats}</span>
+        </div>
+      </td>
+      <td>
+        <select class="ev-badge ${EV_CLS[e.status]} border-0 outline-none text-xs font-semibold cursor-pointer" onchange="updateEvtStatus('${e.id}',this.value)">
+          <option value="draft" ${e.status==='draft'?'selected':''}>Draft</option>
+          <option value="upcoming" ${e.status==='upcoming'?'selected':''}>Upcoming</option>
+          <option value="live" ${e.status==='live'?'selected':''}>Live</option>
+          <option value="past" ${e.status==='past'?'selected':''}>Past</option>
+        </select>
+      </td>
+      <td>
+        <div class="flex items-center gap-2">
+          <a href="https://wa.me/16784380539?text=Event+update:+${encodeURIComponent(e.title)}" target="_blank" class="text-green-500 hover:text-green-700 transition-colors text-xs font-medium">WA Blast</a>
+          <button onclick="deleteEvt('${e.id}')" class="text-pb-muted hover:text-red-500 transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,6 5,6 21,6"/><path d="M19,6l-1,14a2,2,0,0,1-2,2H8a2,2,0,0,1-2-2L5,6"/></svg></button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function updateEvtStatus(id, s) { const e=EVENTS.find(x=>x.id===id); if(e){e.status=s; renderEvts(); showToast(`${e.title} → ${EV_LBL[s]}`);} }
+function deleteEvt(id) { if(!confirm('Delete event?')) return; EVENTS=EVENTS.filter(x=>x.id!==id); renderEvts(); showToast('Event deleted','error'); }
+function filterEvts(f,btn) { evtFilter=f; document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); if(btn)btn.classList.add('active'); renderEvts(); }
+function openAddEventModal() { document.getElementById('addEventModal').style.display='flex'; }
+function closeAddEventModal() { document.getElementById('addEventModal').style.display='none'; }
+function saveEvent(e) {
+  e.preventDefault();
+  const inputs = e.target.querySelectorAll('input,select,textarea');
+  const title=inputs[0].value, type=inputs[1].value, date=inputs[2].value, price=parseInt(inputs[3].value)||0, seats=parseInt(inputs[4].value)||0;
+  EVENTS.unshift({ id:`EVT-${String(EVENTS.length+1).padStart(3,'0')}`, title, date, type, price, seats, registered:0, status:'upcoming' });
+  renderEvts(); closeAddEventModal(); e.target.reset(); showToast(`${title} published`);
+}
+function showToast(msg,type='success') {
+  const t=document.createElement('div'); t.style.cssText=`position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:${type==='error'?'#B91C1C':'#0A0A0A'};color:#F5F0EB;padding:10px 20px;font-size:12px;font-family:Inter,sans-serif;border-left:3px solid #C9A96E;opacity:0;transition:all 0.3s ease;z-index:9999;white-space:nowrap;`; t.textContent=msg; document.body.appendChild(t);
+  requestAnimationFrame(()=>{t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';}); setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300);},3000);
+}
+renderEvts();
+</script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Schedule — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+<div class="admin-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty"></a>
+      <p>Admin Portal</p>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <span class="admin-nav-section">Studio</span>
+      <a href="bookings.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Bookings</a>
+      <a href="customers.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>CRM & Clients</a>
+      <a href="staff.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Staff</a>
+      <a href="schedule.html" class="admin-nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule</a>
+      <span class="admin-nav-section">Content</span>
+      <a href="products.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="services.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Services</a>
+      <a href="events.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="gallery.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Gallery</a>
+      <a href="academy.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Academy</a>
+      <a href="content.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>CMS / Content</a>
+      <div class="admin-nav-divider"></div>
+      <a href="settings.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+      <a href="../index.html" target="_blank" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Live Site</a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="admin-sidebar-user">
+        <div class="admin-sidebar-avatar">P</div>
+        <div><p class="admin-sidebar-user-name">Phoina Admin</p><p class="admin-sidebar-user-role">Studio Manager</p></div>
+      </div>
+    </div>
+  </aside>
+  <div class="admin-overlay" id="adminOverlay"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <button class="admin-menu-toggle" id="adminMenuToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div class="admin-topbar-title"><h1>Staff Schedule</h1><p>Weekly roster — who is working, where, and when</p></div>
+      </div>
+      <div class="admin-topbar-actions">
+        <input type="date" id="scheduleDate" class="admin-input" style="width:auto;" value="">
+        <button class="btn-admin-gold" onclick="openModal('scheduleModal')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Shift
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- Today summary -->
+      <div class="kpi-grid" style="margin-bottom:1.25rem;" id="scheduleKpis"></div>
+
+      <!-- Schedule table -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <span class="admin-card-title" id="scheduleTitle">Schedule</span>
+          <div class="filter-chips" id="scheduleStatusFilter">
+            <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="available">Available</button>
+            <button class="filter-chip" data-filter="booked">Booked</button>
+            <button class="filter-chip" data-filter="off">Off</button>
+            <button class="filter-chip" data-filter="on_leave">On Leave</button>
+          </div>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Staff</th>
+                <th>Department</th>
+                <th>Location</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleTbody">
+              <tr><td colspan="8" style="text-align:center;padding:2rem;color:#888;">Loading schedule...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- SCHEDULE SHIFT MODAL -->
+<div class="admin-modal-backdrop" id="scheduleModal">
+  <div class="admin-modal" style="max-width:580px;">
+    <div class="admin-modal-header">
+      <h2 class="admin-modal-title" id="scheduleModalTitle">Add Shift</h2>
+      <button class="admin-modal-close" onclick="closeModal('scheduleModal')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="admin-modal-body">
+      <input type="hidden" id="shiftId">
+      <div style="display:grid;gap:1rem;">
+        <div><label class="admin-label">Staff Member</label>
+          <select class="admin-select" id="shiftStaff"></select>
+        </div>
+        <div class="form-grid-2">
+          <div><label class="admin-label">Date</label><input class="admin-input" id="shiftDate" type="date"></div>
+          <div><label class="admin-label">Location</label><input class="admin-input" id="shiftLocation" placeholder="e.g. Main Studio"></div>
+        </div>
+        <div class="form-grid-2">
+          <div><label class="admin-label">Start Time</label><input class="admin-input" id="shiftStart" type="time" value="09:00"></div>
+          <div><label class="admin-label">End Time</label><input class="admin-input" id="shiftEnd" type="time" value="17:00"></div>
+        </div>
+        <div><label class="admin-label">Status</label>
+          <select class="admin-select" id="shiftStatus">
+            <option value="available">Available</option>
+            <option value="booked">Booked</option>
+            <option value="off">Off</option>
+            <option value="on_leave">On Leave</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-admin-outline" onclick="closeModal('scheduleModal')">Cancel</button>
+      <button class="btn-admin-gold" onclick="saveShift()">Save Shift</button>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/admin.js"></script>
+<script>
+  let scheduleList = [];
+  let staffList = [];
+  let statusFilter = 'all';
+  let viewDate = '';
+
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('scheduleDate').value = today;
+  viewDate = today;
+
+  async function loadAll() {
+    [scheduleList, staffList] = await Promise.all([
+      PB_ADMIN.getAll('schedule'),
+      PB_ADMIN.getAll('staff')
+    ]);
+    populateStaffSelect();
+    renderSchedule();
+    renderKpis();
+  }
+
+  function populateStaffSelect() {
+    const sel = document.getElementById('shiftStaff');
+    sel.innerHTML = staffList.filter(s => s.status === 'active').map(s =>
+      `<option value="${s.id}" data-name="${s.name}" data-role="${s.role}" data-dept="${s.department}">${s.name} — ${s.role}</option>`
+    ).join('');
+  }
+
+  function renderKpis() {
+    const todayShifts = scheduleList.filter(s => s.date === today);
+    const available = todayShifts.filter(s => s.status === 'available').length;
+    const booked    = todayShifts.filter(s => s.status === 'booked').length;
+    const off       = todayShifts.filter(s => s.status === 'off' || s.status === 'on_leave').length;
+
+    document.getElementById('scheduleKpis').innerHTML = `
+      <div class="kpi-card"><div class="kpi-icon kpi-icon-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="kpi-value">${available}</div><div class="kpi-label">Available Today</div></div>
+      <div class="kpi-card"><div class="kpi-icon kpi-icon-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="kpi-value">${booked}</div><div class="kpi-label">Booked Today</div></div>
+      <div class="kpi-card"><div class="kpi-icon kpi-icon-orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="kpi-value">${off}</div><div class="kpi-label">Off / Leave</div></div>
+      <div class="kpi-card"><div class="kpi-icon kpi-icon-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="kpi-value">${staffList.filter(s=>s.status==='active').length}</div><div class="kpi-label">Active Staff</div></div>
+    `;
+  }
+
+  function renderSchedule() {
+    const date = document.getElementById('scheduleDate').value;
+    viewDate = date;
+    document.getElementById('scheduleTitle').textContent = `Schedule — ${fmtDate(date)}`;
+
+    let list = scheduleList.filter(s => s.date === date);
+    if (statusFilter !== 'all') list = list.filter(s => s.status === statusFilter);
+
+    const tbody = document.getElementById('scheduleTbody');
+    if (!list.length) {
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:2rem;color:#888;">No shifts scheduled for this date.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = list.map(s => `
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <div style="width:28px;height:28px;border-radius:50%;background:#E8DDD5;flex-shrink:0;overflow:hidden;">
+              ${getStaffImg(s.staffId)}
+            </div>
+            <span style="font-weight:500;">${s.staffName}</span>
+          </div>
+        </td>
+        <td><span style="font-size:.75rem;color:#555;">${s.department}</span></td>
+        <td style="color:#555;">${s.location || '—'}</td>
+        <td style="font-weight:500;">${fmtTime(s.startTime)}</td>
+        <td style="font-weight:500;">${fmtTime(s.endTime)}</td>
+        <td>${statusBadge(s.status)}</td>
+        <td style="color:#888;font-size:.8125rem;">${fmtDate(s.date)}</td>
+        <td>
+          <div style="display:flex;gap:.375rem;">
+            <button class="btn-icon" onclick="editShift('${s.id}')" title="Edit"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+            <button class="btn-icon" onclick="deleteShift('${s.id}')" style="color:#DC2626;border-color:#FECACA;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></button>
+          </div>
+        </td>
+      </tr>`).join('');
+  }
+
+  function getStaffImg(staffId) {
+    const s = staffList.find(x => x.id === staffId);
+    if (!s) return '';
+    return `<img src="../${s.image}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">`;
+  }
+
+  async function editShift(id) {
+    const s = scheduleList.find(x => x.id === id); if (!s) return;
+    document.getElementById('scheduleModalTitle').textContent = 'Edit Shift';
+    document.getElementById('shiftId').value = s.id;
+    document.getElementById('shiftStaff').value = s.staffId;
+    document.getElementById('shiftDate').value = s.date;
+    document.getElementById('shiftLocation').value = s.location || '';
+    document.getElementById('shiftStart').value = s.startTime;
+    document.getElementById('shiftEnd').value = s.endTime;
+    document.getElementById('shiftStatus').value = s.status;
+    openModal('scheduleModal');
+  }
+
+  async function saveShift() {
+    const staffSel = document.getElementById('shiftStaff');
+    const opt = staffSel.options[staffSel.selectedIndex];
+    const staffMember = staffList.find(s => s.id === staffSel.value);
+
+    const item = {
+      id: document.getElementById('shiftId').value || undefined,
+      date: document.getElementById('shiftDate').value,
+      staffId: staffSel.value,
+      staffName: staffMember?.name || opt?.dataset.name || '',
+      role: staffMember?.role || opt?.dataset.role || '',
+      department: staffMember?.department || opt?.dataset.dept || '',
+      location: document.getElementById('shiftLocation').value.trim(),
+      startTime: document.getElementById('shiftStart').value,
+      endTime: document.getElementById('shiftEnd').value,
+      status: document.getElementById('shiftStatus').value
+    };
+
+    if (!item.date || !item.staffId) { adminToast('Select a staff member and date.', 'error'); return; }
+    await PB_ADMIN.save('schedule', item);
+    scheduleList = await PB_ADMIN.getAll('schedule');
+    renderSchedule();
+    renderKpis();
+    closeModal('scheduleModal');
+    document.getElementById('shiftId').value = '';
+    document.getElementById('scheduleModalTitle').textContent = 'Add Shift';
+    adminToast('Shift saved.', 'success');
+  }
+
+  async function deleteShift(id) {
+    confirmDelete('Remove this shift?', async () => {
+      scheduleList = await PB_ADMIN.remove('schedule', id);
+      renderSchedule();
+      renderKpis();
+      adminToast('Shift removed.', 'success');
+    });
+  }
+
+  document.getElementById('scheduleDate').addEventListener('change', renderSchedule);
+
+  document.querySelectorAll('#scheduleStatusFilter .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#scheduleStatusFilter .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      statusFilter = chip.dataset.filter;
+      renderSchedule();
+    });
+  });
+
+  loadAll();
+</script>
+</body>
+</html>

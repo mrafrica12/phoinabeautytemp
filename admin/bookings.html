@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookings — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .sidebar-link { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 6px; font-size: 13px; color: rgba(255,255,255,0.5); transition: all 0.2s; cursor: pointer; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
+    .sidebar-link.active { background: rgba(201,169,110,0.12); color: #C9A96E; }
+    .sidebar-link svg { opacity: 0.7; flex-shrink: 0; }
+    .sidebar-link.active svg { opacity: 1; }
+    .admin-table th { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #888; padding: 10px 16px; text-align: left; border-bottom: 1px solid #f0ebe5; background: #faf9f8; }
+    .admin-table td { padding: 14px 16px; border-bottom: 1px solid #f5f0eb; font-size: 13px; vertical-align: middle; }
+    .admin-table tr:last-child td { border-bottom: none; }
+    .admin-table tr:hover td { background: #fdfcfb; }
+    .status-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+    .status-new       { background: #EFF6FF; color: #1D4ED8; }
+    .status-confirmed { background: #F0FDF4; color: #15803D; }
+    .status-paid      { background: #FEF9C3; color: #A16207; }
+    .status-progress  { background: #FFF7ED; color: #C2410C; }
+    .status-completed { background: #F5F3FF; color: #6D28D9; }
+    .status-cancelled { background: #FEF2F2; color: #B91C1C; }
+    .filter-chip { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; border: 1px solid #E8DDD5; color: #888; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .filter-chip.active { background: #0A0A0A; color: white; border-color: #0A0A0A; }
+    .search-input { border: 1px solid #E8DDD5; padding: 8px 14px 8px 36px; font-size: 13px; outline: none; transition: border-color 0.2s; }
+    .search-input:focus { border-color: #C9A96E; }
+    @media (max-width: 768px) { #sidebar { display: none; } #sidebar.open { display: flex; position: fixed; inset: 0; z-index: 50; } }
+  </style>
+</head>
+<body class="bg-pb-cream" style="min-height: 100vh;">
+
+<div class="flex min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="w-60 flex-shrink-0 bg-pb-black flex flex-col" style="min-height: 100vh; position: sticky; top: 0; height: 100vh; overflow-y: auto;">
+    <div class="p-5 border-b border-white/10">
+      <a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty" style="height:32px;width:auto;filter:brightness(0) invert(1);display:block;" loading="eager"></a>
+      <p class="text-xs text-white/30 mt-0.5">Management Portal</p>
+    </div>
+    <nav class="flex-1 p-3 space-y-0.5">
+      <a href="index.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="bookings.html" class="sidebar-link active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Bookings
+        <span class="ml-auto bg-pb-gold text-pb-black text-xs font-bold px-1.5 py-0.5 rounded">12</span>
+      </a>
+      <a href="customers.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        CRM & Clients
+      </a>
+      <a href="products.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Products
+      </a>
+      <a href="events.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Events
+      </a>
+      <a href="content.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        CMS / Content
+      </a>
+      <a href="services.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Services
+      </a>
+      <a href="gallery.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+        Gallery
+      </a>
+      <a href="academy.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Academy
+      </a>
+      <a href="staff.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Staff
+      </a>
+      <a href="schedule.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Schedule
+      </a>
+      <a href="settings.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </a>
+      <div class="my-2 border-t border-white/10"></div>
+      <a href="../index.html" target="_blank" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Live Site
+      </a>
+    </nav>
+    <div class="p-4 border-t border-white/10">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-pb-gold rounded-full flex items-center justify-center text-pb-black font-bold text-sm">P</div>
+        <div>
+          <p class="text-white text-xs font-medium">Phoina Admin</p>
+          <p class="text-white/30 text-xs">Studio Manager</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 overflow-x-hidden">
+
+    <!-- TOP BAR -->
+    <div class="bg-white border-b border-pb-beige px-6 py-4 flex items-center justify-between sticky top-0 z-30">
+      <div class="flex items-center gap-3">
+        <button onclick="document.getElementById('sidebar').classList.toggle('open')" class="md:hidden text-pb-muted">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div>
+          <h1 class="text-base font-semibold text-pb-black">Bookings</h1>
+          <p class="text-xs text-pb-muted">Manage all client appointments</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/16784380539" target="_blank" class="flex items-center gap-1.5 bg-green-500 text-white text-xs font-medium px-3 py-1.5 rounded hover:bg-green-600 transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <button onclick="openNewBookingModal()" class="bg-pb-black text-white text-xs font-medium px-4 py-1.5 hover:bg-pb-gold hover:text-pb-black transition-colors">+ New Booking</button>
+      </div>
+    </div>
+
+    <div class="p-6">
+
+      <!-- KPI ROW -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Today</p>
+          <p class="font-display text-2xl text-pb-black">8</p>
+          <p class="text-xs text-green-600 mt-0.5">↑ 2 from yesterday</p>
+        </div>
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">This Week</p>
+          <p class="font-display text-2xl text-pb-black">34</p>
+          <p class="text-xs text-green-600 mt-0.5">↑ 12% vs last week</p>
+        </div>
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Pending Confirm</p>
+          <p class="font-display text-2xl text-pb-gold">6</p>
+          <p class="text-xs text-pb-muted mt-0.5">Needs action</p>
+        </div>
+        <div class="bg-white p-4 border border-pb-beige">
+          <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Revenue Today</p>
+          <p class="font-display text-2xl text-pb-black">KES 28,500</p>
+          <p class="text-xs text-green-600 mt-0.5">↑ 8% vs avg</p>
+        </div>
+      </div>
+
+      <!-- FILTERS + SEARCH -->
+      <div class="bg-white border border-pb-beige p-4 mb-4">
+        <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-chip active" onclick="filterBookings('all', this)">All (147)</button>
+            <button class="filter-chip" onclick="filterBookings('new', this)">New (6)</button>
+            <button class="filter-chip" onclick="filterBookings('confirmed', this)">Confirmed (28)</button>
+            <button class="filter-chip" onclick="filterBookings('paid', this)">Deposit Paid (14)</button>
+            <button class="filter-chip" onclick="filterBookings('completed', this)">Completed (89)</button>
+            <button class="filter-chip" onclick="filterBookings('cancelled', this)">Cancelled (10)</button>
+          </div>
+          <div class="relative">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Search bookings…" class="search-input" oninput="searchBookings(this.value)" style="width: 200px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="bg-white border border-pb-beige overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="admin-table w-full" id="bookingsTable">
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Service</th>
+                <th>Date & Time</th>
+                <th>Stylist</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsTbody">
+              <!-- Rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="px-4 py-3 border-t border-pb-beige flex items-center justify-between">
+          <p class="text-xs text-pb-muted" id="tableCount">Showing 12 of 147 bookings</p>
+          <div class="flex gap-1">
+            <button class="px-3 py-1 text-xs border border-pb-beige hover:border-pb-gold text-pb-muted hover:text-pb-gold transition-colors">← Prev</button>
+            <button class="px-3 py-1 text-xs bg-pb-black text-white">1</button>
+            <button class="px-3 py-1 text-xs border border-pb-beige hover:border-pb-gold text-pb-muted hover:text-pb-gold transition-colors">2</button>
+            <button class="px-3 py-1 text-xs border border-pb-beige hover:border-pb-gold text-pb-muted hover:text-pb-gold transition-colors">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /p-6 -->
+  </main>
+</div>
+
+<!-- NEW BOOKING MODAL -->
+<div id="newBookingModal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden" style="display:none;">
+  <div class="absolute inset-0 bg-black/60" onclick="closeNewBookingModal()"></div>
+  <div class="relative bg-white w-full max-w-lg p-8 max-h-[90vh] overflow-y-auto">
+    <button onclick="closeNewBookingModal()" class="absolute top-4 right-4 text-pb-muted hover:text-pb-black">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 class="font-display text-2xl mb-5 text-pb-black">New Booking</h3>
+    <form onsubmit="saveNewBooking(event)" class="space-y-4">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Client Name *</label>
+          <input type="text" required placeholder="Full name" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+        </div>
+        <div>
+          <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">WhatsApp *</label>
+          <input type="tel" required placeholder="+254 7XX XXX XXX" class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+        </div>
+      </div>
+      <div>
+        <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Service *</label>
+        <select required class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors bg-white">
+          <option value="">— Select service —</option>
+          <option>Bridal Makeup — KES 8,000</option>
+          <option>Hair Styling — KES 1,200</option>
+          <option>Makeup Artistry — KES 1,500</option>
+          <option>Nail Bar — KES 500</option>
+          <option>Braiding — KES 1,000</option>
+          <option>Wig Installation — KES 1,200</option>
+          <option>Hair Treatments — KES 2,000</option>
+        </select>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Date *</label>
+          <input type="date" required class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+        </div>
+        <div>
+          <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Time *</label>
+          <select required class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors bg-white">
+            <option>8:00 AM</option><option>9:00 AM</option><option>10:00 AM</option>
+            <option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option>
+            <option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option>
+            <option>5:00 PM</option><option>6:00 PM</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Assign Stylist</label>
+        <select class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors bg-white">
+          <option>Any Available</option>
+          <option>Phoina (Senior)</option>
+          <option>Amina</option>
+          <option>Wanjiru</option>
+          <option>Fatuma</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-xs font-medium uppercase tracking-widest text-pb-charcoal mb-1 block">Notes</label>
+        <textarea rows="2" placeholder="Special requests, allergies, etc." class="w-full px-3 py-2.5 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors resize-none"></textarea>
+      </div>
+      <div class="flex gap-3 pt-2">
+        <button type="submit" class="flex-1 bg-pb-black text-white py-2.5 text-sm font-medium hover:bg-pb-gold hover:text-pb-black transition-colors">Save Booking</button>
+        <button type="button" onclick="closeNewBookingModal()" class="flex-1 border border-pb-beige text-pb-muted py-2.5 text-sm hover:border-pb-charcoal hover:text-pb-charcoal transition-colors">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+const BOOKINGS = [
+  { id:'BK-001', client:'Grace Wanjiku',   phone:'+254 712 345 678', service:'Bridal Makeup',   date:'2026-05-26', time:'9:00 AM',  stylist:'Phoina',  amount:12000, status:'confirmed' },
+  { id:'BK-002', client:'Aisha Mwangi',    phone:'+254 722 456 789', service:'Makeup Artistry', date:'2026-05-26', time:'11:00 AM', stylist:'Amina',   amount:3500,  status:'new' },
+  { id:'BK-003', client:'Njoki Kamau',     phone:'+254 733 567 890', service:'Nail Bar',         date:'2026-05-26', time:'2:00 PM',  stylist:'Wanjiru', amount:1800,  status:'paid' },
+  { id:'BK-004', client:'Fatuma Hassan',   phone:'+254 744 678 901', service:'Braiding',         date:'2026-05-26', time:'3:00 PM',  stylist:'Fatuma',  amount:2500,  status:'progress' },
+  { id:'BK-005', client:'Mary Atieno',     phone:'+254 755 789 012', service:'Hair Styling',    date:'2026-05-27', time:'10:00 AM', stylist:'Phoina',  amount:1200,  status:'new' },
+  { id:'BK-006', client:'Janet Ochieng',   phone:'+254 766 890 123', service:'Wig Installation', date:'2026-05-27', time:'1:00 PM',  stylist:'Amina',   amount:1200,  status:'confirmed' },
+  { id:'BK-007', client:'Purity Ndungu',   phone:'+254 777 901 234', service:'Hair Treatments', date:'2026-05-27', time:'4:00 PM',  stylist:'Wanjiru', amount:2000,  status:'new' },
+  { id:'BK-008', client:'Agnes Muthoni',   phone:'+254 788 012 345', service:'Bridal Makeup',   date:'2026-05-28', time:'8:00 AM',  stylist:'Phoina',  amount:12000, status:'paid' },
+  { id:'BK-009', client:'Bernadette Rop',  phone:'+254 799 123 456', service:'Nail Bar',         date:'2026-05-28', time:'11:00 AM', stylist:'Fatuma',  amount:500,   status:'confirmed' },
+  { id:'BK-010', client:'Serah Chepkemoi', phone:'+254 700 234 567', service:'Makeup Artistry', date:'2026-05-28', time:'2:00 PM',  stylist:'Amina',   amount:1500,  status:'new' },
+  { id:'BK-011', client:'Eunice Wachira',  phone:'+254 711 345 678', service:'Braiding',         date:'2026-05-29', time:'9:00 AM',  stylist:'Wanjiru', amount:1000,  status:'confirmed' },
+  { id:'BK-012', client:'Linet Achieng',   phone:'+254 722 456 789', service:'Hair Styling',    date:'2026-05-29', time:'12:00 PM', stylist:'Fatuma',  amount:1200,  status:'new' },
+];
+
+const STATUS_MAP = {
+  new:'status-new', confirmed:'status-confirmed', paid:'status-paid',
+  progress:'status-progress', completed:'status-completed', cancelled:'status-cancelled'
+};
+const STATUS_LABEL = {
+  new:'New', confirmed:'Confirmed', paid:'Deposit Paid',
+  progress:'In Progress', completed:'Completed', cancelled:'Cancelled'
+};
+
+let currentFilter = 'all';
+let currentSearch = '';
+
+function renderBookings() {
+  const tbody = document.getElementById('bookingsTbody');
+  const filtered = BOOKINGS.filter(b => {
+    const matchFilter = currentFilter === 'all' || b.status === currentFilter;
+    const matchSearch = !currentSearch || b.client.toLowerCase().includes(currentSearch) || b.service.toLowerCase().includes(currentSearch) || b.id.toLowerCase().includes(currentSearch);
+    return matchFilter && matchSearch;
+  });
+  document.getElementById('tableCount').textContent = `Showing ${filtered.length} of ${BOOKINGS.length} bookings`;
+  tbody.innerHTML = filtered.map(b => `
+    <tr>
+      <td>
+        <div class="font-medium text-pb-black text-sm">${b.client}</div>
+        <div class="text-xs text-pb-muted">${b.phone}</div>
+        <div class="text-xs text-pb-muted/60">${b.id}</div>
+      </td>
+      <td class="text-sm">${b.service}</td>
+      <td>
+        <div class="text-sm">${b.date}</div>
+        <div class="text-xs text-pb-muted">${b.time}</div>
+      </td>
+      <td class="text-sm">${b.stylist}</td>
+      <td class="text-sm font-medium">KES ${b.amount.toLocaleString()}</td>
+      <td>
+        <select class="status-badge ${STATUS_MAP[b.status]} border-0 outline-none text-xs font-semibold cursor-pointer" onchange="updateStatus('${b.id}', this.value)">
+          <option value="new"       ${b.status==='new'?'selected':''}>New</option>
+          <option value="confirmed" ${b.status==='confirmed'?'selected':''}>Confirmed</option>
+          <option value="paid"      ${b.status==='paid'?'selected':''}>Deposit Paid</option>
+          <option value="progress"  ${b.status==='progress'?'selected':''}>In Progress</option>
+          <option value="completed" ${b.status==='completed'?'selected':''}>Completed</option>
+          <option value="cancelled" ${b.status==='cancelled'?'selected':''}>Cancelled</option>
+        </select>
+      </td>
+      <td>
+        <div class="flex items-center gap-2">
+          <a href="https://wa.me/${b.phone.replace(/\s|\+/g,'')}" target="_blank" title="WhatsApp" class="text-green-500 hover:text-green-700 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <button onclick="deleteBooking('${b.id}')" title="Delete" class="text-pb-muted hover:text-red-500 transition-colors">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,6 5,6 21,6"/><path d="M19,6l-1,14a2,2,0,0,1-2,2H8a2,2,0,0,1-2-2L5,6"/><path d="M10,11v6"/><path d="M14,11v6"/></svg>
+          </button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function updateStatus(id, newStatus) {
+  const b = BOOKINGS.find(x => x.id === id);
+  if (b) { b.status = newStatus; renderBookings(); showToast(`${b.client} → ${STATUS_LABEL[newStatus]}`); }
+}
+
+function deleteBooking(id) {
+  if (!confirm('Delete this booking?')) return;
+  const idx = BOOKINGS.findIndex(x => x.id === id);
+  if (idx > -1) { BOOKINGS.splice(idx, 1); renderBookings(); showToast('Booking deleted', 'error'); }
+}
+
+function filterBookings(status, btn) {
+  currentFilter = status;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderBookings();
+}
+
+function searchBookings(val) { currentSearch = val.toLowerCase(); renderBookings(); }
+
+function openNewBookingModal() { document.getElementById('newBookingModal').style.display = 'flex'; }
+function closeNewBookingModal() { document.getElementById('newBookingModal').style.display = 'none'; }
+
+function saveNewBooking(e) {
+  e.preventDefault();
+  const inputs = e.target.querySelectorAll('input,select,textarea');
+  const name = inputs[0].value;
+  const phone = inputs[1].value;
+  const service = inputs[2].value;
+  const date = inputs[3].value;
+  const time = inputs[4].value;
+  const stylist = inputs[5].value;
+  const notes = inputs[6].value;
+  const newBooking = {
+    id: `BK-${String(BOOKINGS.length + 1).padStart(3,'0')}`,
+    client: name, phone, service, date, time, stylist: stylist === 'Any Available' ? 'Phoina' : stylist,
+    amount: 0, status: 'new', notes
+  };
+  BOOKINGS.unshift(newBooking);
+  renderBookings();
+  closeNewBookingModal();
+  e.target.reset();
+  showToast(`Booking created for ${name}`);
+  const msg = `📅 *New Booking — Phoina Beauty*\n\n*Client:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Date:* ${date} at ${time}\n*Stylist:* ${stylist}\n${notes ? `*Notes:* ${notes}` : ''}\n\nPlease confirm your appointment.`;
+  setTimeout(() => { if (confirm('Send WhatsApp confirmation to client?')) window.open(`https://wa.me/${phone.replace(/\s|\+/g,'')}?text=${encodeURIComponent(msg)}`, '_blank'); }, 300);
+}
+
+function showToast(msg, type='success') {
+  const t = document.createElement('div');
+  t.style.cssText = `position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:${type==='error'?'#B91C1C':'#0A0A0A'};color:#F5F0EB;padding:10px 20px;font-size:12px;font-family:Inter,sans-serif;border-left:3px solid #C9A96E;opacity:0;transition:all 0.3s ease;z-index:9999;white-space:nowrap;`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => { t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)'; });
+  setTimeout(() => { t.style.opacity='0'; setTimeout(() => t.remove(), 300); }, 3000);
+}
+
+renderBookings();
+</script>
+</body>
+</html>

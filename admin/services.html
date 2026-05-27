@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Manager — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+<div class="admin-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty"></a>
+      <p>Admin Portal</p>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <span class="admin-nav-section">Studio</span>
+      <a href="bookings.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Bookings</a>
+      <a href="customers.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>CRM & Clients</a>
+      <a href="staff.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Staff</a>
+      <a href="schedule.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule</a>
+      <span class="admin-nav-section">Content</span>
+      <a href="products.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="services.html" class="admin-nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Services</a>
+      <a href="events.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="gallery.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Gallery</a>
+      <a href="academy.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Academy</a>
+      <a href="content.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>CMS / Content</a>
+      <div class="admin-nav-divider"></div>
+      <a href="settings.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+      <a href="../index.html" target="_blank" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Live Site</a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="admin-sidebar-user">
+        <div class="admin-sidebar-avatar">P</div>
+        <div><p class="admin-sidebar-user-name">Phoina Admin</p><p class="admin-sidebar-user-role">Studio Manager</p></div>
+      </div>
+    </div>
+  </aside>
+  <div class="admin-overlay" id="adminOverlay"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <button class="admin-menu-toggle" id="adminMenuToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div class="admin-topbar-title"><h1>Services Manager</h1><p>Add, edit and publish your beauty services</p></div>
+      </div>
+      <div class="admin-topbar-actions">
+        <button class="btn-admin-gold" onclick="openModal('serviceModal')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Service
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <span class="admin-card-title">All Services</span>
+          <div class="filter-chips" id="serviceFilters">
+            <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="Hair">Hair</button>
+            <button class="filter-chip" data-filter="Makeup">Makeup</button>
+            <button class="filter-chip" data-filter="Nails">Nails</button>
+            <button class="filter-chip" data-filter="Skincare">Skincare</button>
+            <button class="filter-chip" data-filter="Bridal">Bridal</button>
+            <button class="filter-chip" data-filter="Lashes">Lashes</button>
+            <button class="filter-chip" data-filter="Spa">Spa</button>
+          </div>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="servicesTable">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Service</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Featured</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="servicesTbody">
+              <tr><td colspan="8" style="text-align:center;padding:2rem;color:#888;">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- SERVICE MODAL -->
+<div class="admin-modal-backdrop" id="serviceModal">
+  <div class="admin-modal" style="max-width:640px;">
+    <div class="admin-modal-header">
+      <h2 class="admin-modal-title" id="serviceModalTitle">Add Service</h2>
+      <button class="admin-modal-close" onclick="closeModal('serviceModal')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="admin-modal-body">
+      <input type="hidden" id="serviceId">
+      <div style="display:grid;gap:1rem;">
+        <div class="form-grid-2">
+          <div><label class="admin-label">Service Name</label><input class="admin-input" id="serviceName" placeholder="e.g. Hair Studio"></div>
+          <div><label class="admin-label">Category</label>
+            <select class="admin-select" id="serviceCategory">
+              <option>Hair</option><option>Makeup</option><option>Nails</option>
+              <option>Skincare</option><option>Bridal</option><option>Lashes</option><option>Spa</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div><label class="admin-label">Starting Price (KES)</label><input class="admin-input" id="servicePrice" type="number" placeholder="800"></div>
+          <div><label class="admin-label">Duration</label><input class="admin-input" id="serviceDuration" placeholder="e.g. 60–120 min"></div>
+        </div>
+        <div><label class="admin-label">Image Path</label><input class="admin-input" id="serviceImage" placeholder="assets/images/lifestyle/phoina-service-01.webp"></div>
+        <div><label class="admin-label">Short Subtags</label><input class="admin-input" id="serviceSubtags" placeholder="e.g. Braiding · Relaxers · Natural Care"></div>
+        <div><label class="admin-label">Description</label><textarea class="admin-textarea" id="serviceDesc" placeholder="Describe this service..."></textarea></div>
+        <div style="display:flex;gap:1.5rem;align-items:center;">
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.875rem;cursor:pointer;"><input type="checkbox" class="admin-checkbox" id="serviceFeatured"> Feature on homepage</label>
+          <div><label class="admin-label" style="display:inline;">Status</label>
+            <select class="admin-select" id="serviceStatus" style="display:inline;width:auto;margin-left:.5rem;">
+              <option value="active">Active</option><option value="inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-admin-outline" onclick="closeModal('serviceModal')">Cancel</button>
+      <button class="btn-admin-gold" onclick="saveService()">Save Service</button>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/admin.js"></script>
+<script>
+  let services = [];
+  let sFilter = 'all';
+
+  async function loadServices() {
+    services = await PB_ADMIN.getAll('services');
+    renderServices();
+  }
+
+  function renderServices() {
+    const tbody = document.getElementById('servicesTbody');
+    let list = sFilter === 'all' ? services : services.filter(s => s.category === sFilter);
+    if (!list.length) {
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:2rem;color:#888;">No services found.</td></tr>`; return;
+    }
+    tbody.innerHTML = list.map(s => `
+      <tr>
+        <td><img class="admin-table-img" src="../${s.image}" alt="${s.name}" onerror="this.src=''" style="width:48px;height:48px;object-fit:cover;border-radius:6px;background:#F5F0EB;"></td>
+        <td><p style="font-weight:600;color:#0A0A0A;">${s.name}</p><p style="font-size:.75rem;color:#888;">${s.subtags || ''}</p></td>
+        <td><span class="prod-badge badge-new" style="background:#F5F3FF;color:#6D28D9;">${s.category}</span></td>
+        <td style="font-weight:600;">KES ${Number(s.price).toLocaleString()}</td>
+        <td style="color:#555;">${s.duration || '—'}</td>
+        <td>${s.featured ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A96E" stroke="#C9A96E" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>` : '<span style="color:#DDD;">—</span>'}</td>
+        <td>${statusBadge(s.status)}</td>
+        <td>
+          <div style="display:flex;gap:.375rem;">
+            <button class="btn-icon" onclick="editService('${s.id}')" title="Edit"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+            <button class="btn-icon" onclick="toggleServiceStatus('${s.id}')" title="Toggle status" style="color:#16A34A;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></button>
+            <button class="btn-icon" onclick="deleteService('${s.id}')" title="Delete" style="color:#DC2626;border-color:#FECACA;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></button>
+          </div>
+        </td>
+      </tr>`).join('');
+  }
+
+  async function editService(id) {
+    const s = services.find(x => x.id === id); if (!s) return;
+    document.getElementById('serviceModalTitle').textContent = 'Edit Service';
+    document.getElementById('serviceId').value = s.id;
+    document.getElementById('serviceName').value = s.name;
+    document.getElementById('serviceCategory').value = s.category;
+    document.getElementById('servicePrice').value = s.price;
+    document.getElementById('serviceDuration').value = s.duration || '';
+    document.getElementById('serviceImage').value = s.image;
+    document.getElementById('serviceSubtags').value = s.subtags || '';
+    document.getElementById('serviceDesc').value = s.description || '';
+    document.getElementById('serviceFeatured').checked = s.featured;
+    document.getElementById('serviceStatus').value = s.status;
+    openModal('serviceModal');
+  }
+
+  async function saveService() {
+    const item = {
+      id: document.getElementById('serviceId').value || undefined,
+      name: document.getElementById('serviceName').value.trim(),
+      category: document.getElementById('serviceCategory').value,
+      price: Number(document.getElementById('servicePrice').value),
+      duration: document.getElementById('serviceDuration').value.trim(),
+      image: document.getElementById('serviceImage').value.trim(),
+      subtags: document.getElementById('serviceSubtags').value.trim(),
+      description: document.getElementById('serviceDesc').value.trim(),
+      featured: document.getElementById('serviceFeatured').checked,
+      status: document.getElementById('serviceStatus').value,
+      priceDisplay: `from KES ${Number(document.getElementById('servicePrice').value).toLocaleString()}`
+    };
+    if (!item.name) { adminToast('Service name is required.', 'error'); return; }
+    await PB_ADMIN.save('services', item);
+    services = await PB_ADMIN.getAll('services');
+    renderServices();
+    closeModal('serviceModal');
+    document.getElementById('serviceId').value = '';
+    document.getElementById('serviceModalTitle').textContent = 'Add Service';
+    adminToast('Service saved.', 'success');
+  }
+
+  async function toggleServiceStatus(id) {
+    const s = services.find(x => x.id === id); if (!s) return;
+    s.status = s.status === 'active' ? 'inactive' : 'active';
+    await PB_ADMIN.save('services', s);
+    services = await PB_ADMIN.getAll('services');
+    renderServices();
+    adminToast(`Service marked ${s.status}.`);
+  }
+
+  async function deleteService(id) {
+    confirmDelete('Delete this service?', async () => {
+      services = await PB_ADMIN.remove('services', id);
+      renderServices();
+      adminToast('Service deleted.', 'success');
+    });
+  }
+
+  document.querySelectorAll('#serviceFilters .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#serviceFilters .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      sFilter = chip.dataset.filter;
+      renderServices();
+    });
+  });
+
+  loadServices();
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy Manager — Phoina Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+<div class="admin-shell">
+
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <a href="../index.html"><img src="../assets/images/brand/logo.png" alt="Phoina Beauty"></a>
+      <p>Admin Portal</p>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <span class="admin-nav-section">Studio</span>
+      <a href="bookings.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Bookings</a>
+      <a href="customers.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>CRM & Clients</a>
+      <a href="staff.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Staff</a>
+      <a href="schedule.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Schedule</a>
+      <span class="admin-nav-section">Content</span>
+      <a href="products.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</a>
+      <a href="services.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Services</a>
+      <a href="events.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Events</a>
+      <a href="gallery.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Gallery</a>
+      <a href="academy.html" class="admin-nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Academy</a>
+      <a href="content.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>CMS / Content</a>
+      <div class="admin-nav-divider"></div>
+      <a href="settings.html" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+      <a href="../index.html" target="_blank" class="admin-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Live Site</a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="admin-sidebar-user">
+        <div class="admin-sidebar-avatar">P</div>
+        <div><p class="admin-sidebar-user-name">Phoina Admin</p><p class="admin-sidebar-user-role">Studio Manager</p></div>
+      </div>
+    </div>
+  </aside>
+  <div class="admin-overlay" id="adminOverlay"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <button class="admin-menu-toggle" id="adminMenuToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div class="admin-topbar-title"><h1>Academy Manager</h1><p>Manage courses, intake dates, and enrollment</p></div>
+      </div>
+      <div class="admin-topbar-actions">
+        <button class="btn-admin-gold" onclick="openModal('courseModal')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Course
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <div id="courseGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;"></div>
+    </div>
+  </main>
+</div>
+
+<!-- COURSE MODAL -->
+<div class="admin-modal-backdrop" id="courseModal">
+  <div class="admin-modal" style="max-width:640px;">
+    <div class="admin-modal-header">
+      <h2 class="admin-modal-title" id="courseModalTitle">Add Course</h2>
+      <button class="admin-modal-close" onclick="closeModal('courseModal')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="admin-modal-body">
+      <input type="hidden" id="courseId">
+      <div style="display:grid;gap:1rem;">
+        <div><label class="admin-label">Course Title</label><input class="admin-input" id="courseTitle" placeholder="e.g. Professional Makeup Artistry"></div>
+        <div class="form-grid-2">
+          <div><label class="admin-label">Duration</label><input class="admin-input" id="courseDuration" placeholder="e.g. 3 Months"></div>
+          <div><label class="admin-label">Price (KES)</label><input class="admin-input" id="coursePrice" type="number" placeholder="25000"></div>
+        </div>
+        <div class="form-grid-2">
+          <div><label class="admin-label">Instructor</label><input class="admin-input" id="courseInstructor" placeholder="e.g. Kezia Otieno"></div>
+          <div><label class="admin-label">Next Intake Date</label><input class="admin-input" id="courseIntake" type="date"></div>
+        </div>
+        <div class="form-grid-2">
+          <div><label class="admin-label">Seats Available</label><input class="admin-input" id="courseSeats" type="number" placeholder="12"></div>
+          <div><label class="admin-label">Level</label><input class="admin-input" id="courseLevel" placeholder="e.g. Beginner to Professional"></div>
+        </div>
+        <div><label class="admin-label">Image Path</label><input class="admin-input" id="courseImage" placeholder="assets/images/lifestyle/phoina-academy-01.webp"></div>
+        <div><label class="admin-label">Description</label><textarea class="admin-textarea" id="courseDesc" rows="3" placeholder="What will students learn?"></textarea></div>
+        <div><label class="admin-label">Curriculum (one item per line)</label><textarea class="admin-textarea" id="courseCurriculum" rows="4" placeholder="Foundation & Theory&#10;Bridal Makeup&#10;Contouring & Highlighting"></textarea></div>
+        <div style="display:flex;align-items:center;gap:1.5rem;">
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.875rem;cursor:pointer;"><input type="checkbox" class="admin-checkbox" id="courseCert" checked> Issues Certificate</label>
+          <div><label class="admin-label" style="display:inline;">Status</label>
+            <select class="admin-select" id="courseStatus" style="display:inline;width:auto;margin-left:.5rem;">
+              <option value="active">Active</option><option value="inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-admin-outline" onclick="closeModal('courseModal')">Cancel</button>
+      <button class="btn-admin-gold" onclick="saveCourse()">Save Course</button>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/admin.js"></script>
+<script>
+  let courses = [];
+
+  async function loadCourses() {
+    courses = await PB_ADMIN.getAll('academy');
+    renderCourses();
+  }
+
+  function renderCourses() {
+    const grid = document.getElementById('courseGrid');
+    if (!courses.length) {
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <h3>No courses yet</h3><p>Add your first academy course above.</p></div>`;
+      return;
+    }
+
+    grid.innerHTML = courses.map(c => {
+      const curriculum = Array.isArray(c.curriculum) ? c.curriculum : (c.curriculum || '').split('\n').filter(Boolean);
+      return `
+      <div class="admin-card">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#F5F0EB;">
+          <img src="../${c.image}" alt="${c.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+          <span class="status-badge ${c.status === 'active' ? 'status-active' : 'status-inactive'}" style="position:absolute;top:8px;right:8px;">${c.status}</span>
+          ${c.certification ? `<span style="position:absolute;top:8px;left:8px;background:#C9A96E;color:#0A0A0A;font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:10px;">CERTIFIED</span>` : ''}
+        </div>
+        <div style="padding:1.125rem;">
+          <p style="font-size:.625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C9A96E;margin-bottom:.3rem;">${c.duration}</p>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:#0A0A0A;margin-bottom:.5rem;">${c.title}</h3>
+          <p style="font-size:.8125rem;color:#555;margin-bottom:.875rem;line-height:1.5;">${c.description || ''}</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.875rem;">
+            <div style="background:#F9F7F5;border-radius:6px;padding:.5rem .75rem;">
+              <p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.1rem;">Price</p>
+              <p style="font-weight:600;color:#0A0A0A;font-size:.9375rem;">KES ${Number(c.price).toLocaleString()}</p>
+            </div>
+            <div style="background:#F9F7F5;border-radius:6px;padding:.5rem .75rem;">
+              <p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.1rem;">Next Intake</p>
+              <p style="font-weight:600;color:#0A0A0A;font-size:.9375rem;">${fmtDate(c.intakeDate)}</p>
+            </div>
+            <div style="background:#F9F7F5;border-radius:6px;padding:.5rem .75rem;">
+              <p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.1rem;">Instructor</p>
+              <p style="font-weight:500;color:#0A0A0A;font-size:.8125rem;">${c.instructor}</p>
+            </div>
+            <div style="background:#F9F7F5;border-radius:6px;padding:.5rem .75rem;">
+              <p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.1rem;">Seats Left</p>
+              <p style="font-weight:600;color:${c.seatsAvailable < 4 ? '#B91C1C' : '#0A0A0A'};font-size:.9375rem;">${c.seatsAvailable}</p>
+            </div>
+          </div>
+
+          ${curriculum.length ? `
+          <div style="margin-bottom:.875rem;">
+            <p style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-bottom:.375rem;">Curriculum</p>
+            <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.25rem;">
+              ${curriculum.slice(0,4).map(item => `<li style="font-size:.8125rem;color:#444;display:flex;align-items:center;gap:.5rem;"><span style="width:4px;height:4px;background:#C9A96E;border-radius:50%;flex-shrink:0;"></span>${item}</li>`).join('')}
+              ${curriculum.length > 4 ? `<li style="font-size:.75rem;color:#888;padding-left:1rem;">+${curriculum.length - 4} more topics</li>` : ''}
+            </ul>
+          </div>` : ''}
+
+          <div style="display:flex;gap:.5rem;padding-top:.75rem;border-top:1px solid #F5F0EB;">
+            <button class="btn-admin-outline" style="flex:1;justify-content:center;" onclick="editCourse('${c.id}')">Edit Course</button>
+            <button class="btn-icon" onclick="toggleCourseStatus('${c.id}')" title="Toggle status" style="color:#16A34A;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></button>
+            <button class="btn-icon" onclick="deleteCourse('${c.id}')" title="Delete" style="color:#DC2626;border-color:#FECACA;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  async function editCourse(id) {
+    const c = courses.find(x => x.id === id); if (!c) return;
+    document.getElementById('courseModalTitle').textContent = 'Edit Course';
+    document.getElementById('courseId').value = c.id;
+    document.getElementById('courseTitle').value = c.title;
+    document.getElementById('courseDuration').value = c.duration;
+    document.getElementById('coursePrice').value = c.price;
+    document.getElementById('courseInstructor').value = c.instructor;
+    document.getElementById('courseIntake').value = c.intakeDate;
+    document.getElementById('courseSeats').value = c.seatsAvailable;
+    document.getElementById('courseLevel').value = c.level || '';
+    document.getElementById('courseImage').value = c.image;
+    document.getElementById('courseDesc').value = c.description || '';
+    const curriculum = Array.isArray(c.curriculum) ? c.curriculum.join('\n') : (c.curriculum || '');
+    document.getElementById('courseCurriculum').value = curriculum;
+    document.getElementById('courseCert').checked = c.certification;
+    document.getElementById('courseStatus').value = c.status;
+    openModal('courseModal');
+  }
+
+  async function saveCourse() {
+    const curriculumRaw = document.getElementById('courseCurriculum').value;
+    const item = {
+      id: document.getElementById('courseId').value || undefined,
+      title: document.getElementById('courseTitle').value.trim(),
+      duration: document.getElementById('courseDuration').value.trim(),
+      price: Number(document.getElementById('coursePrice').value),
+      instructor: document.getElementById('courseInstructor').value.trim(),
+      intakeDate: document.getElementById('courseIntake').value,
+      seatsAvailable: Number(document.getElementById('courseSeats').value),
+      level: document.getElementById('courseLevel').value.trim(),
+      image: document.getElementById('courseImage').value.trim(),
+      description: document.getElementById('courseDesc').value.trim(),
+      curriculum: curriculumRaw.split('\n').map(s => s.trim()).filter(Boolean),
+      certification: document.getElementById('courseCert').checked,
+      status: document.getElementById('courseStatus').value
+    };
+    if (!item.title) { adminToast('Course title is required.', 'error'); return; }
+    await PB_ADMIN.save('academy', item);
+    courses = await PB_ADMIN.getAll('academy');
+    renderCourses();
+    closeModal('courseModal');
+    document.getElementById('courseId').value = '';
+    document.getElementById('courseModalTitle').textContent = 'Add Course';
+    adminToast('Course saved.', 'success');
+  }
+
+  async function toggleCourseStatus(id) {
+    const c = courses.find(x => x.id === id); if (!c) return;
+    c.status = c.status === 'active' ? 'inactive' : 'active';
+    await PB_ADMIN.save('academy', c);
+    courses = await PB_ADMIN.getAll('academy');
+    renderCourses();
+    adminToast(`Course marked ${c.status}.`);
+  }
+
+  async function deleteCourse(id) {
+    confirmDelete('Delete this course?', async () => {
+      courses = await PB_ADMIN.remove('academy', id);
+      renderCourses();
+      adminToast('Course deleted.', 'success');
+    });
+  }
+
+  loadCourses();
+</script>
+</body>
+</html>

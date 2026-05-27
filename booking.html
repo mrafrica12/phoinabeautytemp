@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a beauty appointment at Phoina Beauty — Nairobi's premium studio. Hair, makeup, nails, bridal and more.">
+  <title>Book an Appointment — Phoina Beauty Kenya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-pb-white font-sans">
+
+  <!-- Nav -->
+  <nav class="nav-wrapper scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/brand/logo.png" alt="Phoina Beauty" style="height:54px;width:auto;display:block;filter:brightness(0) saturate(100%) invert(72%) sepia(43%) saturate(600%) hue-rotate(4deg) brightness(97%);" loading="eager">
+      </a>
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="booking.html" class="btn btn-primary btn-sm" style="background:var(--pb-gold);color:var(--pb-black);">Book Now</a>
+        <button class="nav-hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Header -->
+  <div style="background:var(--pb-black);padding:8rem 1.5rem 4rem;">
+    <div class="container-sm text-center">
+      <p class="section-label justify-center text-pb-gold">Appointments</p>
+      <h1 class="heading-xl text-white mt-3">Book Your<br><em class="italic text-pb-gold">Beauty Experience.</em></h1>
+      <p class="body-lead text-white/60 mt-4 max-w-lg mx-auto">Choose your service, pick a time, and we'll confirm via WhatsApp. M-Pesa deposit to secure your slot.</p>
+    </div>
+  </div>
+
+  <!-- Booking Form -->
+  <section class="section-pad bg-pb-cream">
+    <div class="container-sm">
+      <div class="grid md:grid-cols-5 gap-8">
+
+        <!-- Form (3 cols) -->
+        <div class="md:col-span-3">
+          <div style="background:#fff;border-radius:8px;padding:2rem;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 12px rgba(0,0,0,.05);">
+            <h2 class="font-display text-2xl text-pb-charcoal mb-6">Your Booking Details</h2>
+
+            <form id="bookingForm" novalidate>
+              <input type="hidden" name="formType" value="Beauty Appointment">
+              <input type="hidden" name="source" value="Website Booking Page">
+              <input type="hidden" name="pickupLocation" value="Phoina Beauty Studio">
+              <input type="hidden" name="passengers" value="1">
+
+              <!-- Step 1: Service -->
+              <div class="mb-6">
+                <p class="label-text text-pb-muted text-xs mb-3">Step 1 — Choose Service</p>
+                <div class="grid grid-cols-2 gap-2" id="serviceGrid">
+                  <button type="button" class="service-btn" data-service="Hair Studio" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Hair Studio</span>
+                    <span class="text-xs text-pb-muted">from KES 800</span>
+                  </button>
+                  <button type="button" class="service-btn" data-service="Makeup Studio" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Makeup Studio</span>
+                    <span class="text-xs text-pb-muted">from KES 1,500</span>
+                  </button>
+                  <button type="button" class="service-btn" data-service="Nail Bar" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Nail Bar</span>
+                    <span class="text-xs text-pb-muted">from KES 500</span>
+                  </button>
+                  <button type="button" class="service-btn" data-service="Bridal Package" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Bridal Package</span>
+                    <span class="text-xs text-pb-muted">from KES 8,000</span>
+                  </button>
+                  <button type="button" class="service-btn" data-service="Wig Installation" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Wig Installation</span>
+                    <span class="text-xs text-pb-muted">from KES 1,200</span>
+                  </button>
+                  <button type="button" class="service-btn" data-service="Braiding" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Braiding</span>
+                    <span class="text-xs text-pb-muted">from KES 1,000</span>
+                  </button>
+                  <button type="button" class="service-btn" data-service="Beauty Treatment" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Beauty Treatment</span>
+                    <span class="text-xs text-pb-muted">from KES 2,000</span>
+                  </button>
+                  <button type="button" class="service-btn" data-service="Skincare Facial" aria-pressed="false" onclick="selectService(this)">
+                    <span class="text-sm font-medium">Skincare Facial</span>
+                    <span class="text-xs text-pb-muted">from KES 2,500</span>
+                  </button>
+                </div>
+                <input type="hidden" id="selectedService" name="service" required>
+              </div>
+
+              <!-- Step 2: Date & Time -->
+              <div class="mb-6">
+                <p class="label-text text-pb-muted text-xs mb-3">Step 2 — Preferred Date & Time</p>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="form-group" style="margin-bottom:0;">
+                    <label class="form-label">Date</label>
+                    <input type="date" name="date" id="bookingDate" class="form-input" required min="">
+                  </div>
+                  <div class="form-group" style="margin-bottom:0;">
+                    <label class="form-label">Time</label>
+                    <select name="time" class="form-input" required>
+                      <option value="">Select time</option>
+                      <option>8:00 AM</option>
+                      <option>9:00 AM</option>
+                      <option>10:00 AM</option>
+                      <option>11:00 AM</option>
+                      <option>12:00 PM</option>
+                      <option>1:00 PM</option>
+                      <option>2:00 PM</option>
+                      <option>3:00 PM</option>
+                      <option>4:00 PM</option>
+                      <option>5:00 PM</option>
+                      <option>6:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Your Info -->
+              <div class="mb-6">
+                <p class="label-text text-pb-muted text-xs mb-3">Step 3 — Your Details</p>
+                <div class="form-group">
+                  <label class="form-label" for="clientName">Full Name</label>
+                  <input type="text" id="clientName" name="name" class="form-input" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientPhone">Phone Number (WhatsApp)</label>
+                  <input type="tel" id="clientPhone" name="phone" class="form-input" placeholder="+254 7XX XXX XXX" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientEmail">Email</label>
+                  <input type="email" id="clientEmail" name="email" class="form-input" placeholder="you@example.com" autocomplete="email">
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label class="form-label" for="clientNotes">Special Requests (Optional)</label>
+                  <textarea id="clientNotes" name="notes" class="form-input" rows="3" placeholder="Any specific requests, allergies, or preferences..."></textarea>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="btn btn-primary w-full" id="submitBtn">
+                Confirm Booking
+              </button>
+              <div class="form-feedback" id="bookingFeedback" role="status" aria-live="polite"></div>
+
+              <p class="text-xs text-pb-muted text-center mt-4">You'll receive a WhatsApp confirmation within 5 minutes. A deposit may be required to secure your appointment.</p>
+            </form>
+
+            <!-- WhatsApp direct option -->
+            <div class="mt-6 pt-6 border-t border-pb-beige text-center">
+              <p class="text-sm text-pb-muted mb-3">Prefer to book directly?</p>
+              <a href="https://wa.me/16784380539?text=Hi%20Phoina%20Beauty%2C%20I%27d%20like%20to%20book%20an%20appointment"
+                 target="_blank" class="btn btn-whatsapp w-full">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+                Book Directly on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar (2 cols) -->
+        <div class="md:col-span-2 space-y-4">
+
+          <!-- Hours -->
+          <div style="background:#fff;border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,.08);">
+            <h3 class="font-display text-xl text-pb-charcoal mb-4">Studio Hours</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between"><span class="text-pb-muted">Monday – Saturday</span><span class="font-medium">8:00 AM – 7:00 PM</span></div>
+              <div class="flex justify-between"><span class="text-pb-muted">Sunday</span><span class="font-medium">10:00 AM – 5:00 PM</span></div>
+              <div class="flex justify-between"><span class="text-pb-muted">Public Holidays</span><span class="font-medium text-pb-gold">Call First</span></div>
+            </div>
+          </div>
+
+          <!-- M-Pesa Info -->
+          <div style="background:var(--pb-black);border-radius:8px;padding:1.5rem;border:1px solid rgba(201,169,110,.2);">
+            <p class="label-text text-pb-gold text-xs mb-3">M-Pesa Deposit</p>
+            <h3 class="font-display text-xl text-white mb-4">Secure Your Slot</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between text-white/70"><span>Paybill</span><strong class="text-pb-gold" id="mpesaPaybill">000000</strong></div>
+              <div class="flex justify-between text-white/70"><span>Account</span><strong class="text-pb-gold" id="mpesaAccount">PHOINA</strong></div>
+              <div class="flex justify-between text-white/70"><span>Reference</span><strong class="text-pb-gold">Your Name</strong></div>
+            </div>
+            <p class="text-xs text-white/40 mt-4">50% deposit required to confirm bookings over KES 5,000. Refundable up to 24hrs before appointment.</p>
+          </div>
+
+          <!-- Policies -->
+          <div style="background:var(--pb-cream);border-radius:8px;padding:1.5rem;border:1px solid var(--pb-beige);">
+            <h3 class="font-display text-xl text-pb-charcoal mb-3">Booking Policy</h3>
+            <ul class="space-y-2 text-sm text-pb-muted">
+              <li class="flex gap-2"><span class="text-pb-gold">✓</span>Free rescheduling up to 24hrs notice</li>
+              <li class="flex gap-2"><span class="text-pb-gold">✓</span>WhatsApp reminders sent day before</li>
+              <li class="flex gap-2"><span class="text-pb-gold">✓</span>Arrive 5 minutes early</li>
+              <li class="flex gap-2"><span class="text-pb-gold">✓</span>Complimentary refreshments</li>
+              <li class="flex gap-2"><span class="text-red-400">×</span>Late arrivals: 15min grace period</li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <a href="https://wa.me/16784380539?text=I+need+help+with+my+booking"
+             target="_blank"
+             style="display:flex;align-items:center;gap:.75rem;background:#25D366;border-radius:8px;padding:1.25rem;text-decoration:none;">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+            <div>
+              <p class="text-white font-semibold text-sm">Need help booking?</p>
+              <p class="text-white/70 text-xs">Chat with us on WhatsApp</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/16784380539?text=Hi%20Phoina%20Beauty%2C%20I%27d%20like%20to%20book!" target="_blank" rel="noopener" class="wa-fab" aria-label="Chat on WhatsApp">
+    <svg class="wa-fab-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+    <span class="wa-fab-text">Ask Phoina</span>
+  </a>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="assets/js/cms.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Load M-Pesa settings
+    (async () => {
+      const settings = await PB_CMS.getSettings();
+      if (!settings) return;
+      const mpesa = settings.mpesa || {};
+      if (mpesa.paybill) document.getElementById('mpesaPaybill').textContent = mpesa.paybill;
+      if (mpesa.account) document.getElementById('mpesaAccount').textContent = mpesa.account;
+      // Update WhatsApp links if phone changed
+      if (settings.whatsapp) {
+        const phone = settings.whatsapp.replace(/\D/g, '');
+        document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+          a.href = a.href.replace(/wa\.me\/\d+/, `wa.me/${phone}`);
+        });
+      }
+    })();
+
+    // Populate service grid from CMS data
+    (async () => {
+      const services = await PB_CMS.getServices(false);
+      const grid = document.getElementById('serviceGrid');
+      if (!grid || !services.length) return;
+      const param = new URLSearchParams(location.search).get('service') || '';
+      grid.innerHTML = services.map(s => {
+        const slug = s.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        const sel = param && (slug === param || s.name.toLowerCase().includes(param.toLowerCase())) ? ' selected' : '';
+        return `<button type="button" class="service-btn${sel}" data-service="${s.name}" aria-pressed="${!!sel}" onclick="selectService(this)">
+          <span class="text-sm font-medium">${s.name}</span>
+          <span class="text-xs text-pb-muted">${s.priceDisplay || 'from KES ' + (s.price||0).toLocaleString()}</span>
+        </button>`;
+      }).join('');
+      // Apply pre-selection from URL param
+      const preSelected = grid.querySelector('.service-btn.selected');
+      if (preSelected) {
+        document.getElementById('selectedService').value = preSelected.dataset.service;
+      }
+    })();
+
+    // Save booking submission to localStorage for admin review
+    const originalSubmit = document.getElementById('bookingForm')?.onsubmit;
+    document.getElementById('bookingForm')?.addEventListener('submit', async function(e) {
+      const formData = new FormData(this);
+      const booking = {
+        id: 'b' + Date.now(),
+        timestamp: new Date().toISOString(),
+        customerName: formData.get('name') || '',
+        phone: formData.get('phone') || '',
+        email: formData.get('email') || '',
+        service: formData.get('service') || document.getElementById('selectedService')?.value || '',
+        date: formData.get('date') || '',
+        time: formData.get('time') || '',
+        notes: formData.get('notes') || '',
+        status: 'new',
+        paymentStatus: 'unpaid'
+      };
+      if (booking.customerName && booking.service) {
+        try {
+          const existing = JSON.parse(localStorage.getItem('pb_bookings') || '[]');
+          existing.unshift(booking);
+          localStorage.setItem('pb_bookings', JSON.stringify(existing));
+        } catch (_) {}
+      }
+    });
+  </script>
+
+  <style>
+    .service-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: .875rem 1rem;
+      border: 1.5px solid rgba(0,0,0,.1);
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: left;
+      gap: .125rem;
+    }
+    .service-btn:hover { border-color: var(--pb-gold); }
+    .service-btn.selected { border-color: var(--pb-gold); background: rgba(201,169,110,.08); }
+  </style>
+
+</body>
+</html>
