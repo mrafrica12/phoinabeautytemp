@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Phoina Beauty Kenya</title>
+  <meta name="description" content="Beauty masterclasses, workshops, bridal expos and exclusive events. Book your spot at Phoina Beauty Kenya.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css?v=2">
+  <style>
+    .event-card { transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease; }
+    .event-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+    .event-img { overflow: hidden; aspect-ratio: 16/9; background: #f0ebe5; }
+    .event-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .event-card:hover .event-img img { transform: scale(1.05); }
+    .date-block { min-width: 56px; text-align: center; }
+    .filter-tab { transition: all 0.25s ease; border-bottom: 2px solid transparent; }
+    .filter-tab.active { color: #C9A96E; border-bottom-color: #C9A96E; }
+    .status-live { background: #16a34a; color: white; }
+    .status-upcoming { background: #C9A96E; color: #0A0A0A; }
+    .status-sold-out { background: #888; color: white; }
+    .modal-backdrop { background: rgba(0,0,0,0.75); }
+  </style>
+</head>
+<body class="bg-pb-white">
+
+<!-- NAVIGATION -->
+<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: rgba(10,10,10,0.7); backdrop-filter: blur(16px);">
+  <div style="max-width: min(1280px, 94vw); margin: 0 auto; padding: 0 1rem;">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html"><img src="assets/images/brand/logo.png" alt="Phoina Beauty" style="height:54px;width:auto;display:block;filter:brightness(0) saturate(100%) invert(72%) sepia(43%) saturate(600%) hue-rotate(4deg) brightness(97%);" loading="eager"></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-sm text-white/70 hover:text-pb-gold transition-colors">Home</a>
+        <a href="services.html" class="text-sm text-white/70 hover:text-pb-gold transition-colors">Services</a>
+        <a href="shop.html" class="text-sm text-white/70 hover:text-pb-gold transition-colors">Shop</a>
+        <a href="academy.html" class="text-sm text-white/70 hover:text-pb-gold transition-colors">Academy</a>
+        <a href="events.html" class="text-sm text-pb-gold font-medium border-b border-pb-gold pb-0.5">Events</a>
+        <a href="gallery.html" class="text-sm text-white/70 hover:text-pb-gold transition-colors">Gallery</a>
+        <a href="booking.html" class="text-sm text-white/70 hover:text-pb-gold transition-colors">Book</a>
+      </div>
+      <button id="menuBtn" class="md:hidden text-white p-2" onclick="toggleMenu()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobileNav" class="fixed inset-0 z-40 bg-pb-black flex-col items-center justify-center hidden">
+  <button onclick="toggleMenu()" class="absolute top-5 right-5 text-white/60 hover:text-white">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="flex flex-col items-center gap-8 mt-20">
+    <a href="index.html" class="font-display text-2xl text-white hover:text-pb-gold transition-colors" onclick="toggleMenu()">Home</a>
+    <a href="shop.html" class="font-display text-2xl text-white hover:text-pb-gold transition-colors" onclick="toggleMenu()">Shop</a>
+    <a href="academy.html" class="font-display text-2xl text-white hover:text-pb-gold transition-colors" onclick="toggleMenu()">Academy</a>
+    <a href="events.html" class="font-display text-2xl text-pb-gold" onclick="toggleMenu()">Events</a>
+    <a href="gallery.html" class="font-display text-2xl text-white hover:text-pb-gold transition-colors" onclick="toggleMenu()">Gallery</a>
+    <a href="booking.html" class="font-display text-2xl text-white hover:text-pb-gold transition-colors" onclick="toggleMenu()">Book Now</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="relative flex items-end" style="height: 55svh; min-height: 340px; background: #0A0A0A;">
+  <div class="absolute inset-0">
+    <img src="assets/images/lifestyle/phoina-event-banner.webp" alt="Beauty events" class="w-full h-full object-cover opacity-35">
+    <div class="absolute inset-0" style="background: linear-gradient(to top, #0A0A0A 35%, rgba(10,10,10,0.2) 100%);"></div>
+  </div>
+  <div class="relative w-full pb-12 pt-24" style="max-width: min(1280px, 94vw); margin: 0 auto; padding-left: 1rem; padding-right: 1rem;">
+    <span class="section-label text-pb-gold/70 mb-4 block">Experiences & Masterclasses</span>
+    <h1 class="font-display text-pb-white mb-3" style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em;">
+      Events That<br><em class="text-pb-gold">Elevate You</em>
+    </h1>
+    <p class="text-white/60 text-base max-w-lg">Masterclasses, workshops, bridal expos, and exclusive brand launches. Curated for beauty professionals and enthusiasts alike.</p>
+  </div>
+</section>
+
+<!-- TRUST TICKER -->
+<div class="trust-bar bg-pb-black overflow-hidden py-3">
+  <div class="trust-ticker whitespace-nowrap">
+    <span>Expert-Led Masterclasses</span><span>★</span>
+    <span>Limited Seats</span><span>★</span>
+    <span>Certificates Awarded</span><span>★</span>
+    <span>M-Pesa Registration</span><span>★</span>
+    <span>WhatsApp Updates</span><span>★</span>
+    <span>Nairobi & Beyond</span><span>★</span>
+    <span>Expert-Led Masterclasses</span><span>★</span>
+    <span>Limited Seats</span><span>★</span>
+    <span>Certificates Awarded</span><span>★</span>
+    <span>M-Pesa Registration</span><span>★</span>
+    <span>WhatsApp Updates</span><span>★</span>
+    <span>Nairobi & Beyond</span><span>★</span>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<section class="py-16 bg-pb-white">
+  <div style="max-width: min(1280px, 94vw); margin: 0 auto; padding: 0 1rem;">
+
+    <!-- Filter row -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+      <div class="flex gap-0 border-b border-pb-beige overflow-x-auto">
+        <button class="filter-tab active text-sm font-medium px-4 py-3 whitespace-nowrap text-pb-charcoal" onclick="filterEvents('all', this)">All Events</button>
+        <button class="filter-tab text-sm font-medium px-4 py-3 whitespace-nowrap text-pb-muted" onclick="filterEvents('masterclass', this)">Masterclasses</button>
+        <button class="filter-tab text-sm font-medium px-4 py-3 whitespace-nowrap text-pb-muted" onclick="filterEvents('workshop', this)">Workshops</button>
+        <button class="filter-tab text-sm font-medium px-4 py-3 whitespace-nowrap text-pb-muted" onclick="filterEvents('expo', this)">Expos</button>
+        <button class="filter-tab text-sm font-medium px-4 py-3 whitespace-nowrap text-pb-muted" onclick="filterEvents('launch', this)">Launches</button>
+      </div>
+      <p id="eventCount" class="text-sm text-pb-muted whitespace-nowrap">6 events</p>
+    </div>
+
+    <!-- Events Grid -->
+    <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Event 1 -->
+      <div class="event-card bg-white border border-pb-beige" data-type="masterclass">
+        <div class="event-img relative">
+          <img src="assets/images/lifestyle/gallery-07.webp" alt="Bridal Makeup Masterclass" loading="lazy">
+          <div class="absolute top-3 left-3"><span class="badge status-live text-xs px-2 py-1 font-semibold uppercase tracking-wide">Booking Open</span></div>
+          <div class="absolute top-3 right-3 bg-pb-black/80 text-pb-gold text-xs px-2 py-1 font-semibold">4 seats left</div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start gap-4 mb-3">
+            <div class="date-block bg-pb-cream pt-2 pb-2 px-3 flex-shrink-0">
+              <p class="text-pb-gold font-semibold text-xl leading-none font-display">14</p>
+              <p class="text-pb-muted text-xs uppercase tracking-widest">Jun</p>
+            </div>
+            <div>
+              <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Masterclass</p>
+              <h3 class="font-display text-lg font-medium text-pb-black leading-snug">Bridal Makeup Masterclass</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-pb-muted mb-3">
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>9:00 AM – 5:00 PM</span>
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Phoina Studio, Westlands</span>
+          </div>
+          <p class="text-sm text-pb-muted mb-4 leading-relaxed">Full-day bridal makeup training with live model. Skin prep, airbrush techniques, and a complete bridal look from start to finish.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-pb-beige">
+            <div>
+              <span class="font-display text-xl text-pb-black">KES 8,500</span>
+              <p class="text-xs text-pb-muted">incl. kit & certificate</p>
+            </div>
+            <button onclick="openEventModal('bridal-masterclass')" class="btn btn-primary px-4 py-2 text-sm">Book Spot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-card bg-white border border-pb-beige" data-type="workshop">
+        <div class="event-img relative">
+          <img src="assets/images/lifestyle/gallery-08.webp" alt="Natural Hair Workshop" loading="lazy">
+          <div class="absolute top-3 left-3"><span class="badge status-upcoming text-xs px-2 py-1 font-semibold uppercase tracking-wide">Upcoming</span></div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start gap-4 mb-3">
+            <div class="date-block bg-pb-cream pt-2 pb-2 px-3 flex-shrink-0">
+              <p class="text-pb-gold font-semibold text-xl leading-none font-display">21</p>
+              <p class="text-pb-muted text-xs uppercase tracking-widest">Jun</p>
+            </div>
+            <div>
+              <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Workshop</p>
+              <h3 class="font-display text-lg font-medium text-pb-black leading-snug">Natural Hair Care Workshop</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-pb-muted mb-3">
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>10:00 AM – 2:00 PM</span>
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Kilimani, Nairobi</span>
+          </div>
+          <p class="text-sm text-pb-muted mb-4 leading-relaxed">Hands-on workshop covering co-washing, deep conditioning, protective styles, and building a personalised natural hair regimen.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-pb-beige">
+            <div>
+              <span class="font-display text-xl text-pb-black">KES 3,500</span>
+              <p class="text-xs text-pb-muted">incl. product samples</p>
+            </div>
+            <button onclick="openEventModal('natural-hair')" class="btn btn-primary px-4 py-2 text-sm">Book Spot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-card bg-white border border-pb-beige" data-type="expo">
+        <div class="event-img relative">
+          <img src="assets/images/lifestyle/gallery-09.webp" alt="Nairobi Bridal Beauty Expo" loading="lazy">
+          <div class="absolute top-3 left-3"><span class="badge status-upcoming text-xs px-2 py-1 font-semibold uppercase tracking-wide">Upcoming</span></div>
+          <div class="absolute top-3 right-3 bg-pb-gold text-pb-black text-xs px-2 py-1 font-semibold">Free Entry</div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start gap-4 mb-3">
+            <div class="date-block bg-pb-cream pt-2 pb-2 px-3 flex-shrink-0">
+              <p class="text-pb-gold font-semibold text-xl leading-none font-display">05</p>
+              <p class="text-pb-muted text-xs uppercase tracking-widest">Jul</p>
+            </div>
+            <div>
+              <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Expo</p>
+              <h3 class="font-display text-lg font-medium text-pb-black leading-snug">Nairobi Bridal Beauty Expo</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-pb-muted mb-3">
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>10:00 AM – 6:00 PM</span>
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>KICC, Nairobi</span>
+          </div>
+          <p class="text-sm text-pb-muted mb-4 leading-relaxed">Kenya's premier bridal beauty exhibition. 50+ vendors, live demos, giveaways, and exclusive discounts for brides-to-be and beauty professionals.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-pb-beige">
+            <div>
+              <span class="font-display text-xl text-pb-black">Free</span>
+              <p class="text-xs text-pb-muted">register to attend</p>
+            </div>
+            <button onclick="openEventModal('bridal-expo')" class="btn btn-primary px-4 py-2 text-sm">Register</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 4 -->
+      <div class="event-card bg-white border border-pb-beige" data-type="masterclass">
+        <div class="event-img relative">
+          <img src="assets/images/lifestyle/gallery-10.webp" alt="Skincare Science Masterclass" loading="lazy">
+          <div class="absolute top-3 left-3"><span class="badge status-upcoming text-xs px-2 py-1 font-semibold uppercase tracking-wide">Upcoming</span></div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start gap-4 mb-3">
+            <div class="date-block bg-pb-cream pt-2 pb-2 px-3 flex-shrink-0">
+              <p class="text-pb-gold font-semibold text-xl leading-none font-display">12</p>
+              <p class="text-pb-muted text-xs uppercase tracking-widest">Jul</p>
+            </div>
+            <div>
+              <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Masterclass</p>
+              <h3 class="font-display text-lg font-medium text-pb-black leading-snug">Skincare Science for Dark Skin</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-pb-muted mb-3">
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>9:00 AM – 1:00 PM</span>
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Phoina Studio, Westlands</span>
+          </div>
+          <p class="text-sm text-pb-muted mb-4 leading-relaxed">A science-led deep-dive into melanin-rich skin: hyperpigmentation, ingredient formulations, SPF for dark complexions, and building client consultation protocols.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-pb-beige">
+            <div>
+              <span class="font-display text-xl text-pb-black">KES 5,500</span>
+              <p class="text-xs text-pb-muted">incl. skincare kit</p>
+            </div>
+            <button onclick="openEventModal('skincare-masterclass')" class="btn btn-primary px-4 py-2 text-sm">Book Spot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 5 -->
+      <div class="event-card bg-white border border-pb-beige" data-type="launch">
+        <div class="event-img relative">
+          <img src="assets/images/lifestyle/gallery-11.webp" alt="Product Launch Party" loading="lazy">
+          <div class="absolute top-3 left-3"><span class="badge status-live text-xs px-2 py-1 font-semibold uppercase tracking-wide">VIP Only</span></div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start gap-4 mb-3">
+            <div class="date-block bg-pb-cream pt-2 pb-2 px-3 flex-shrink-0">
+              <p class="text-pb-gold font-semibold text-xl leading-none font-display">19</p>
+              <p class="text-pb-muted text-xs uppercase tracking-widest">Jul</p>
+            </div>
+            <div>
+              <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Launch</p>
+              <h3 class="font-display text-lg font-medium text-pb-black leading-snug">New Collection Launch Night</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-pb-muted mb-3">
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>6:00 PM – 10:00 PM</span>
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Radisson Blu, Nairobi</span>
+          </div>
+          <p class="text-sm text-pb-muted mb-4 leading-relaxed">An exclusive evening celebrating Phoina Beauty's new summer collection. Champagne, live artistry demos, gifting suite, and a first-access shopping experience.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-pb-beige">
+            <div>
+              <span class="font-display text-xl text-pb-black">Invite Only</span>
+              <p class="text-xs text-pb-muted">Royal Circle members</p>
+            </div>
+            <a href="https://wa.me/16784380539?text=Hi!%20I'd%20like%20to%20request%20an%20invite%20to%20the%20Collection%20Launch%20Night." target="_blank" class="btn-whatsapp px-4 py-2 text-sm font-medium">Request Invite</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 6 -->
+      <div class="event-card bg-white border border-pb-beige" data-type="workshop">
+        <div class="event-img relative">
+          <img src="assets/images/lifestyle/gallery-12.webp" alt="Nail Art Workshop" loading="lazy">
+          <div class="absolute top-3 left-3"><span class="badge status-sold-out text-xs px-2 py-1 font-semibold uppercase tracking-wide">Sold Out</span></div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start gap-4 mb-3">
+            <div class="date-block bg-pb-cream pt-2 pb-2 px-3 flex-shrink-0">
+              <p class="text-pb-gold font-semibold text-xl leading-none font-display">26</p>
+              <p class="text-pb-muted text-xs uppercase tracking-widest">Jul</p>
+            </div>
+            <div>
+              <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">Workshop</p>
+              <h3 class="font-display text-lg font-medium text-pb-black leading-snug">Nail Art Intensive Workshop</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-pb-muted mb-3">
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>10:00 AM – 4:00 PM</span>
+            <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Phoina Studio, Westlands</span>
+          </div>
+          <p class="text-sm text-pb-muted mb-4 leading-relaxed">Gel extensions, chrome powders, nail art designs, and building a nail business from scratch. Hands-on practice on 3 models included.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-pb-beige">
+            <div>
+              <span class="font-display text-xl text-pb-black">KES 6,000</span>
+              <p class="text-xs text-pb-muted">incl. nail kit</p>
+            </div>
+            <button class="btn btn-primary px-4 py-2 text-sm opacity-40 cursor-not-allowed" disabled>Sold Out</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- Waitlist notice -->
+    <div class="mt-8 text-center">
+      <p class="text-sm text-pb-muted">Sold out? <a href="https://wa.me/16784380539?text=Hi!%20I'd%20like%20to%20join%20the%20waitlist%20for%20an%20event." target="_blank" class="text-pb-gold hover:underline">Join the waitlist on WhatsApp →</a></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAST EVENTS HIGHLIGHT -->
+<section class="py-16" style="background: #0A0A0A;">
+  <div style="max-width: min(1280px, 94vw); margin: 0 auto; padding: 0 1rem;">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <div>
+        <span class="section-label text-pb-gold/60 mb-3 block">Gallery</span>
+        <h2 class="font-display text-pb-white" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;">Past Event<br><em class="text-pb-gold">Highlights</em></h2>
+      </div>
+      <a href="https://wa.me/16784380539?text=Hi!%20I'd%20like%20to%20know%20about%20upcoming%20events." target="_blank" class="text-sm text-pb-gold/60 hover:text-pb-gold transition-colors mb-1">Get notified for next events →</a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="aspect-square overflow-hidden"><img src="assets/images/lifestyle/gallery-13.webp" alt="Past event" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+      <div class="aspect-square overflow-hidden"><img src="assets/images/lifestyle/gallery-14.webp" alt="Past event" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+      <div class="aspect-square overflow-hidden"><img src="assets/images/lifestyle/gallery-15.webp" alt="Past event" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+      <div class="aspect-square overflow-hidden"><img src="assets/images/lifestyle/gallery-16.webp" alt="Past event" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+    </div>
+    <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+      <div><p class="font-display text-3xl text-pb-gold">48+</p><p class="text-white/40 text-sm mt-1">Events Hosted</p></div>
+      <div><p class="font-display text-3xl text-pb-gold">2,400+</p><p class="text-white/40 text-sm mt-1">Attendees</p></div>
+      <div><p class="font-display text-3xl text-pb-gold">98%</p><p class="text-white/40 text-sm mt-1">Would Attend Again</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOST AN EVENT CTA -->
+<section class="py-16 bg-pb-cream">
+  <div style="max-width: min(960px, 94vw); margin: 0 auto; padding: 0 1rem; text-align: center;">
+    <span class="section-label text-pb-chocolate/60 mb-3 block">Collaborate</span>
+    <h2 class="font-display text-pb-black mb-4" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;">Host a Beauty Event<br><em>With Phoina</em></h2>
+    <p class="text-pb-muted text-sm max-w-md mx-auto mb-8">We collaborate with brands, studios, wedding planners, and beauty schools to co-produce world-class events. Our space, our audience, your vision.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-3">
+      <a href="https://wa.me/16784380539?text=Hi!%20I'd%20like%20to%20discuss%20co-hosting%20a%20beauty%20event%20with%20Phoina%20Beauty." target="_blank" class="btn-whatsapp px-8 py-3 text-sm font-medium flex items-center justify-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat With Us
+      </a>
+      <a href="mailto:events@phoinabeauty.co.ke" class="btn btn-primary px-8 py-3 text-sm">Email Events Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-pb-charcoal py-12">
+  <div style="max-width: min(1280px, 94vw); margin: 0 auto; padding: 0 1rem;">
+    <div class="flex flex-col md:flex-row justify-between gap-8 mb-10">
+      <div class="max-w-xs">
+        <p class="font-display text-xl text-pb-white mb-2">Phoina <span class="text-pb-gold">Beauty</span></p>
+        <p class="text-sm text-white/40 mb-4">Premium beauty destination for the modern African woman. Professional services, training, and curated products.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
+        <div>
+          <p class="text-pb-gold font-medium mb-3 uppercase tracking-widest text-xs">Explore</p>
+          <div class="flex flex-col gap-2 text-white/40">
+            <a href="index.html" class="hover:text-pb-gold transition-colors">Home</a>
+            <a href="services.html" class="hover:text-pb-gold transition-colors">Services</a>
+            <a href="shop.html" class="hover:text-pb-gold transition-colors">Shop</a>
+            <a href="academy.html" class="hover:text-pb-gold transition-colors">Academy</a>
+            <a href="booking.html" class="hover:text-pb-gold transition-colors">Book Now</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-pb-gold font-medium mb-3 uppercase tracking-widest text-xs">Events</p>
+          <div class="flex flex-col gap-2 text-white/40">
+            <a href="#" class="hover:text-pb-gold transition-colors">Masterclasses</a>
+            <a href="#" class="hover:text-pb-gold transition-colors">Workshops</a>
+            <a href="#" class="hover:text-pb-gold transition-colors">Bridal Expo</a>
+            <a href="#" class="hover:text-pb-gold transition-colors">Product Launches</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-pb-gold font-medium mb-3 uppercase tracking-widest text-xs">Contact</p>
+          <div class="flex flex-col gap-2 text-white/40 text-xs">
+            <p>Westlands, Nairobi</p>
+            <a href="tel:+16784380539" class="hover:text-pb-gold transition-colors">+1 678 438 0539</a>
+            <a href="mailto:events@phoinabeauty.co.ke" class="hover:text-pb-gold transition-colors">events@phoinabeauty.co.ke</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="text-xs text-white/20">© 2026 Phoina Beauty Kenya. All rights reserved.</p>
+      <p class="text-xs text-white/20">Built with <span class="text-pb-gold/40">UmojaServ Platform</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- EVENT BOOKING MODAL -->
+<div id="eventModal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden" style="display:none;">
+  <div class="absolute inset-0 modal-backdrop" onclick="closeEventModal()"></div>
+  <div class="relative bg-white w-full max-w-md p-8 max-h-[90vh] overflow-y-auto">
+    <button onclick="closeEventModal()" class="absolute top-4 right-4 text-pb-muted hover:text-pb-black">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 id="modalEventTitle" class="font-display text-2xl mb-1 text-pb-black">Book Your Spot</h3>
+    <p id="modalEventMeta" class="text-sm text-pb-muted mb-6"></p>
+    <form id="eventBookingForm" onsubmit="submitEventBooking(event)">
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-medium text-pb-charcoal uppercase tracking-widest mb-1 block">Full Name *</label>
+          <input type="text" required placeholder="Your name" class="form-input w-full px-4 py-3 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+        </div>
+        <div>
+          <label class="text-xs font-medium text-pb-charcoal uppercase tracking-widest mb-1 block">WhatsApp Number *</label>
+          <input type="tel" required placeholder="+254 7XX XXX XXX" class="form-input w-full px-4 py-3 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors">
+        </div>
+        <div>
+          <label class="text-xs font-medium text-pb-charcoal uppercase tracking-widest mb-1 block">Number of Tickets</label>
+          <select class="form-input w-full px-4 py-3 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors bg-white">
+            <option>1 ticket</option>
+            <option>2 tickets</option>
+            <option>3 tickets</option>
+            <option>4+ tickets (contact us)</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-medium text-pb-charcoal uppercase tracking-widest mb-1 block">Experience Level</label>
+          <select class="form-input w-full px-4 py-3 border border-pb-beige focus:border-pb-gold outline-none text-sm transition-colors bg-white">
+            <option>Beginner — just starting out</option>
+            <option>Intermediate — some experience</option>
+            <option>Professional — working in beauty</option>
+          </select>
+        </div>
+        <div class="bg-pb-cream p-4 text-sm">
+          <p class="font-medium text-pb-black mb-1">Payment via M-Pesa</p>
+          <p class="text-pb-muted text-xs">After booking, you'll receive M-Pesa payment instructions on WhatsApp. Your spot is confirmed upon payment.</p>
+        </div>
+        <button type="submit" class="w-full btn btn-primary py-3 text-sm">Confirm Booking via WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- WHATSAPP STICKY -->
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/16784380539?text=Hi%20Phoina%20Beauty%2C%20I%27d%20like%20to%20chat!" target="_blank" rel="noopener" class="wa-fab" aria-label="Chat on WhatsApp">
+    <svg class="wa-fab-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+    <span class="wa-fab-text">Ask Phoina</span>
+  </a>
+
+<script src="assets/js/cms.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  let currentEvent = null;
+
+  const eventData = {
+    'bridal-masterclass': { title: 'Bridal Makeup Masterclass', meta: 'Jun 14 • 9AM–5PM • Phoina Studio, Westlands • KES 8,500' },
+    'natural-hair':       { title: 'Natural Hair Care Workshop', meta: 'Jun 21 • 10AM–2PM • Kilimani • KES 3,500' },
+    'bridal-expo':        { title: 'Nairobi Bridal Beauty Expo', meta: 'Jul 5 • 10AM–6PM • KICC, Nairobi • Free Entry' },
+    'skincare-masterclass':{ title: 'Skincare Science for Dark Skin', meta: 'Jul 12 • 9AM–1PM • Phoina Studio • KES 5,500' },
+  };
+
+  function openEventModal(id) {
+    currentEvent = id;
+    const data = eventData[id];
+    if (data) {
+      document.getElementById('modalEventTitle').textContent = data.title;
+      document.getElementById('modalEventMeta').textContent = data.meta;
+    }
+    const modal = document.getElementById('eventModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeEventModal() {
+    document.getElementById('eventModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function submitEventBooking(e) {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.querySelector('input[type=text]').value;
+    const phone = form.querySelector('input[type=tel]').value;
+    const tickets = form.querySelector('select').value;
+    const data = eventData[currentEvent] || {};
+    const msg = `🎟️ *Event Booking — Phoina Beauty*\n\n*Event:* ${data.title || currentEvent}\n*Date/Venue:* ${data.meta || ''}\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Tickets:* ${tickets}\n\nPlease confirm my spot and send M-Pesa payment details.`;
+    window.open(`https://wa.me/16784380539?text=${encodeURIComponent(msg)}`, '_blank');
+    closeEventModal();
+  }
+
+  function filterEvents(type, btn) {
+    const cards = document.querySelectorAll('#eventsGrid .event-card');
+    let count = 0;
+    cards.forEach(c => {
+      const match = type === 'all' || c.dataset.type === type;
+      c.style.display = match ? '' : 'none';
+      if (match) { count++; c.style.opacity='0'; setTimeout(() => { c.style.transition='opacity 0.3s ease'; c.style.opacity='1'; }, 20); }
+    });
+    document.getElementById('eventCount').textContent = `${count} event${count !== 1 ? 's' : ''}`;
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+  }
+
+  // Hydrate events grid from CMS data
+  (async () => {
+    const events = await PB_CMS.getEvents(false);
+    if (!events || !events.length) return;
+
+    const statusMap = {
+      upcoming:  { cls: 'status-upcoming', label: 'Upcoming' },
+      live:      { cls: 'status-live',     label: 'Booking Open' },
+      sold_out:  { cls: 'status-sold-out', label: 'Sold Out' },
+      completed: { cls: 'status-sold-out', label: 'Past Event' },
+    };
+
+    const grid = document.getElementById('eventsGrid');
+    if (!grid) return;
+
+    grid.innerHTML = events.map(ev => {
+      const d = new Date(ev.date);
+      const day = d.getDate();
+      const mon = d.toLocaleString('en-KE', { month: 'short' }).toUpperCase();
+      const st = statusMap[ev.status] || statusMap.upcoming;
+      const price = ev.price === 0 ? 'Free Entry' : `KES ${(ev.price||0).toLocaleString()}`;
+      const cat = (ev.category || 'event').toLowerCase();
+      const slug = ev.id;
+      const img = ev.image || 'assets/images/lifestyle/gallery-07.webp';
+
+      // Register in eventData for modal
+      eventData[slug] = {
+        title: ev.title,
+        meta: `${ev.date} • ${ev.time || ''} • ${ev.location || 'Phoina Studio'} • ${price}`
+      };
+
+      return `
+        <div class="event-card bg-white border border-pb-beige" data-type="${cat}">
+          <div class="event-img relative">
+            <img src="${img}" alt="${ev.title}" loading="lazy">
+            <div class="absolute top-3 left-3">
+              <span class="badge ${st.cls} text-xs px-2 py-1 font-semibold uppercase tracking-wide">${st.label}</span>
+            </div>
+            ${ev.seatsLeft ? `<div class="absolute top-3 right-3 bg-pb-black/80 text-pb-gold text-xs px-2 py-1 font-semibold">${ev.seatsLeft} seats left</div>` : ''}
+          </div>
+          <div class="p-5">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="date-block bg-pb-cream pt-2 pb-2 px-3 flex-shrink-0">
+                <p class="text-pb-gold font-semibold text-xl leading-none font-display">${day}</p>
+                <p class="text-pb-muted text-xs uppercase tracking-widest">${mon}</p>
+              </div>
+              <div>
+                <p class="text-xs text-pb-muted uppercase tracking-widest mb-1">${ev.category || 'Event'}</p>
+                <h3 class="font-display text-lg font-medium text-pb-black leading-snug">${ev.title}</h3>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-pb-muted mb-3">
+              <span class="flex items-center gap-1">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                ${ev.time || 'TBA'}
+              </span>
+              <span class="flex items-center gap-1">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                ${ev.location || 'Phoina Studio'}
+              </span>
+            </div>
+            <p class="text-sm text-pb-muted mb-4 leading-relaxed">${ev.description || ''}</p>
+            <div class="flex items-center justify-between pt-3 border-t border-pb-beige">
+              <div>
+                <span class="font-display text-xl text-pb-black">${price}</span>
+              </div>
+              ${ev.status !== 'sold_out' && ev.status !== 'completed'
+                ? `<button onclick="openEventModal('${slug}')" class="btn btn-primary px-4 py-2 text-sm">Book Spot</button>`
+                : `<span class="text-xs text-pb-muted italic">Closed</span>`}
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
+    // Update count
+    const total = events.length;
+    const countEl = document.getElementById('eventCount');
+    if (countEl) countEl.textContent = `${total} event${total !== 1 ? 's' : ''}`;
+  })();
+</script>
+</body>
+</html>
