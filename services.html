@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Phoina Beauty Services — Hair Studio, Makeup, Nails, Bridal, Wig Installation & more. Premium beauty services in Nairobi, Kenya.">
+  <title>Services — Phoina Beauty Kenya</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css?v=2">
+</head>
+
+<body class="bg-pb-white text-pb-charcoal font-sans">
+
+  <!-- NAVIGATION -->
+  <nav class="nav-wrapper" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/brand/logo.png" alt="Phoina Beauty" style="height:68px;width:auto;display:block;filter:brightness(0) saturate(100%) invert(72%) sepia(43%) saturate(600%) hue-rotate(4deg) brightness(97%);" loading="eager">
+      </a>
+      <ul class="nav-links">
+        <li><a href="services.html" style="color:var(--pb-gold);">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta flex items-center gap-3">
+        <a href="https://wa.me/254733934358?text=Hi%20Phoina%20Beauty%2C%20I%27d%20like%20to%20book" target="_blank" class="btn btn-whatsapp btn-sm hidden md:inline-flex">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+          WhatsApp
+        </a>
+        <a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+        <button class="nav-hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mt-8 flex flex-col gap-3">
+      <a href="booking.html" class="btn btn-primary">Book an Appointment</a>
+      <a href="https://wa.me/254733934358" target="_blank" class="btn btn-whatsapp">Chat on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="hero" style="height:60vh;min-height:400px;">
+    <img src="assets/images/lifestyle/phoina-salon-banner.webp"
+         alt="Phoina Beauty Services" class="hero-bg" loading="eager">
+    <div class="hero-overlay" style="background:linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.5));"></div>
+    <div class="hero-content">
+      <p class="section-label text-pb-gold mb-4">Premium Services</p>
+      <h1 class="heading-xl text-pb-white mb-4">Every Service,<br><em class="italic text-pb-gold">Perfectly Executed.</em></h1>
+      <p class="body-lead text-white/70 max-w-lg">From hair transformations to bridal masterpieces — precision, luxury, and care on every visit.</p>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-ticker" aria-hidden="true">
+      <span class="trust-ticker-item"><span class="dot"></span> Hair Studio</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Makeup Artistry</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Nail Bar</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Bridal Packages</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Wig Installation</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Braiding & Twists</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Skincare & Facials</span>
+      <span class="trust-ticker-item"><span class="dot"></span> M-Pesa Accepted</span>
+      <span class="trust-ticker-item"><span class="dot"></span> WhatsApp Bookings</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Hair Studio</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Makeup Artistry</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Nail Bar</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Bridal Packages</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Wig Installation</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Braiding & Twists</span>
+      <span class="trust-ticker-item"><span class="dot"></span> Skincare & Facials</span>
+      <span class="trust-ticker-item"><span class="dot"></span> M-Pesa Accepted</span>
+      <span class="trust-ticker-item"><span class="dot"></span> WhatsApp Bookings</span>
+    </div>
+  </div>
+
+  <!-- SERVICES GRID -->
+  <section class="section-pad bg-pb-white" id="services">
+    <div class="container">
+      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+        <p class="section-label justify-center">What We Offer</p>
+        <h2 class="heading-lg text-pb-black mt-2">15+ Premium Services<br><em class="italic text-pb-gold-dark">Under One Roof.</em></h2>
+        <p class="body-lead text-pb-muted mt-4">Book any service via WhatsApp or our online form. M-Pesa accepted.</p>
+      </div>
+
+      <!-- Hair Studio -->
+      <div id="hair" class="grid md:grid-cols-2 gap-10 items-center mb-20 reveal">
+        <div class="relative overflow-hidden rounded" style="aspect-ratio:4/3;">
+          <img src="assets/images/lifestyle/phoina-service-01.webp" alt="Hair Studio" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <span class="label-text text-pb-gold tracking-widest block mb-3">01 — Hair Studio</span>
+          <h2 class="font-display text-4xl text-pb-black mb-4">Hair Studio</h2>
+          <p class="text-pb-muted leading-relaxed mb-6">Transform your hair with our expert stylists. From relaxers and natural care to bold colour and heat styling — every look delivered with precision.</p>
+          <div class="space-y-2 mb-6">
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Wash & Blow Dry</span>
+              <span class="text-pb-gold font-medium">from KES 800</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Relaxer Treatment</span>
+              <span class="text-pb-gold font-medium">from KES 2,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Hair Colouring</span>
+              <span class="text-pb-gold font-medium">from KES 4,000</span>
+            </div>
+            <div class="flex justify-between py-2 text-sm">
+              <span class="text-pb-charcoal">Natural Hair Treatment</span>
+              <span class="text-pb-gold font-medium">from KES 1,500</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="booking.html?service=hair" class="btn btn-primary">Book Hair Service</a>
+            <a href="https://wa.me/254733934358?text=Hair+Studio+inquiry" target="_blank" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Makeup Studio -->
+      <div id="makeup" class="grid md:grid-cols-2 gap-10 items-center mb-20 reveal">
+        <div class="order-2 md:order-1">
+          <span class="label-text text-pb-gold tracking-widest block mb-3">02 — Makeup Studio</span>
+          <h2 class="font-display text-4xl text-pb-black mb-4">Makeup Studio</h2>
+          <p class="text-pb-muted leading-relaxed mb-6">From editorial glamour to everyday radiance — our makeup artists are trained in the latest techniques and melanin-inclusive colour science.</p>
+          <div class="space-y-2 mb-6">
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Everyday Glam</span>
+              <span class="text-pb-gold font-medium">from KES 1,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Full Glam / Evening</span>
+              <span class="text-pb-gold font-medium">from KES 3,000</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Editorial / Shoot Makeup</span>
+              <span class="text-pb-gold font-medium">from KES 5,000</span>
+            </div>
+            <div class="flex justify-between py-2 text-sm">
+              <span class="text-pb-charcoal">Airbrush Makeup</span>
+              <span class="text-pb-gold font-medium">from KES 4,500</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="booking.html?service=makeup" class="btn btn-primary">Book Makeup</a>
+            <a href="https://wa.me/254733934358?text=Makeup+Studio+inquiry" target="_blank" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded order-1 md:order-2" style="aspect-ratio:4/3;">
+          <img src="assets/images/lifestyle/phoina-makeup-01.webp" alt="Makeup Studio" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- Nail Bar -->
+      <div id="nails" class="grid md:grid-cols-2 gap-10 items-center mb-20 reveal">
+        <div class="relative overflow-hidden rounded" style="aspect-ratio:4/3;">
+          <img src="assets/images/lifestyle/phoina-service-03.webp" alt="Nail Bar" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <span class="label-text text-pb-gold tracking-widest block mb-3">03 — Nail Bar</span>
+          <h2 class="font-display text-4xl text-pb-black mb-4">Nail Bar</h2>
+          <p class="text-pb-muted leading-relaxed mb-6">Gel, acrylic, dip powder, nail art — our nail technicians create flawless results that last. Walk-ins welcome.</p>
+          <div class="space-y-2 mb-6">
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Gel Manicure</span>
+              <span class="text-pb-gold font-medium">from KES 900</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Acrylic Set</span>
+              <span class="text-pb-gold font-medium">from KES 1,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Nail Art (per nail)</span>
+              <span class="text-pb-gold font-medium">from KES 100</span>
+            </div>
+            <div class="flex justify-between py-2 text-sm">
+              <span class="text-pb-charcoal">Mani + Pedi Combo</span>
+              <span class="text-pb-gold font-medium">from KES 2,200</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="booking.html?service=nails" class="btn btn-primary">Book Nails</a>
+            <a href="https://wa.me/254733934358?text=Nail+Bar+inquiry" target="_blank" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bridal -->
+      <div id="bridal" class="grid md:grid-cols-2 gap-10 items-center mb-20 reveal">
+        <div class="order-2 md:order-1">
+          <span class="label-text text-pb-gold tracking-widest block mb-3">04 — Bridal</span>
+          <h2 class="font-display text-4xl text-pb-black mb-4">Bridal Styling</h2>
+          <p class="text-pb-muted leading-relaxed mb-6">Your wedding day deserves perfection. Our bridal specialists handle everything — hair, makeup, nails — so you can focus on saying "I do."</p>
+          <div class="space-y-2 mb-6">
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Bridal Makeup</span>
+              <span class="text-pb-gold font-medium">from KES 5,000</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Bridal Hair Styling</span>
+              <span class="text-pb-gold font-medium">from KES 4,000</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Full Bridal Package (Hair + Makeup + Nails)</span>
+              <span class="text-pb-gold font-medium">from KES 12,000</span>
+            </div>
+            <div class="flex justify-between py-2 text-sm">
+              <span class="text-pb-charcoal">Trial Run (before wedding day)</span>
+              <span class="text-pb-gold font-medium">from KES 3,500</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="booking.html?service=bridal" class="btn btn-primary">Book Bridal</a>
+            <a href="https://wa.me/254733934358?text=Bridal+package+inquiry" target="_blank" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded order-1 md:order-2" style="aspect-ratio:4/3;">
+          <img src="assets/images/lifestyle/bridal-makeup-artist.webp" alt="Bridal Styling" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- Wig Installation -->
+      <div id="wigs" class="grid md:grid-cols-2 gap-10 items-center mb-20 reveal">
+        <div class="relative overflow-hidden rounded" style="aspect-ratio:4/3;">
+          <img src="assets/images/lifestyle/phoina-service-05.webp" alt="Wig Installation" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <span class="label-text text-pb-gold tracking-widest block mb-3">05 — Wigs</span>
+          <h2 class="font-display text-4xl text-pb-black mb-4">Wig Installation</h2>
+          <p class="text-pb-muted leading-relaxed mb-6">Premium wig installation for lace front, full lace, U-part, and custom wigs. Natural-looking hairline guaranteed.</p>
+          <div class="space-y-2 mb-6">
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Lace Front Install</span>
+              <span class="text-pb-gold font-medium">from KES 1,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Full Lace Install + Styling</span>
+              <span class="text-pb-gold font-medium">from KES 2,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Wig Customisation (plucking, bleaching)</span>
+              <span class="text-pb-gold font-medium">from KES 1,200</span>
+            </div>
+            <div class="flex justify-between py-2 text-sm">
+              <span class="text-pb-charcoal">Wig Repair & Revamp</span>
+              <span class="text-pb-gold font-medium">from KES 800</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="booking.html?service=wig" class="btn btn-primary">Book Wig Install</a>
+            <a href="https://wa.me/254733934358?text=Wig+installation+inquiry" target="_blank" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Braiding -->
+      <div id="braiding" class="grid md:grid-cols-2 gap-10 items-center mb-20 reveal">
+        <div class="order-2 md:order-1">
+          <span class="label-text text-pb-gold tracking-widest block mb-3">06 — Braiding</span>
+          <h2 class="font-display text-4xl text-pb-black mb-4">Braiding</h2>
+          <p class="text-pb-muted leading-relaxed mb-6">Box braids, knotless braids, cornrows, goddess braids, Senegalese twists — precision braiding that protects and celebrates natural hair.</p>
+          <div class="space-y-2 mb-6">
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Box Braids (medium)</span>
+              <span class="text-pb-gold font-medium">from KES 2,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Knotless Braids</span>
+              <span class="text-pb-gold font-medium">from KES 3,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Cornrows</span>
+              <span class="text-pb-gold font-medium">from KES 1,000</span>
+            </div>
+            <div class="flex justify-between py-2 text-sm">
+              <span class="text-pb-charcoal">Senegalese Twists</span>
+              <span class="text-pb-gold font-medium">from KES 3,000</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="booking.html?service=braiding" class="btn btn-primary">Book Braiding</a>
+            <a href="https://wa.me/254733934358?text=Braiding+inquiry" target="_blank" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded order-1 md:order-2" style="aspect-ratio:4/3;">
+          <img src="assets/images/lifestyle/phoina-service-06.webp" alt="Braiding" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- Skincare & Treatments -->
+      <div class="grid md:grid-cols-2 gap-10 items-center mb-20 reveal">
+        <div class="relative overflow-hidden rounded" style="aspect-ratio:4/3;">
+          <img src="assets/images/lifestyle/phoina-service-07.webp" alt="Skincare & Facials" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <span class="label-text text-pb-gold tracking-widest block mb-3">07 — Skincare</span>
+          <h2 class="font-display text-4xl text-pb-black mb-4">Skincare & Facials</h2>
+          <p class="text-pb-muted leading-relaxed mb-6">Radiant, healthy skin is the foundation of beauty. Our dermatologist-approved facials and treatments are tailored to African skin tones and textures.</p>
+          <div class="space-y-2 mb-6">
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Express Facial</span>
+              <span class="text-pb-gold font-medium">from KES 2,000</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Deep Cleanse Facial</span>
+              <span class="text-pb-gold font-medium">from KES 3,500</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-pb-beige text-sm">
+              <span class="text-pb-charcoal">Chemical Peel</span>
+              <span class="text-pb-gold font-medium">from KES 5,000</span>
+            </div>
+            <div class="flex justify-between py-2 text-sm">
+              <span class="text-pb-charcoal">Skin Consultation</span>
+              <span class="text-pb-gold font-medium">FREE</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="booking.html?service=skincare" class="btn btn-primary">Book Skincare</a>
+            <a href="https://wa.me/254733934358?text=Skincare+inquiry" target="_blank" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARALLAX CTA -->
+  <section style="position:relative;height:420px;overflow:hidden;">
+    <img src="assets/images/lifestyle/parallax.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" loading="lazy">
+    <div style="position:absolute;inset:0;background:rgba(10,10,10,0.65);"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:2rem;">
+      <p class="section-label justify-center text-pb-gold mb-4">Not Sure What You Need?</p>
+      <h2 class="heading-lg text-white mb-6">Let Us Guide You<br><em class="italic text-pb-gold">to the Right Service.</em></h2>
+      <a href="https://wa.me/254733934358?text=Hi%2C+I+need+help+choosing+a+service" target="_blank" class="btn btn-primary">
+        Chat With Us
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2">
+          <div class="footer-logo mb-4">
+            <img src="assets/images/brand/logo.png" alt="Phoina Beauty" style="height:56px;width:auto;filter:brightness(0) saturate(100%) invert(72%) sepia(43%) saturate(600%) hue-rotate(4deg) brightness(97%);" loading="lazy">
+          </div>
+          <p class="text-sm text-white/50 max-w-xs leading-relaxed mb-6">Premium African beauty studio, professional academy, and curated beauty products. The new standard of Kenyan luxury beauty.</p>
+          <div class="flex gap-4">
+            <a href="https://instagram.com/phoinabeauty" target="_blank" aria-label="Instagram" class="w-8 h-8 rounded border border-white/10 flex items-center justify-center text-white/40 hover:text-pb-gold hover:border-pb-gold transition-colors">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://wa.me/254733934358" target="_blank" aria-label="WhatsApp" class="w-8 h-8 rounded border border-white/10 flex items-center justify-center text-white/40 hover:text-pb-gold hover:border-pb-gold transition-colors">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#hair">Hair Studio</a></li>
+            <li><a href="#makeup">Makeup Studio</a></li>
+            <li><a href="#nails">Nail Bar</a></li>
+            <li><a href="#bridal">Bridal Styling</a></li>
+            <li><a href="#wigs">Wig Installation</a></li>
+            <li><a href="#braiding">Braiding</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="academy.html">Beauty Academy</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+254733934358">+1 678 438 0539</a></li>
+            <li><a href="mailto:hello@phoinabeauty.co.ke">hello@phoinabeauty.co.ke</a></li>
+            <li><a href="https://wa.me/254733934358" target="_blank">WhatsApp Us</a></li>
+          </ul>
+          <div class="mt-4">
+            <p class="text-xs text-white/30 mb-1 uppercase tracking-widest">Hours</p>
+            <p class="text-sm text-white/50">Mon – Sat: 8am – 7pm</p>
+            <p class="text-sm text-white/50">Sunday: 10am – 5pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="text-xs text-white/30">© 2026 Phoina Beauty Kenya. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="text-xs text-white/30 hover:text-pb-gold">Privacy Policy</a>
+          <a href="#" class="text-xs text-white/30 hover:text-pb-gold">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- WhatsApp FAB -->
+  <a href="https://wa.me/254733934358?text=Hi%20Phoina%20Beauty%2C%20I%27d%20like%20to%20chat!" target="_blank" rel="noopener" class="wa-fab" aria-label="Chat on WhatsApp">
+    <svg class="wa-fab-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.849L0 24l6.335-1.509A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6c-1.97 0-3.807-.53-5.392-1.453l-.387-.23-4.01.955.971-3.917-.252-.4A9.551 9.551 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/></svg>
+    <span class="wa-fab-text">Ask Phoina</span>
+  </a>
+
+  <script src="assets/js/cms.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
