@@ -1,0 +1,84 @@
+{
+  "staff": [
+    {
+      "id": "st1",
+      "name": "Phoina Achieng",
+      "role": "Founder & Lead Artist",
+      "department": "Makeup",
+      "image": "assets/images/lifestyle/team-01.webp",
+      "bio": "With over 7 years of experience, Phoina founded the studio to bring world-class beauty services to Nairobi. Specialising in bridal and editorial makeup.",
+      "skills": ["Bridal Makeup", "Editorial", "Contouring", "Skincare"],
+      "status": "active"
+    },
+    {
+      "id": "st2",
+      "name": "Zara Kamau",
+      "role": "Senior Hair Stylist",
+      "department": "Hair",
+      "image": "assets/images/lifestyle/team-02.webp",
+      "bio": "Zara is our master of natural hair and protective styles. She brings creativity and technical excellence to every client.",
+      "skills": ["Natural Hair", "Braiding", "Wig Installation", "Colour"],
+      "status": "active"
+    },
+    {
+      "id": "st3",
+      "name": "Amina Oduya",
+      "role": "Nail Technician",
+      "department": "Nails",
+      "image": "assets/images/lifestyle/team-03.webp",
+      "bio": "Amina's intricate nail art designs have won her a loyal following. From gel to acrylics, she turns nails into canvases.",
+      "skills": ["Gel Nails", "Acrylic", "Nail Art", "Manicure/Pedicure"],
+      "status": "active"
+    },
+    {
+      "id": "st4",
+      "name": "Fatuma Wangari",
+      "role": "Skincare Specialist",
+      "department": "Skincare",
+      "image": "assets/images/lifestyle/team-04.webp",
+      "bio": "Fatuma is certified in advanced skincare and facials with a focus on melanin-rich skin.",
+      "skills": ["Facials", "Chemical Peels", "Dermaplaning", "Skin Consultation"],
+      "status": "active"
+    },
+    {
+      "id": "st5",
+      "name": "Grace Njeri",
+      "role": "Makeup Artist",
+      "department": "Makeup",
+      "image": "assets/images/lifestyle/team-05.webp",
+      "bio": "Grace specialises in everyday glam and event makeup. Her clients love her for clean, flawless finishes.",
+      "skills": ["Everyday Glam", "Event Makeup", "Airbrush", "Lashes"],
+      "status": "active"
+    },
+    {
+      "id": "st6",
+      "name": "Kezia Otieno",
+      "role": "Academy Instructor",
+      "department": "Academy",
+      "image": "assets/images/lifestyle/team-06.webp",
+      "bio": "Kezia leads the professional makeup certification program at Phoina Academy. She has trained over 200 students.",
+      "skills": ["Teaching", "Professional Makeup", "Curriculum Design", "Mentoring"],
+      "status": "active"
+    },
+    {
+      "id": "st7",
+      "name": "Blessing Adeyemi",
+      "role": "Lash & Brow Artist",
+      "department": "Lashes",
+      "image": "assets/images/lifestyle/team-07.webp",
+      "bio": "Blessing is our lash and brow specialist. She transforms looks with precision lash extensions and brow artistry.",
+      "skills": ["Lash Extensions", "Lash Lift", "Brow Lamination", "Tinting"],
+      "status": "active"
+    },
+    {
+      "id": "st8",
+      "name": "Imani Mwangi",
+      "role": "Studio Coordinator",
+      "department": "Operations",
+      "image": "assets/images/lifestyle/team-08.webp",
+      "bio": "Imani keeps the studio running smoothly — from bookings to client experience, she ensures every visit is perfect.",
+      "skills": ["Client Relations", "Scheduling", "Operations", "Social Media"],
+      "status": "active"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "bookings": [
+    {
+      "id": "bk001",
+      "timestamp": "2026-05-25T10:30:00",
+      "customerName": "Amara Osei",
+      "phone": "+254 712 345 678",
+      "email": "amara@example.com",
+      "service": "Bridal Makeup",
+      "preferredStaff": "Phoina Achieng",
+      "date": "2026-06-01",
+      "time": "09:00",
+      "notes": "Wedding at Windsor Hotel. Trial needed beforehand.",
+      "status": "confirmed",
+      "assignedStaff": "st1",
+      "paymentStatus": "deposit_paid"
+    },
+    {
+      "id": "bk002",
+      "timestamp": "2026-05-25T11:15:00",
+      "customerName": "Joyce Kimani",
+      "phone": "+254 723 456 789",
+      "email": "joyce@example.com",
+      "service": "Skincare Facial",
+      "preferredStaff": "Fatuma Wangari",
+      "date": "2026-05-28",
+      "time": "10:00",
+      "notes": "Hyperpigmentation concern. Wants deep cleanse.",
+      "status": "new",
+      "assignedStaff": "st4",
+      "paymentStatus": "unpaid"
+    },
+    {
+      "id": "bk003",
+      "timestamp": "2026-05-24T14:00:00",
+      "customerName": "Naomi Achieng",
+      "phone": "+254 734 567 890",
+      "email": "",
+      "service": "Hair Braiding",
+      "preferredStaff": "Zara Kamau",
+      "date": "2026-05-27",
+      "time": "11:00",
+      "notes": "Knotless box braids, medium length.",
+      "status": "in_progress",
+      "assignedStaff": "st2",
+      "paymentStatus": "paid"
+    },
+    {
+      "id": "bk004",
+      "timestamp": "2026-05-23T09:00:00",
+      "customerName": "Lily Mwangi",
+      "phone": "+254 745 678 901",
+      "email": "lily@example.com",
+      "service": "Gel Nails",
+      "preferredStaff": "Amina Oduya",
+      "date": "2026-05-29",
+      "time": "14:00",
+      "notes": "French gel with nail art on ring finger.",
+      "status": "confirmed",
+      "assignedStaff": "st3",
+      "paymentStatus": "unpaid"
+    },
+    {
+      "id": "bk005",
+      "timestamp": "2026-05-22T16:30:00",
+      "customerName": "Sandra Ochieng",
+      "phone": "+254 756 789 012",
+      "email": "",
+      "service": "Makeup Studio",
+      "preferredStaff": "Grace Njeri",
+      "date": "2026-05-30",
+      "time": "15:00",
+      "notes": "Event makeup for birthday photoshoot.",
+      "status": "new",
+      "assignedStaff": "st5",
+      "paymentStatus": "unpaid"
+    }
+  ]
+}

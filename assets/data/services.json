@@ -1,0 +1,108 @@
+{
+  "services": [
+    {
+      "id": "s1",
+      "name": "Hair Studio",
+      "category": "Hair",
+      "price": 800,
+      "priceDisplay": "from KES 800",
+      "duration": "60–180 min",
+      "image": "assets/images/lifestyle/phoina-service-01.webp",
+      "description": "From natural styles to bold transformations. Braiding, relaxers, natural care, and more.",
+      "subtags": "Braiding · Relaxers · Natural Care",
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": "s2",
+      "name": "Makeup Studio",
+      "category": "Makeup",
+      "price": 1500,
+      "priceDisplay": "from KES 1,500",
+      "duration": "60–120 min",
+      "image": "assets/images/lifestyle/phoina-makeup-01.webp",
+      "description": "Editorial to everyday glamour. Full-glam, event makeup, and bridal artistry.",
+      "subtags": "Glam · Editorial · Everyday",
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": "s3",
+      "name": "Nail Bar",
+      "category": "Nails",
+      "price": 500,
+      "priceDisplay": "from KES 500",
+      "duration": "45–90 min",
+      "image": "assets/images/lifestyle/phoina-service-03.webp",
+      "description": "Gel, acrylic, nail art and luxury manicure/pedicure services.",
+      "subtags": "Gel · Acrylic · Nail Art",
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": "s4",
+      "name": "Skincare & Facials",
+      "category": "Skincare",
+      "price": 2500,
+      "priceDisplay": "from KES 2,500",
+      "duration": "60–90 min",
+      "image": "assets/images/lifestyle/phoina-service-04.webp",
+      "description": "Professional facials, skin consultations, and treatment for all skin tones.",
+      "subtags": "Facials · Glow · Treatments",
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": "s5",
+      "name": "Bridal Studio",
+      "category": "Bridal",
+      "price": 8000,
+      "priceDisplay": "from KES 8,000",
+      "duration": "3–5 hrs",
+      "image": "assets/images/lifestyle/bridal-makeup-artist.webp",
+      "description": "Complete bridal packages including hair, makeup, nails, and trial sessions.",
+      "subtags": "Hair · Makeup · Nails Package",
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": "s6",
+      "name": "Lashes & Brows",
+      "category": "Lashes",
+      "price": 1200,
+      "priceDisplay": "from KES 1,200",
+      "duration": "45–90 min",
+      "image": "assets/images/lifestyle/phoina-service-06.webp",
+      "description": "Lash extensions, lash lifts, brow shaping, lamination, and tinting.",
+      "subtags": "Extensions · Lifts · Brow Lamination",
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": "s7",
+      "name": "Body & Spa",
+      "category": "Spa",
+      "price": 3500,
+      "priceDisplay": "from KES 3,500",
+      "duration": "60–120 min",
+      "image": "assets/images/lifestyle/phoina-service-07.webp",
+      "description": "Relaxing body treatments, massages, and full spa packages.",
+      "subtags": "Massage · Scrubs · Wraps",
+      "featured": false,
+      "status": "active"
+    },
+    {
+      "id": "s8",
+      "name": "Wig Studio",
+      "category": "Hair",
+      "price": 1500,
+      "priceDisplay": "from KES 1,500",
+      "duration": "60–120 min",
+      "image": "assets/images/lifestyle/phoina-service-08.webp",
+      "description": "Custom wig making, installation, and maintenance for all wig types.",
+      "subtags": "Custom Wigs · Install · Maintenance",
+      "featured": false,
+      "status": "active"
+    }
+  ]
+}

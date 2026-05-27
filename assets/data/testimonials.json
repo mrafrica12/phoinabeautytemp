@@ -1,0 +1,58 @@
+{
+  "testimonials": [
+    {
+      "id": "tm1",
+      "name": "Grace Wanjiku",
+      "role": "Bridal Client · Nairobi",
+      "review": "Best bridal makeup I have ever had. My photos were absolutely stunning and I felt like royalty. Every guest complimented my look.",
+      "rating": 5,
+      "approved": true,
+      "image": "assets/images/media/testimonials-01.webp"
+    },
+    {
+      "id": "tm2",
+      "name": "Fatuma Hassan",
+      "role": "Academy Graduate · Mombasa",
+      "review": "The academy course completely transformed my passion into a full career. I now run my own studio and I owe it all to Phoina.",
+      "rating": 5,
+      "approved": true,
+      "image": "assets/images/media/testimonials-02.webp"
+    },
+    {
+      "id": "tm3",
+      "name": "Amara Osei",
+      "role": "Regular Client · Nairobi",
+      "review": "I have been coming here for over a year. The team always makes me feel so special. My hair and nails have never looked better.",
+      "rating": 5,
+      "approved": true,
+      "image": "assets/images/media/testimonials-03.webp"
+    },
+    {
+      "id": "tm4",
+      "name": "Joyce Kimani",
+      "role": "Skincare Client · Nairobi",
+      "review": "Fatuma is an absolute wizard with skincare. My hyperpigmentation has improved so much. I finally feel confident without makeup.",
+      "rating": 5,
+      "approved": true,
+      "image": "assets/images/media/testimonials-04.webp"
+    },
+    {
+      "id": "tm5",
+      "name": "Blessing Nwosu",
+      "role": "Product Customer · Lagos",
+      "review": "Ordered the foundation online and I am obsessed. Finally a brand that truly caters to our skin tones. Will order again and again.",
+      "rating": 5,
+      "approved": true,
+      "image": "assets/images/media/testimonials-05.webp"
+    },
+    {
+      "id": "tm6",
+      "name": "Naomi Achieng",
+      "role": "Event Client · Nairobi",
+      "review": "Phoina Beauty styled my entire bridal party. Every single person looked flawless. Truly the best luxury experience in Nairobi.",
+      "rating": 5,
+      "approved": true,
+      "image": "assets/images/media/testimonials-06.webp"
+    }
+  ]
+}

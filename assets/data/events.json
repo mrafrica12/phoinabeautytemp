@@ -1,0 +1,69 @@
+{
+  "events": [
+    {
+      "id": "ev1",
+      "title": "Bridal Makeup Masterclass",
+      "category": "Masterclass",
+      "date": "2026-06-14",
+      "time": "10:00 AM – 2:00 PM",
+      "location": "Phoina Studio, Westlands",
+      "price": 3500,
+      "image": "assets/images/lifestyle/phoina-make-banner.webp",
+      "description": "Hands-on bridal makeup workshop with full kit provided. Led by our lead bridal artist. Perfect for aspiring MUAs and brides-to-be.",
+      "status": "upcoming",
+      "featured": true
+    },
+    {
+      "id": "ev2",
+      "title": "Natural Hair & Skincare Expo",
+      "category": "Expo",
+      "date": "2026-06-21",
+      "time": "9:00 AM – 5:00 PM",
+      "location": "Phoina Studio, Westlands",
+      "price": 0,
+      "image": "assets/images/lifestyle/phoina-salon-banner.webp",
+      "description": "Product demos, consultations, and live styling all day. Free entry for all beauty lovers.",
+      "status": "upcoming",
+      "featured": true
+    },
+    {
+      "id": "ev3",
+      "title": "Professional Makeup Academy — July Intake",
+      "category": "Academy",
+      "date": "2026-07-07",
+      "time": "9:00 AM (Full Day Program)",
+      "location": "Phoina Academy, Nairobi",
+      "price": 25000,
+      "image": "assets/images/lifestyle/phoina-academy-01.webp",
+      "description": "3-month intensive professional certification program. All levels welcome. Limited seats available.",
+      "status": "upcoming",
+      "featured": true
+    },
+    {
+      "id": "ev4",
+      "title": "Nail Art Workshop",
+      "category": "Workshop",
+      "date": "2026-07-19",
+      "time": "2:00 PM – 5:00 PM",
+      "location": "Phoina Studio, Westlands",
+      "price": 2000,
+      "image": "assets/images/lifestyle/phoina-event-banner.webp",
+      "description": "Learn trending nail art techniques. Materials provided. Certificate of participation included.",
+      "status": "upcoming",
+      "featured": false
+    },
+    {
+      "id": "ev5",
+      "title": "VIP Glow Night",
+      "category": "Event",
+      "date": "2026-05-10",
+      "time": "6:00 PM – 10:00 PM",
+      "location": "Phoina Studio, Westlands",
+      "price": 1500,
+      "image": "assets/images/lifestyle/phoina-event-banner.webp",
+      "description": "An evening of luxury treatments, product launches, and networking for beauty enthusiasts.",
+      "status": "past",
+      "featured": false
+    }
+  ]
+}

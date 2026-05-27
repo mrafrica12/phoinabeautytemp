@@ -1,0 +1,28 @@
+{
+  "gallery": [
+    { "id": "g1", "title": "Bridal Glow", "category": "Bridal", "image": "assets/images/lifestyle/gallery-01.webp", "caption": "Radiant bridal look by our lead artist", "featured": true, "status": "active" },
+    { "id": "g2", "title": "Glam Makeup", "category": "Makeup", "image": "assets/images/lifestyle/gallery-02.webp", "caption": "Full glam for a special evening", "featured": true, "status": "active" },
+    { "id": "g3", "title": "Natural Hair", "category": "Hair", "image": "assets/images/lifestyle/gallery-03.webp", "caption": "Celebrating natural crown", "featured": false, "status": "active" },
+    { "id": "g4", "title": "Nail Art", "category": "Nails", "image": "assets/images/lifestyle/gallery-04.webp", "caption": "Intricate floral nail design", "featured": true, "status": "active" },
+    { "id": "g5", "title": "Academy Class", "category": "Academy", "image": "assets/images/lifestyle/gallery-05.webp", "caption": "Students perfecting their technique", "featured": false, "status": "active" },
+    { "id": "g6", "title": "Bridal Hair", "category": "Bridal", "image": "assets/images/lifestyle/gallery-06.webp", "caption": "Elegant updo for the big day", "featured": true, "status": "active" },
+    { "id": "g7", "title": "Makeup Before/After", "category": "Before/After", "image": "assets/images/lifestyle/gallery-07.webp", "caption": "The Phoina transformation", "featured": true, "status": "active" },
+    { "id": "g8", "title": "Studio Event", "category": "Events", "image": "assets/images/lifestyle/gallery-08.webp", "caption": "VIP Glow Night highlights", "featured": false, "status": "active" },
+    { "id": "g9", "title": "Hair Styling", "category": "Hair", "image": "assets/images/lifestyle/gallery-09.webp", "caption": "Expert braiding technique", "featured": false, "status": "active" },
+    { "id": "g10", "title": "Skincare Glow", "category": "Makeup", "image": "assets/images/lifestyle/gallery-10.webp", "caption": "Natural glow treatment results", "featured": true, "status": "active" },
+    { "id": "g11", "title": "Gel Nails", "category": "Nails", "image": "assets/images/lifestyle/gallery-11.webp", "caption": "Glossy gel nail finish", "featured": false, "status": "active" },
+    { "id": "g12", "title": "Academy Graduation", "category": "Academy", "image": "assets/images/lifestyle/gallery-12.webp", "caption": "July cohort certification day", "featured": true, "status": "active" },
+    { "id": "g13", "title": "Bridal Trial", "category": "Bridal", "image": "assets/images/lifestyle/gallery-13.webp", "caption": "Bridal trial session perfection", "featured": false, "status": "active" },
+    { "id": "g14", "title": "Ombre Hair", "category": "Hair", "image": "assets/images/lifestyle/gallery-14.webp", "caption": "Beautiful ombre color transformation", "featured": false, "status": "active" },
+    { "id": "g15", "title": "Event Makeup", "category": "Events", "image": "assets/images/lifestyle/gallery-15.webp", "caption": "Event styling showcase", "featured": false, "status": "active" },
+    { "id": "g16", "title": "Before/After Hair", "category": "Before/After", "image": "assets/images/lifestyle/gallery-16.webp", "caption": "Haircare transformation story", "featured": true, "status": "active" },
+    { "id": "g17", "title": "Lash Extensions", "category": "Makeup", "image": "assets/images/lifestyle/gallery-17.webp", "caption": "Lash extensions — dramatic and natural", "featured": true, "status": "active" },
+    { "id": "g18", "title": "Nail Design", "category": "Nails", "image": "assets/images/lifestyle/gallery-18.webp", "caption": "Hand-painted nail art masterpiece", "featured": false, "status": "active" },
+    { "id": "g19", "title": "Studio Session", "category": "Events", "image": "assets/images/lifestyle/gallery-19.webp", "caption": "Behind the scenes at Phoina", "featured": false, "status": "active" },
+    { "id": "g20", "title": "Bridal Makeup", "category": "Bridal", "image": "assets/images/lifestyle/gallery-20.webp", "caption": "Timeless bridal elegance", "featured": true, "status": "active" },
+    { "id": "g21", "title": "Natural Makeup", "category": "Makeup", "image": "assets/images/lifestyle/gallery-21.webp", "caption": "Fresh and natural everyday look", "featured": false, "status": "active" },
+    { "id": "g22", "title": "Protective Style", "category": "Hair", "image": "assets/images/lifestyle/gallery-22.webp", "caption": "Box braids for protective styling", "featured": false, "status": "active" },
+    { "id": "g23", "title": "Masterclass", "category": "Academy", "image": "assets/images/lifestyle/gallery-23.webp", "caption": "Masterclass workshop in session", "featured": false, "status": "active" },
+    { "id": "g24", "title": "Glam Night Out", "category": "Makeup", "image": "assets/images/lifestyle/gallery-24.webp", "caption": "Night-out glam done right", "featured": false, "status": "active" }
+  ]
+}

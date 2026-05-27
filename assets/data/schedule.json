@@ -1,0 +1,76 @@
+{
+  "schedule": [
+    {
+      "id": "sch1",
+      "date": "2026-05-27",
+      "staffId": "st1",
+      "staffName": "Phoina Achieng",
+      "role": "Founder & Lead Artist",
+      "department": "Makeup",
+      "location": "Main Studio",
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "status": "available"
+    },
+    {
+      "id": "sch2",
+      "date": "2026-05-27",
+      "staffId": "st2",
+      "staffName": "Zara Kamau",
+      "role": "Senior Hair Stylist",
+      "department": "Hair",
+      "location": "Hair Studio",
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "status": "booked"
+    },
+    {
+      "id": "sch3",
+      "date": "2026-05-27",
+      "staffId": "st3",
+      "staffName": "Amina Oduya",
+      "role": "Nail Technician",
+      "department": "Nails",
+      "location": "Nail Bar",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "status": "available"
+    },
+    {
+      "id": "sch4",
+      "date": "2026-05-27",
+      "staffId": "st4",
+      "staffName": "Fatuma Wangari",
+      "role": "Skincare Specialist",
+      "department": "Skincare",
+      "location": "Treatment Room",
+      "startTime": "09:00",
+      "endTime": "15:00",
+      "status": "off"
+    },
+    {
+      "id": "sch5",
+      "date": "2026-05-28",
+      "staffId": "st1",
+      "staffName": "Phoina Achieng",
+      "role": "Founder & Lead Artist",
+      "department": "Makeup",
+      "location": "Main Studio",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "status": "available"
+    },
+    {
+      "id": "sch6",
+      "date": "2026-05-28",
+      "staffId": "st5",
+      "staffName": "Grace Njeri",
+      "role": "Makeup Artist",
+      "department": "Makeup",
+      "location": "Main Studio",
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "status": "available"
+    }
+  ]
+}

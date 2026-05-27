@@ -1,0 +1,39 @@
+{
+  "business": {
+    "name": "Phoina Beauty",
+    "tagline": "Where African Beauty Becomes Empire.",
+    "taglineSub": "Luxury studio · Academy · Premium products",
+    "established": "2018",
+    "phone": "+254 700 000 000",
+    "whatsapp": "+16784380539",
+    "whatsappDisplay": "+1 678 438 0539",
+    "email": "hello@phoinabeauty.co.ke",
+    "address": "Westlands, Nairobi, Kenya",
+    "city": "Nairobi",
+    "country": "Kenya"
+  },
+  "social": {
+    "instagram": "https://instagram.com/phoinabeauty",
+    "tiktok": "https://tiktok.com/@phoinabeauty",
+    "facebook": "",
+    "youtube": ""
+  },
+  "mpesa": {
+    "paybill": "123456",
+    "account": "PHOINA",
+    "tillNumber": ""
+  },
+  "seo": {
+    "title": "Phoina Beauty — Premium African Beauty Studio & Academy | Nairobi, Kenya",
+    "description": "Premium luxury beauty studio, professional academy, and curated products in Nairobi, Kenya.",
+    "keywords": "Nairobi beauty studio, luxury beauty Nairobi, makeup academy Kenya, beauty school Nairobi",
+    "ogImage": "assets/images/heroimages/phoine1.webp",
+    "siteUrl": "https://phoinabeauty.co.ke"
+  },
+  "stats": {
+    "clients": "5,000+",
+    "yearsExperience": "7+",
+    "graduates": "500+",
+    "rating": "4.9★"
+  }
+}
